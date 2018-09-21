@@ -10,7 +10,7 @@ https://github.com/wuding/note/blob/master/Cygwin.md
 
 这次是因为安装 [vbot](https://github.com/HanSon/vbot) 需要安装 Swoole 但是只能 Linux
 
-然后，就搜到了 Windows 下在 Cygwin 安装 Swoole。
+然后，就搜到了 [在 Windows 下搭建 swoole 环境与测试](https://juejin.im/post/5b7136586fb9a009b230813c)
 
 
 
@@ -39,8 +39,6 @@ https://www.cygwin.com/setup-x86_64.exe
 4. Use System Proxy Settings
 
 5. User URL: Add http://mirrors.163.com/cygwin/
-
-    via [在 Windows 下搭建 swoole 环境与测试](https://juejin.im/post/5b7136586fb9a009b230813c)
 
 6. Select Packages, View Full, Search:
 
