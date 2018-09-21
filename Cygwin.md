@@ -18,11 +18,13 @@ https://github.com/wuding/note/blob/master/Cygwin.md
 
 https://zh.wikipedia.org/wiki/Cygwin
 
-Cygnus Solutions 开发
+> Cygnus Solutions 开发
+>
 
 https://fanyi.baidu.com/#en/zh/Cygnus
 
-天鹅座
+> 天鹅座
+>
 
 
 
@@ -125,7 +127,7 @@ phpize
 
 编辑
 
-/etc/php.ini
+*/etc/php.ini*
 
 ```
 extension=swoole.dll
@@ -151,7 +153,7 @@ php go-pear.phar
 
 **安装好后要编辑 Cygwin 全局环境变量**
 
-/etc/profile
+*/etc/profile*
 
 ```shell
 PATH="/usr/local/bin:/usr/bin:/home/Benny/pear/bin"
@@ -177,7 +179,8 @@ pear config-set php_bin /usr/bin/php
 
 **配置 PEAR 环境变量**
 
-D:\ProgramFiles\Cygwin64\Cygwin.bat
+*D:\ProgramFiles\Cygwin64\Cygwin.bat*
+
 ```shell
 set PHP_PEAR_PHP_BIN=/usr/bin/php
 set PHP_PEAR_INSTALL_DIR=/home/Benny/pear/share/pear
@@ -287,7 +290,7 @@ httpd 的 mod_php 必须使用 prefork 模式的 MPM（Multi-Processing Modules�
 
 默认情况下会开启很多 httpd 进程，可以参照下面配置减少
 
-==/etc/httpd/conf/extra/httpd-mpm.conf==
+*/etc/httpd/conf/extra/httpd-mpm.conf*
 
 ```
 # 修改数目
@@ -331,7 +334,8 @@ cygrunsrv -S httpd
 
 **测试 PHP**
 
-/srv/www/htdocs/phpinfo.php
+*/srv/www/htdocs/phpinfo.php*
+
 ```php
 <?php
 phpinfo();
@@ -341,14 +345,16 @@ phpinfo();
 
 **可能需要修改配置**
 
-/etc/httpd/conf.d/php7.conf
+*/etc/httpd/conf.d/php7.conf*
+
 ```
 # 其实就是模块命名不同
 #<IfModule mod_php7.c>
 <IfModule php7_module>
 ```
 
-/etc/httpd/conf.modules.d/mod_php7.conf
+*/etc/httpd/conf.modules.d/mod_php7.conf*
+
 ```
 #<IfModule prefork.c>
 <IfModule mpm_prefork_module>
@@ -415,7 +421,7 @@ mysql --socket=/var/run/mysql.sock
 
 **配置 MySQL**
 
-/etc/my.cnf.d/server.cnf
+*/etc/my.cnf.d/server.cnf*
 
 ```
 [mysqld]
@@ -425,7 +431,7 @@ datadir=/var/lib/mysql
 #log-error=error.log
 ```
 
-/etc/my.cnf.d/client.cnf
+*/etc/my.cnf.d/client.cnf*
 
 ```
 [client]
