@@ -7,17 +7,21 @@ https://github.com/wuding/note/blob/master/Cygwin.md
 # 序
 
 以前也似乎看到过 Cygwin 这个词，没在意。
+
 这次是因为安装 [vbot](https://github.com/HanSon/vbot) 需要安装 Swoole 但是只能 Linux
-然后就搜到了 Windows 使用 Cygwin 安装。
+
+然后，就搜到了 Windows 下在 Cygwin 安装 Swoole。
 
 
 
 ### 关于 Cygwin
 
 https://zh.wikipedia.org/wiki/Cygwin
+
 Cygnus Solutions 开发
 
 https://fanyi.baidu.com/#en/zh/Cygnus
+
 天鹅座
 
 
@@ -25,8 +29,6 @@ https://fanyi.baidu.com/#en/zh/Cygnus
 # 安装 Cygwin
 
 https://www.cygwin.com/setup-x86_64.exe
-
-Windows XP 和 Server 2003 可以使用 Cygwin [2.5.2](https://cygwin.com/ml/cygwin/2016-06/msg00328.html)
 
 1. Install from Internet
 
@@ -44,13 +46,41 @@ Windows XP 和 Server 2003 可以使用 Cygwin [2.5.2](https://cygwin.com/ml/cyg
 
    gcc, gcc-g++, php, php-devel, autoconf, pcre-devel, wget, unzip
 
-还要选择 php 扩展 fileinfo, gd, simplexml 因为 vbot 需要，Composer 要 json，常见的也一并选上，phar 等等……
+还要选择 php 扩展 fileinfo, gd, simplexml 因为 vbot 需要，Composer 要 json，
+
+常见的也一并选上，phar 等等……
 
 **参考**：
 
 - [Cygwin下安装Linux PHP环境和Swoole扩展并在PHPStorm中调试](https://my.oschina.net/yanpengquan/blog/658205)
 - https://cygwin.com/mirrors.html
 - https://cygwin.com/packages/
+
+
+
+### 在 Windows XP 或 Server 2003 上安装 Cygwin
+
+Windows XP 和 Server 2003 可以使用 Cygwin [2.5.2](https://cygwin.com/ml/cygwin/2016-06/msg00328.html)
+
+下载 [setup-x86-2.874.exe](http://ctm.crouchingtigerhiddenfruitbat.org/pub/cygwin/setup/snapshots/setup-x86-2.874.exe) 或 [setup-x86.exe](http://cygwin-xp.portfolis.net/setup/setup-x86.exe)
+
+安装时跳过签名验证
+```powershell
+setup-x86-2.874.exe -X
+```
+
+URL 使用下面之一：
+
+- http://ctm.crouchingtigerhiddenfruitbat.org/pub/cygwin/circa/2016/08/30/104223
+- http://cygwin-xp.portfolis.net/cygwin
+
+
+
+**参考**：
+
+- [Setup Cygwin in Windows XP/2003](https://morganwu277.github.io/2017/06/04/Setup-Cygwin-in-Windows-XP-2003/)
+- [Cygwin Time Machine, TL;DR](http://www.crouchingtigerhiddenfruitbat.org/Cygwin/timemachine.html#cygwintimemachine)
+- [Cygwin-XP](http://cygwin-xp.portfolis.net/)
 
 
 
@@ -183,7 +213,9 @@ PHP_PEAR_SYSCONF_DIR=/etc
 # 安装 PHP 扩展 Redis
 
 `pecl install redis` 好几次都不行，即使安装了 [igbinary](https://github.com/igbinary/igbinary)
+
 虽然生成了 redis.dll 但是 php 报错
+
 最后还是手动下载源代码 https://github.com/phpredis/phpredis/archive/develop.zip [安装](https://github.com/phpredis/phpredis/blob/develop/INSTALL.markdown)成功
 
 **参考**：
@@ -248,7 +280,10 @@ Include conf/extra/httpd-mpm.conf
 
 
 **设置启动的进程数**
-httpd 的 mod_php 必须使用 prefork 模式的 MPM（Multi-Processing Modules），默认应该已经配置好了，可以通过 `/usr/sbin/apachectl -t -D DUMP_MODULES | grep mpm` 来确认下。
+
+httpd 的 mod_php 必须使用 prefork 模式的 MPM（Multi-Processing Modules），
+
+默认应该已经配置好了，可以通过 `/usr/sbin/apachectl -t -D DUMP_MODULES | grep mpm` 来确认下。
 
 默认情况下会开启很多 httpd 进程，可以参照下面配置减少
 
