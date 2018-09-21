@@ -264,7 +264,8 @@ apt-cyg install httpd-mod_php7
 
 **配置 Apache**
 
-/etc/httpd/conf/httpd.conf
+<u>/etc/httpd/conf/httpd.conf</u>
+
 ```
 # 改 ip 和端口，避免冲突
 Listen 127.0.0.1:8888
@@ -286,7 +287,7 @@ httpd 的 mod_php 必须使用 prefork 模式的 MPM（Multi-Processing Modules�
 
 默认情况下会开启很多 httpd 进程，可以参照下面配置减少
 
-==<u>/etc/httpd/conf/extra/httpd-mpm.conf</u>==
+==/etc/httpd/conf/extra/httpd-mpm.conf==
 
 ```
 # 修改数目
