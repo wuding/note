@@ -79,6 +79,7 @@ URL 使用下面之一：
 - [Setup Cygwin in Windows XP/2003](https://morganwu277.github.io/2017/06/04/Setup-Cygwin-in-Windows-XP-2003/)
 - [Cygwin Time Machine, TL;DR](http://www.crouchingtigerhiddenfruitbat.org/Cygwin/timemachine.html#cygwintimemachine)
 - [Cygwin-XP](http://cygwin-xp.portfolis.net/)
+- [Is it still possible to get Cygwin for XP?](https://superuser.com/questions/1132000/is-it-still-possible-to-get-cygwin-for-xp)
 
 
 
@@ -124,9 +125,9 @@ phpize
 
 编辑
 
-> /etc/php.ini
+/etc/php.ini
 
-```ini
+```
 extension=swoole.dll
 ```
 
@@ -150,7 +151,7 @@ php go-pear.phar
 
 **安装好后要编辑 Cygwin 全局环境变量**
 
-> /etc/profile
+/etc/profile
 
 ```shell
 PATH="/usr/local/bin:/usr/bin:/home/Benny/pear/bin"
@@ -176,7 +177,7 @@ pear config-set php_bin /usr/bin/php
 
 **配置 PEAR 环境变量**
 
-> Cygwin.bat
+D:\ProgramFiles\Cygwin64\Cygwin.bat
 ```shell
 set PHP_PEAR_PHP_BIN=/usr/bin/php
 set PHP_PEAR_INSTALL_DIR=/home/Benny/pear/share/pear
@@ -189,7 +190,7 @@ set PHP_PEAR_SYSCONF_DIR=/etc
 
 修改 Cygwin 默认终端 mintty 环境变量
 
-> /home/Benny/.bash_profile
+/home/Benny/.bash_profile
 ```sh
 PHP_PEAR_PHP_BIN=/usr/bin/php
 PHP_PEAR_INSTALL_DIR=/home/Benny/pear/share/pear
@@ -263,8 +264,8 @@ apt-cyg install httpd-mod_php7
 
 **配置 Apache**
 
-> /etc/httpd/conf/httpd.conf
-```ini
+/etc/httpd/conf/httpd.conf
+```
 # 改 ip 和端口，避免冲突
 Listen 127.0.0.1:8888
 
@@ -285,8 +286,9 @@ httpd 的 mod_php 必须使用 prefork 模式的 MPM（Multi-Processing Modules�
 
 默认情况下会开启很多 httpd 进程，可以参照下面配置减少
 
-> /etc/httpd/conf/extra/httpd-mpm.conf
-```ini
+==<u>/etc/httpd/conf/extra/httpd-mpm.conf</u>==
+
+```
 # 修改数目
 <IfModule mpm_prefork_module>
     StartServers             1
@@ -328,7 +330,7 @@ cygrunsrv -S httpd
 
 **测试 PHP**
 
-> /srv/www/htdocs/phpinfo.php
+/srv/www/htdocs/phpinfo.php
 ```php
 <?php
 phpinfo();
@@ -338,15 +340,15 @@ phpinfo();
 
 **可能需要修改配置**
 
-> /etc/httpd/conf.d/php7.conf
-```ini
+/etc/httpd/conf.d/php7.conf
+```
 # 其实就是模块命名不同
 #<IfModule mod_php7.c>
 <IfModule php7_module>
 ```
 
-> /etc/httpd/conf.modules.d/mod_php7.conf
-```ini
+/etc/httpd/conf.modules.d/mod_php7.conf
+```
 #<IfModule prefork.c>
 <IfModule mpm_prefork_module>
 ```
@@ -412,9 +414,9 @@ mysql --socket=/var/run/mysql.sock
 
 **配置 MySQL**
 
-> /etc/my.cnf.d/server.cnf
+/etc/my.cnf.d/server.cnf
 
-```ini
+```
 [mysqld]
 port=3308
 socket=/var/run/mysql.sock
@@ -422,9 +424,9 @@ datadir=/var/lib/mysql
 #log-error=error.log
 ```
 
-> /etc/my.cnf.d/client.cnf
+/etc/my.cnf.d/client.cnf
 
-```ini
+```
 [client]
 port=3308
 #socket=/var/run/mysql.sock
