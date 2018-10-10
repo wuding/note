@@ -193,7 +193,8 @@ set PHP_PEAR_SYSCONF_DIR=/etc
 
 修改 Cygwin 默认终端 mintty 环境变量
 
-/home/Benny/.bash_profile
+*/home/Benny/.bash_profile*
+
 ```sh
 PHP_PEAR_PHP_BIN=/usr/bin/php
 PHP_PEAR_INSTALL_DIR=/home/Benny/pear/share/pear
