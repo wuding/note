@@ -1,62 +1,62 @@
-Apache HTTP Server (httpd) ¿ìËÙÈëÃÅ
+Apache HTTP Server (httpd) å¿«é€Ÿå…¥é—¨
 ================================
 
 http://blog.csdn.net/lsyz0021/article/details/51998848
 
-# °²×° Apache
+# å®‰è£… Apache
 
-## ÏÂÔØ
+## ä¸‹è½½
 
-¹Ù·½ÏÂÔØÒ³
+å®˜æ–¹ä¸‹è½½é¡µ
 http://httpd.apache.org/download.cgi
 
-### ÏÂÔØ×îĞÂ°æ
-Ñ¡ÔñÆäÖĞÒ»¸ö·¢ĞĞ°æ
+### ä¸‹è½½æœ€æ–°ç‰ˆ
+é€‰æ‹©å…¶ä¸­ä¸€ä¸ªå‘è¡Œç‰ˆ
 http://httpd.apache.org/docs/current/platform/windows.html#down
 
-ÀıÈç
+ä¾‹å¦‚
 https://www.apachelounge.com/download/
 
-Ñ¹Ëõ°üÎÄ¼şµØÖ·
+å‹ç¼©åŒ…æ–‡ä»¶åœ°å€
 http://home.apache.org/~steffenal/VC15/binaries/httpd-2.4.34-win64-VC15.zip
 
 
 
-### ÏÂÔØ¾É°æ 2.2
+### ä¸‹è½½æ—§ç‰ˆ 2.2
 
-Õâ¸ö°æ±¾Ö§³Ö Windows XP/2003
+è¿™ä¸ªç‰ˆæœ¬æ”¯æŒ Windows XP/2003
 http://archive.apache.org/dist/httpd/binaries/win32/
 https://www.apachelounge.com/download/win32/
 
-Ñ¡ÔñÊÇ·ñ°üº¬ SSL
+é€‰æ‹©æ˜¯å¦åŒ…å« SSL
 http://archive.apache.org/dist/httpd/binaries/win32/httpd-2.2.25-win32-x86-no_ssl.msi
 http://archive.apache.org/dist/httpd/binaries/win32/httpd-2.2.25-win32-x86-openssl-0.9.8y.msi
 
-Õâ¸öÉÔÎ¢ĞÂÒ»µã
+è¿™ä¸ªç¨å¾®æ–°ä¸€ç‚¹
 https://www.apachelounge.com/download/win32/binaries/httpd-2.2.34-win32.zip
 
-ĞèÒª VC++ 2010
+éœ€è¦ VC++ 2010
 https://www.microsoft.com/zh-CN/download/details.aspx?id=8328
 
 
 
-## °²×°
+## å®‰è£…
 
-¹Ù·½ÎÄµµ
+å®˜æ–¹æ–‡æ¡£
 http://httpd.apache.org/docs/2.4/platform/windows.html
 
-°²×°Îª·şÎñÇ°ÇëÏÈÅäÖÃ
+å®‰è£…ä¸ºæœåŠ¡å‰è¯·å…ˆé…ç½®
 ```sh
 httpd.exe -k install
 ```
 
-²âÊÔÔËĞĞ
+æµ‹è¯•è¿è¡Œ
 
 ```sh
 bin> httpd.exe -w -n "Apache2" -k start
 ```
 
-ÃüÁîĞĞ°ïÖú
+å‘½ä»¤è¡Œå¸®åŠ©
 ```sh
 L:\Users\Benny>d:
 D:\>cd D:\ProgramFiles\Apache24\bin
@@ -103,26 +103,26 @@ D:\ProgramFiles\Apache24\bin>
 
 
 
-### Ä£¿é
+### æ¨¡å—
 
 **mod_fcgid**
 https://www.apachelounge.com/download/
 https://www.apachelounge.com/download/VC15/modules/mod_fcgid-2.3.9-win64-VC15.zip
 
 
-## ÅäÖÃ
+## é…ç½®
 httpd.conf
 
-### Ä¿Â¼ÉèÖÃ
-ËùÓĞÄ¿Â¼±ØĞë´æÔÚ£¬·ñÔòÎŞ·¨Æô¶¯£¬Ò²Ã»ÓĞ´íÎóÈÕÖ¾
+### ç›®å½•è®¾ç½®
+æ‰€æœ‰ç›®å½•å¿…é¡»å­˜åœ¨ï¼Œå¦åˆ™æ— æ³•å¯åŠ¨ï¼Œä¹Ÿæ²¡æœ‰é”™è¯¯æ—¥å¿—
 ```sh
-# Èí¼şËùÔÚÄ¿Â¼
+# è½¯ä»¶æ‰€åœ¨ç›®å½•
 ServerRoot "c:/Apache24"
 
-# ÍøÕ¾¸ùÄ¿Â¼
+# ç½‘ç«™æ ¹ç›®å½•
 DocumentRoot "c:/Apache24/htdocs/html"
 
-# Ä¿Â¼Ñ¡ÏîÅäÖÃ
+# ç›®å½•é€‰é¡¹é…ç½®
 <Directory "c:/Apache24/htdocs">
 ?    #
 ?    # Possible values for the Options directive are "None", "All",
@@ -151,7 +151,7 @@ DocumentRoot "c:/Apache24/htdocs/html"
     Require all granted
 </Directory>
 
-# Ä¬ÈÏÊ×Ò³
+# é»˜è®¤é¦–é¡µ
 <IfModule dir_module>
 ?    DirectoryIndex index.html index.php
 </IfModule>
@@ -159,18 +159,18 @@ DocumentRoot "c:/Apache24/htdocs/html"
 
 
 
-### ¼àÌı¶Ë¿Ú
+### ç›‘å¬ç«¯å£
 
 ```sh
 #Listen 12.34.56.78:80
 Listen 80
 ```
-Æô¶¯Ê±Òª±£Ö¤ÏàÍ¬¶Ë¿Ú²»±»ÆäËû³ÌĞòÕ¼ÓÃ
+å¯åŠ¨æ—¶è¦ä¿è¯ç›¸åŒç«¯å£ä¸è¢«å…¶ä»–ç¨‹åºå ç”¨
 http://jingyan.baidu.com/article/c85b7a642df6f7003bac95d9.html
 
 
 
-### ÈÕÖ¾
+### æ—¥å¿—
 
 ```sh
 ErrorLog "logs/error.log"
@@ -183,18 +183,18 @@ LogLevel warn
 
 
 
-### ĞéÄâÖ÷»ú
+### è™šæ‹Ÿä¸»æœº
 
 ```sh
 Include conf/extra/httpd-vhosts.conf
 ```
 
-ÉèÖÃ·şÎñÆ÷ÓòÃû
+è®¾ç½®æœåŠ¡å™¨åŸŸå
 ```sh
 ServerName www.example.com:80
 ```
 
-IPv6Ö§³Ö
+IPv6æ”¯æŒ
 ```sh
 Listen [fe80::ecbe:a1a4:f64c:2756]:80
 <VirtualHost [fe80::ecbe:a1a4:f64c:2756]:80>
@@ -203,11 +203,11 @@ Listen [fe80::ecbe:a1a4:f64c:2756]:80
 	SetEnv RUNTIME_ENVIROMENT DEV
 </VirtualHost>
 ```
-ä¯ÀÀÆ÷·ÃÎÊ http://[fe80::ecbe:a1a4:f64c:2756]/
+æµè§ˆå™¨è®¿é—® http://[fe80::ecbe:a1a4:f64c:2756]/
 
 
 
-### HTTP Ñ¹Ëõ
+### HTTP å‹ç¼©
 
 ```sh
 LoadModule headers_module modules/mod_headers.so
@@ -224,9 +224,9 @@ AddOutputFilter DEFLATE js css
 
 
 
-### Ö§³Ö PHP
+### æ”¯æŒ PHP
 
-²ÎÔÄÎÄµµ http://php.net/manual/fa/install.windows.apache2.php
+å‚é˜…æ–‡æ¡£ http://php.net/manual/fa/install.windows.apache2.php
 
 httpd.conf
 ```sh
@@ -247,7 +247,7 @@ FcgidWrapper "G:/ProgramFiles/php-7.1.3-x64/php-cgi.exe" .php
 ```
 
 **ISAPI**
-PHP Ïß³Ì°²È« ts ÓĞ php7apache2_4.dll
+PHP çº¿ç¨‹å®‰å…¨ ts æœ‰ php7apache2_4.dll
 Apache 2.2
 
 ```sh
@@ -260,37 +260,37 @@ configure the path to php.ini
 PHPIniDir "C:/php"
 ```
 
-**URL ÖØĞ´**
+**URL é‡å†™**
 
 ```sh
 LoadModule rewrite_module modules/mod_rewrite.so
 ```
 
-Ä¿Â¼ÅäÖÃ
+ç›®å½•é…ç½®
 ```sh
 AllowOverride All
 ```
 
-¶¯Ì¬ÅäÖÃ
+åŠ¨æ€é…ç½®
 ```sh
-# cmd ÏÂ´´½¨µã¿ªÍ·µÄÎÄ¼ş
+# cmd ä¸‹åˆ›å»ºç‚¹å¼€å¤´çš„æ–‡ä»¶
 echo > .htaccess
 ```
 
 
 
-### ÆäËüÅäÖÃ
+### å…¶å®ƒé…ç½®
 
-¿ªÆô MPM
+å¼€å¯ MPM
 Include conf/extra/httpd-mpm.conf
 
-ÓÃ»§Ä¿Â¼ÉèÖÃ
+ç”¨æˆ·ç›®å½•è®¾ç½®
 Include conf/extra/httpd-userdir.conf
 
-¿ªÆôÊÖ²á
+å¼€å¯æ‰‹å†Œ
 Include conf/extra/httpd-manual.conf
 
-ÅäÖÃ cgi-bin
+é…ç½® cgi-bin
 ```sh
 <Directory "c:/Apache24/cgi-bin">
     AllowOverride None
@@ -331,8 +331,8 @@ Include conf/extra/httpd-manual.conf
 
 
 
-# ²Î¿¼
+# å‚è€ƒ
 
-- [»ùÓÚHTTPĞ­ÒéµÄÇáÁ¿¼¶¿ªÔ´¼òµ¥¶ÓÁĞ·şÎñ£ºHTTPSQS[Ô­´´]](http://zyan.cc/httpsqs/)
+- [åŸºäºHTTPåè®®çš„è½»é‡çº§å¼€æºç®€å•é˜Ÿåˆ—æœåŠ¡ï¼šHTTPSQS[åŸåˆ›]](http://zyan.cc/httpsqs/)
 
-- [¡¶APMServ 5.2.6¡·£ºÒ»¼ü¿ìËÙ´î½¨Apache£«PHP£«MySQL£«Nginx£«Memcached£«ASPÆ½Ì¨µÄÂÌÉ«Èí¼ş[Ô­´´]](http://zyan.cc/post/373/)
+- [ã€ŠAPMServ 5.2.6ã€‹ï¼šä¸€é”®å¿«é€Ÿæ­å»ºApacheï¼‹PHPï¼‹MySQLï¼‹Nginxï¼‹Memcachedï¼‹ASPå¹³å°çš„ç»¿è‰²è½¯ä»¶[åŸåˆ›]](http://zyan.cc/post/373/)
