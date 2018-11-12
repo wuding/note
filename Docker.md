@@ -106,7 +106,7 @@ docker-machine restart
 
 # 打开 VirtualBox
 
-![虚拟系统界面](Docker/img/VirtualBox_default_22_09_2018_22_30_06.png)
+![虚拟系统界面](img/VirtualBox_default_22_09_2018_22_30_06.png)
 
 1. 关闭虚拟电脑 default
 2. 配置系统内存大小、处理器数量和运行峰值
