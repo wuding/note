@@ -1,36 +1,36 @@
-[Git ¼òÃ÷½Ì³Ì](https://www.kancloud.cn/wuding/git-tutorial)
+[Git ç®€æ˜æ•™ç¨‹](https://www.kancloud.cn/wuding/git-tutorial)
 ==============
 
 SUMMARY.md
 ----------
 
-* [°²×°](°²×°.md)
-* [ÅäÖÃ](ÅäÖÃ.md)
-* [ºöÂÔ](ºöÂÔ.md)
-* [·ÖÖ§](·ÖÖ§.md)
-* [²Î¿¼](²Î¿¼.md)
+* [å®‰è£…](å®‰è£….md)
+* [é…ç½®](é…ç½®.md)
+* [å¿½ç•¥](å¿½ç•¥.md)
+* [åˆ†æ”¯](åˆ†æ”¯.md)
+* [å‚è€ƒ](å‚è€ƒ.md)
 
 
 
-°²×°.md
+å®‰è£….md
 -------
 
-Git ¹Ù·½ÏÂÔØ
+Git å®˜æ–¹ä¸‹è½½
 
 https://git-scm.com/downloads
 
-Windows XP ¿ÉÒÔÓÃ v2.10.0
+Windows XP å¯ä»¥ç”¨ v2.10.0
 
 https://github.com/git-for-windows/git/releases/tag/v2.10.0.windows.1
 
-CentOS °²×°
+CentOS å®‰è£…
 ```bash
 yum install git
 ```
 
 
 
-ÅäÖÃ.md
+é…ç½®.md
 -------
 
 ~~~
@@ -40,10 +40,10 @@ git --config user.name ""
 
 
 
-ºöÂÔ.md
+å¿½ç•¥.md
 -------
 
-**²»ÉúĞ§½â¾ö·½·¨**
+**ä¸ç”Ÿæ•ˆè§£å†³æ–¹æ³•**
 
 ```
 git rm -r --cached .
@@ -53,46 +53,46 @@ git commit -m "update .gitignore"
 
 
 
-·ÖÖ§.md
+åˆ†æ”¯.md
 -------
 
-**²é¿´·ÖÖ§**
+**æŸ¥çœ‹åˆ†æ”¯**
 
 ```
 git branch [-r|-a]
 ```
 
-- -r Ô¶³Ì
+- -r è¿œç¨‹
 
-- -a ËùÓĞ
+- -a æ‰€æœ‰
 
-**´´½¨·ÖÖ§**
+**åˆ›å»ºåˆ†æ”¯**
 
 ```
 git branch <branch_name>
 ```
 
-**ÇĞ»»·ÖÖ§**
+**åˆ‡æ¢åˆ†æ”¯**
 
 ```
 git checkout [-b] <branch_name>
 ```
 
-- -b ´´½¨+ÇĞ»»
+- -b åˆ›å»º+åˆ‡æ¢
 
-**ÍÆËÍ·ÖÖ§**
+**æ¨é€åˆ†æ”¯**
 
 ```
 git push origin <branch_name>
 ```
 
-**É¾³ı±¾µØ·ÖÖ§**
+**åˆ é™¤æœ¬åœ°åˆ†æ”¯**
 
 ```
 git branch -d <branch_name>
 ```
 
-**É¾³ıÔ¶³Ì·ÖÖ§**
+**åˆ é™¤è¿œç¨‹åˆ†æ”¯**
 
 ```
 git push origin :<branch_name>
@@ -100,12 +100,12 @@ git push origin :<branch_name>
 
 
 
-²Î¿¼.md
+å‚è€ƒ.md
 -------
 
-- [Git½Ì³Ì](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/)
+- [Gitæ•™ç¨‹](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/)
 
-- [git - ¼òÃ÷Ö¸ÄÏ](http://rogerdudler.github.io/git-guide/index.zh.html)
+- [git - ç®€æ˜æŒ‡å—](http://rogerdudler.github.io/git-guide/index.zh.html)
 
 - SSH key
 
