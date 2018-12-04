@@ -133,6 +133,17 @@ taskkill /F /pid 1408
 
 
 
+## could not build server_names_hash, you should increase server_names_hash_bucket_size: 32
+
+```sh
+http {
+	server_names_hash_bucket_size 512;
+```
+
+值为 32 的倍数
+
+
+
 ## 开机自启动
 
 创建快捷方式放到

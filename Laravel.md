@@ -37,7 +37,7 @@ all()
 routes/web.php
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin'], function() {
-    Route::get('/', 'HomeController@index');
+​    Route::get('/', 'HomeController@index');
 });
 
 8.视图
@@ -47,5 +47,18 @@ return view('home')->withArticles(\App\Article::all());
 
 循环
 @foreach ($articles as $article)
-    {{ url('article/'.$article->id) }}
+​    {{ url('article/'.$article->id) }}
 @endforeach
+
+
+
+# 常见问题
+
+## No application encryption key has been specified.
+
+.env 中 APP_KEY 为空，执行以下命令
+
+```sh
+php artisan key:generate
+```
+
