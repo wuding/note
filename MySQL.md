@@ -14,6 +14,27 @@ https://dev.mysql.com/downloads/mysql/8.0.html
 
 *https://dev.mysql.com/downloads/installer/
 
+## Windows 服务
+```
+mysqld -install
+mysqld -remove MySQL
+mysqld --help
+```
+
+### 彻底删除
+```
+net stop MySQL
+sc delete MySQL
+```
+
+*注册表清理*
+```
+\HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\eventlog\Application\MySQL
+\HKEY_LOCAL_MACHINE\SYSTEM\ControlSet002\services\eventlog\Application\MySQL
+\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\Application\MySQL
+```
+搜索 MySQL
+
 ## 安装错误
 ### 2503 权限不够
 以管理员身份运行命令提示符 cmd，在命令行下打开安装程序
@@ -41,8 +62,11 @@ The MySQL Command Line Shell
 可以在 cmd 里启动
 ```sh
 start mysql
+mysql -u root -p
+mysqladmin -u用户名 -p旧密码 password 新密码
 ```
 
+### SET 命令改密码
 ```sh
 Enter password: ****
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -57,7 +81,20 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-mysql>
+mysql>set password for root@localhost = password('root');
+```
+
+### 数据表改密码
+```
+mysql>use mysql; 
+mysql>update user set password=password('123') where user='root' and host='localhost'; 
+mysql>flush privileges; 
+```
+
+### 忘记密码
+跳过权限表验证
+```
+mysqld --skip-grant-tables
 ```
 
 

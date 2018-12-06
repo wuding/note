@@ -33,6 +33,16 @@ first()
 get()
 all()
 
+select()
+
+offset(0)->limit(10)
+
+skip(3)->take(3)
+
+
+
+
+
 7.路由
 routes/web.php
 
@@ -40,15 +50,65 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
 ​    Route::get('/', 'HomeController@index');
 });
 
+
+
+Route::has('login')
+
+
+
 8.视图
 return view('home')->withArticles(\App\Article::all());
 ->with('articles', \App\Article::all())
 ->withFooBar(100) 等价于 ->with('foo_bar', 100)
 
+
+
 循环
 @foreach ($articles as $article)
 ​    {{ url('article/'.$article->id) }}
 @endforeach
+
+
+
+布局
+
+@extends('layouts.app')
+
+
+
+区块
+
+@section('content')
+
+@endsection
+
+@yield('content')
+
+
+
+条件
+
+ @if (session('status'))
+​                        {{ session('status') }}
+@endif
+
+
+
+9.app()
+
+app()->getLocale()
+
+
+
+10.session()
+
+
+
+11.url()
+
+
+
+12.config()
 
 
 
