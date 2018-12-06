@@ -1,17 +1,17 @@
-Composer Ê¹ÓÃÖ¸ÄÏ
+Composer ä½¿ç”¨æŒ‡å—
 =================
 
-# °²×° Composer
+# å®‰è£… Composer
 http://www.phpcomposer.com/
 
 
 
-# ÅäÖÃ
+# é…ç½®
 
-ÅäÖÃÎÄ¼þÎ»ÖÃ
+é…ç½®æ–‡ä»¶ä½ç½®
 *L:\Users\Benny\AppData\Roaming\Composer\config.json*
 
-### Packagist ¾µÏñÊ¹ÓÃ·½·¨
+### Packagist é•œåƒä½¿ç”¨æ–¹æ³•
 https://pkg.phpcomposer.com/
 ```sh
 composer config -g repo.packagist composer https://packagist.phpcomposer.com
@@ -20,17 +20,17 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
 
 
-# ³£¼ûÎÊÌâ
+# å¸¸è§é—®é¢˜
 
-### Òì³£ [Composer\Exception\NoSslException]
-ÆôÓÃ PHP À©Õ¹ openssl ¼´¿É
+### å¼‚å¸¸ [Composer\Exception\NoSslException]
+å¯ç”¨ PHP æ‰©å±• openssl å³å¯
 
-**²Î¿¼£º**
-- [composer³£¼ûÎÊÌâÖ®openSSL](https://www.jianshu.com/p/46150555273b)
+**å‚è€ƒï¼š**
+- [composerå¸¸è§é—®é¢˜ä¹‹openSSL](https://www.jianshu.com/p/46150555273b)
 
 
 
-# ³£ÓÃÃüÁî
+# å¸¸ç”¨å‘½ä»¤
 
 composer install
 composer update
@@ -39,7 +39,7 @@ composer dump-autoload
 
 
 
-# °ïÖú
+# å¸®åŠ©
 
 composer
 ```sh
@@ -112,7 +112,7 @@ L:\Windows\system32>
 ```
 
 
-## ´´½¨ÏîÄ¿
+## åˆ›å»ºé¡¹ç›®
 
 composer -h create-project
 ```sh
@@ -182,7 +182,7 @@ L:\Windows\system32>
 
 
 
-## ×Ô¸üÐÂ
+## è‡ªæ›´æ–°
 
 composer -h selfupdate
 ```sh

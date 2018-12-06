@@ -50,6 +50,8 @@ http://houliang4285.iteye.com/blog/1687816
 
 %ALLUSERSPROFILE%
 
+%APPDATA%
+
 
 # °ïÖú
 
