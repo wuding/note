@@ -39,7 +39,7 @@ offset(0)->limit(10)
 
 skip(3)->take(3)
 
-
+paginate(40)
 
 
 
@@ -92,6 +92,9 @@ return view('home')->withArticles(\App\Article::all());
 ​                        {{ session('status') }}
 @endif
 
+
+分页
+links()
 
 
 9.app()

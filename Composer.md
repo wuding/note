@@ -180,6 +180,12 @@ Help:
 L:\Windows\system32>
 ```
 
+### 版本
+dev-master
+
+^1.5
+
+>=5.4
 
 
 ## 自更新
