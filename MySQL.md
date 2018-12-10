@@ -1,7 +1,12 @@
 MySQL
 ======
 
+
+
 # 安装
+
+
+
 ## 下载
 
 https://dev.mysql.com/downloads/mysql/
@@ -14,20 +19,24 @@ https://dev.mysql.com/downloads/mysql/8.0.html
 
 *https://dev.mysql.com/downloads/installer/
 
+
+
 ## Windows 服务
-```
+
+```sh
 mysqld -install
 mysqld -remove MySQL
 mysqld --help
 ```
 
 ### 彻底删除
-```
+```sh
 net stop MySQL
 sc delete MySQL
 ```
 
 *注册表清理*
+
 ```
 \HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\eventlog\Application\MySQL
 \HKEY_LOCAL_MACHINE\SYSTEM\ControlSet002\services\eventlog\Application\MySQL
@@ -35,7 +44,10 @@ sc delete MySQL
 ```
 搜索 MySQL
 
+
+
 ## 安装错误
+
 ### 2503 权限不够
 以管理员身份运行命令提示符 cmd，在命令行下打开安装程序
 ```sh
@@ -342,23 +354,37 @@ ALTER DATABASE `soft` COLLATE utf8mb4_unicode_ci
 
 # 图形界面客户端工具
 
-## MySQL Workbench 6.3 CE
+MySQL Workbench
+
+Navicat
+
+phpMyAdmin
 
 
 
 # Document Store
+
 https://yq.aliyun.com/articles/38288
+
+
+
 
 
 # 数据表操作
 
+
+
 ## 增
+
 INSERT INTO tbl SELECT fld FROM table
 SELECT fld INTO tbl FROM table
 
 REPLACE INTO test VALUES (1, 'New', '2014-08-20 18:47:42');
 
+
+
 ## 查
+
 SELECT DISTINCT fld FROM tbl
 
 SELECT fld AS '列 名',CASE WHEN age>22 THEN '大龄' ELSE '正常' END AS "年 龄",(CASE sex WHEN 1 THEN '男' WHEN 2 THEN '女' ELSE '未知' END) 性别
@@ -381,11 +407,15 @@ UPDATE tbl SET fld = REPLACE(fld, from, to)
 
 
 
+
+
 # 定义语言
 
 CREATE SERVER srv
 
 EXPLAIN SELECT
+
+
 
 ## 表
 
@@ -400,11 +430,16 @@ CREATE TEMPORARY TABLE tbl
 ### 修改
 ALTER TABLE `tbl` DROP `fld`[, DROP `col`];
 
+
+
 ## 视图
+
 CREATE VIEW tbl AS SELECT fld FROM table
 
 
+
 ## 索引
+
 ALTER TABLE tbl ADD PRIMARY KEY (`col`)
 ALTER TABLE tbl ADD UNIQUE (`col`)
 ALTER TABLE tbl ADD FULLTEXT (`col`)
@@ -414,22 +449,47 @@ ALTER TABLE tbl ADD INDEX idx (`col`,`fld`)
 
 # 函数
 
+
+
 ## 更新替换
+
 replace(object,search,replace)
 
 UPDATE `url_site_detail` SET pic = REPLACE(pic, 'http://www.myzyzy.com/Uploads/', 'http://pic.myzyzy.com/') WHERE `pic` REGEXP '^http://www.myzyzy.com/Uploads/vod/'
 
+
+
 ## 修剪
+
 trim([{BOTH | LEADING | TRAILING} [remstr] FROM] str)
+
+
+
 
 
 # 引擎
 
+
+
 ## 操作
+
 SHOW ENGINES
 
+
+
 ## MRG_MYISAM
+
 auction.MRG
+
+
+
+## Federated
+
+https://en.wikipedia.org/wiki/MySQL_Federated
+
+
+
+## Archive
 
 
 
@@ -443,6 +503,133 @@ auction.MRG
 
 SET NAMES utf8mb4
 
-========================
-索引优化、查询优化和存储优化
-主从开发
+
+
+# 主从复制
+
+最好版本一致，要么保证 Master 版本低于 Slave
+
+1. ### 配置 Master 主服务器
+
+```mysql
+# 创建新用户 repl
+create user repl;
+
+# 必须具有 REPLICATION SLAVE 权限
+# 密码为 mysql
+# 这里 % 是通配符
+GRANT REPLICATION SLAVE ON *.* TO 'repl'@'192.168.100.%' IDENTIFIED BY 'mysql';
+```
+
+my.ini 添加
+
+```ini
+[mysqld]
+# 给数据库服务的唯一标识，一般为大家设置服务器 IP 的末尾号
+server-id=4
+log-bin=master-bin
+log-bin-index=master-bin.index
+```
+
+重启 MySQL 服务
+
+查看日志
+
+```mysql
+SHOW MASTER STATUS;
+```
+
+
+
+2. ### 配置 Slave 从服务器
+
+my.ini 添加
+
+```ini
+[mysqld]
+server-id=12
+relay-log-index=slave-relay-bin.index
+relay-log=slave-relay-bin 
+```
+
+重启 MySQL 服务
+
+连接 Master
+
+```mysql
+change master to 
+master_host='192.168.100.4', # Master 服务器 IP
+master_port=3306,
+master_user='repl',
+master_password='mysql', 
+master_log_file='master-bin.000001', # Master 服务器产生的日志，参考上面的查看 Master 日志
+master_log_pos=0;
+```
+启动 Slave
+```mysql
+start slave;
+SHOW SLAVE STATUS \G；
+```
+
+
+
+## 常见问题
+
+### Could not initialize master info structrue
+
+```mysql
+stop slave;
+reset slave;
+# 然后重复上面的查看 Master 日志，连接 Master
+start slave;
+```
+
+
+
+### 参考：
+
+[MySQL Reference Manual / Replication](https://dev.mysql.com/doc/refman/5.7/en/replication.html)
+
+[Mysql主从配置，实现读写分离](https://www.cnblogs.com/alvin_xp/p/4162249.html)
+
+[MySQL主从复制与主主复制](https://www.cnblogs.com/phpstudy2015-6/p/6485819.html)
+
+[【实操笔记】MySQL主从同步功能实现](https://www.cnblogs.com/hellxz/p/8378601.html)
+
+[Mysql主从同步(1)-主从/主主环境部署梳理](https://www.cnblogs.com/kevingrace/p/6256603.html)
+
+[Mysql主从同步（复制）](https://www.cnblogs.com/kylinlin/p/5258719.html)
+
+[mysql主从复制实现数据库同步](https://www.cnblogs.com/rwxwsblog/p/4542417.html)
+
+  
+
+# 读写分离
+
+MySQL Proxy
+
+[MyCat](https://github.com/MyCATApache/Mycat-Server) <- Cobar <-  [Amoeba](https://sourceforge.net/projects/amoeba/)
+
+[Atlas](https://github.com/Qihoo360/Atlas)
+
+
+
+### 参考：
+
+[MySQL读写分离](https://www.cnblogs.com/phpstudy2015-6/p/6687480.html)
+
+
+
+# 索引优化、查询优化和存储优化
+
+### 参考：
+
+[MySQL查询优化](https://www.cnblogs.com/phpstudy2015-6/p/6509331.html)
+
+
+
+# 派生版本
+
+MariaDB
+
+Percona Server for MySQL

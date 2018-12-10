@@ -20,6 +20,16 @@ php artisan make:controller CommentController
 .env
 config\app.php
 
+
+
+多数据库, 模型里添加
+
+```php
+protected $connection = 'mysql_classified';
+```
+
+
+
 4.Migration
 
 5.Seeder
@@ -91,7 +101,6 @@ return view('home')->withArticles(\App\Article::all());
  @if (session('status'))
 ​                        {{ session('status') }}
 @endif
-
 
 分页
 links()

@@ -26,6 +26,9 @@ net start/stop nginx
 **设置编码terminal为UTF-8**
 chcp 65001
 
+**查看 PATH 环境变量**
+path
+
 ### regsvr32
 将这个文件复制到C:/Windows/System32下（如果系统是64位的请将32位的dll文件复制到C:\Windows\SysWOW64目录）；
 

@@ -5,6 +5,16 @@ Node.js
 
 [Nodejs学习笔记](https://github.com/chyingp/nodejs-learning-guide)
 
+[中文文档](http://nodejs.cn/api/)
+
+[Node.js 包教不包会](https://github.com/alsotang/node-lessons)
+
+[一起学 Node.js](https://github.com/nswbmw/N-blog)
+
+[Node.js 入门](https://cnodejs.org/getstart)
+
+[node.js中文资料导航](https://github.com/youyudehexie/node123)
+
 
 
 # 框架
