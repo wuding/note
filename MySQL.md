@@ -628,6 +628,38 @@ MySQL Proxy
 
 
 
+## 组合索引
+
+情景
+
+```mysql
+select * from test where sex='M' and city='Guangzhou' order by create_at asc limit 100;
+```
+
+解决
+
+```mysql
+alter table test add index sex_city_create_at (sex,city,create_at);
+```
+
+检验
+
+```mysql
+explain select * from test where sex='M' and city='Guangzhou' order by create_at asc limit 100;
+```
+
+强制
+
+```mysql
+explain select * from test FORCE index(sex_city_create_at) where sex='M' and city='Guangzhou' order by create_at asc limit 100;
+```
+
+### 参考：
+
+[MySQL使用组合索引](http://www.luckybird.me/mysql%e4%bd%bf%e7%94%a8%e7%bb%84%e5%90%88%e7%b4%a2%e5%bc%95.html)
+
+
+
 # 派生版本
 
 MariaDB
