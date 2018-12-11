@@ -469,27 +469,143 @@ trim([{BOTH | LEADING | TRAILING} [remstr] FROM] str)
 
 # 引擎
 
+### 参考：
+
+[数据库存储引擎](https://github.com/jaywcjlove/mysql-tutorial/blob/master/chapter3/3.5.md)
+
+[MySQL优化笔记（五）–数据库存储引擎](https://blog.csdn.net/jack__frost/article/details/72904318) - [更多](https://www.jianshu.com/u/8dad2b82bce7)
+
+[MySQL数据库引擎](https://blog.csdn.net/wangyang1354/article/details/50740041)
+
+[mysql几种引擎和使用场景](https://blog.csdn.net/cool_wayen/article/details/79585277)
+
+[【转载】如何选择MySQL存储引擎](https://www.cnblogs.com/xujishou/p/6343431.html)
+
+[mysql的储存引擎](https://blog.csdn.net/qq_41887789/article/details/79775015)
+
+
+
+默认存储引擎
+
+```ini
+[mysqld]
+default-storage-engine=InnoDB
+```
+
+建表时
+```mysql
+create table mytbl(   
+    id int primary key,   
+    name varchar(50)   
+)type=MyISAM;
+```
+
+修改
+```mysql
+alter table table_name type = InnoDB;
+```
+
+检验
+```mysql
+show table status from table_name;
+或者 
+show create table table_name
+```
+
 
 
 ## 操作
 
-SHOW ENGINES
+```mysql
+SHOW ENGINES \G;
+```
 
 
 
-## MRG_MYISAM
+## InnoDB
 
+支持事务 ACID 和外键约束
+经常更新的表
+通过 bin-log 恢复
+
+
+
+## MyISAM
+
+查询速度快
+支持全文索引和压缩索引
+
+
+
+## MRG_MYISAM 水平分表
+
+相同 MyISAM 表的集合
 auction.MRG
+
+```mysql
+CREATE TABLE IF NOT EXISTS `alluser` (  
+  `id` int(11) NOT NULL ,  
+  `name` varchar(50) DEFAULT NULL,  
+   PRIMARY KEY (`id`)
+) ENGINE=MRG_MYISAM  
+DEFAULT CHARSET=utf8 
+UNION=(user1,user2);  
+```
+
+插入方式
+```mysql
+ALTER TABLE `test_engine`.`alluser` INSERT_METHOD = LAST;
+```
+还可以建一个 ID 表，根据个位数（或取模）决定插入哪个表
+
+可以通过修改总表的引擎合并所有子表数据
+总表和子表结构必须一致，主键都不可以用自动增长
 
 
 
 ## Federated
+
+跨服务器代理
 
 https://en.wikipedia.org/wiki/MySQL_Federated
 
 
 
 ## Archive
+仅支持插入和查询，zlib 压缩
+作为仓库，存储作为历史记录的数据
+
+
+
+## Memory
+
+速度快，适用场景：
+内容固定，统计中间表
+```ini
+max_heap_table_size=
+```
+
+
+
+## Blackhole
+
+适用场景：
+验证 dump file
+检测 binlog 
+充当日志服务器
+复制数据到备份数据库
+
+
+
+## CSV
+
+不支持索引，所有字段必须为非空
+
+
+
+## Performance_Schema
+
+MySQL 5.5 新增，收集数据库服务器的性能参数
 
 
 
