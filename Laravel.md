@@ -15,7 +15,7 @@ composer create-project laravel/laravel learnlaravel5 ^5.5
 
 
 
-# 命令行
+## 命令行
 
 
 
@@ -81,9 +81,55 @@ php artisan key:generate
 
 
 
+# 数据库
+
+### 参考：
+
+[数据库：入门](https://laravel-china.org/docs/laravel/5.7/database/2288)
+
+
+
+## 读写分离
+
+```php
+'mysql' => [
+    'read' => [
+        'host' => ['192.168.1.1'],
+    ],
+    'write' => [
+        'host' => ['196.168.1.2'],
+    ],
+    'sticky'    => true, // 可选项 请求周期内执行过写操作，那么读操作将使用写连接
+],
+```
+
+### 参考：
+
+[Laravel 5 配置读写分离和源码分析](https://laravel-china.org/topics/1879/laravel-5-configuration-read-and-write-separation-and-source-analysis)
+
+[Laravel 数据库读写分离](https://www.cnblogs.com/yingnan/p/5884363.html)
+
+
+
+## 多库连接
+
+```php
+// 连接方法
+$users = DB::connection('foo')->select(...);
+
+// 实例
+$pdo = DB::connection()->getPdo();
+```
+
+
+
+
+
 # 模型
 
 
+
+## 属性
 
 多库连接
 
@@ -93,6 +139,8 @@ protected $connection = 'mysql_classified';
 ```
 
 
+
+## 方法
 
 字段
 
