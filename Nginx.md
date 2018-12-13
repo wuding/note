@@ -111,6 +111,20 @@ add_header Access-Control-Allow-Methods "GET, POST, OPTIONS";
 
 
 
+## 80 转 443
+
+```sh
+server {
+    listen 80;
+    server_name localhost;
+    rewrite ^(.*)$ https://${server_name}$1 permanent;
+}
+```
+
+${server_name} 可以换成 $host
+
+
+
 # 常见问题
 
 ## bind() to 0.0.0.0:443 failed
