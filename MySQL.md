@@ -360,6 +360,10 @@ Navicat
 
 phpMyAdmin
 
+[my.cnf生成工具](http://imysql.com/my-cnf-wizard.html)
+
+[SQLAdvisor](https://github.com/Meituan-Dianping/SQLAdvisor)
+
 
 
 # Document Store
