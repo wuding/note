@@ -239,6 +239,12 @@ C:\Users\Administrator\GitBook\Library\Import\testbook
 
 
 
+## 插件
+
+https://github.com/GitbookIO/plugin-hints
+
+
+
 ### 参考：
 
 [GitBook 从懵逼到入门](https://blog.csdn.net/lu_embedded/article/details/81100704)
@@ -249,7 +255,15 @@ C:\Users\Administrator\GitBook\Library\Import\testbook
 
 [GitBook使用教程](https://blog.csdn.net/axi295309066/article/details/61420694)
 
-[GitBook 简明教程](https://github.com/chengweiv5/gitbook)
+[GitBook 简明教程](https://github.com/chengweiv5/gitbook) <=> [GitBook 簡明教程](https://github.com/shihyu/gitbook)
+
+[gitbook-use](https://github.com/zhangjikai/gitbook-use/)
+
+[GitBook Clarity](https://github.com/zhilidali/gitbook)
+
+[GitBook使用入门](https://janicezhw.github.io/gitbook)
+
+[Gitbook模板](https://github.com/crifan/gitbook_template)
 
 
 
