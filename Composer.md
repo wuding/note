@@ -19,6 +19,18 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
 
 
+# 创建与提交包
+
+### 参考：
+
+[101- composer [packagist]包制作（入门篇）](https://www.jianshu.com/p/1eeaad7ec31a)
+
+[使用GitHub、Composer、Packagist管理公开的PHP包（Step By Step）](https://rivsen.github.io/post/how-to-publish-package-to-packagist-using-github-and-composer-step-by-step)
+
+[学习开发自己的 Composer 包，并使用 GitHub 实时更新到 Packagist](https://laravel-china.org/articles/6652/learn-to-develop-their-own-composer-package-and-to-use-packagist-github-updates)
+
+
+
 
 # 常见问题
 
@@ -181,11 +193,13 @@ L:\Windows\system32>
 ```
 
 ### 版本
+
+```
 dev-master
-
 ^1.5
-
 >=5.4
+```
+
 
 
 ## 自更新

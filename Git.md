@@ -1,6 +1,10 @@
 [Git 简明教程](https://www.kancloud.cn/wuding/git-tutorial)
 ==============
 
+https://git-scm.com/book/zh/v2 <=> https://github.com/progit/progit2-zh
+
+
+
 SUMMARY.md
 ----------
 
@@ -100,7 +104,7 @@ git push origin :<branch_name>
 
 
 
-# GitHub
+## GitHub
 
 命令行创建新仓库
 
@@ -121,9 +125,9 @@ git push -u origin master
 
 
 
-# GitBook
+## GitBook
 
-## 在线版本
+### 在线版本
 
 绑定仓库：
 
@@ -131,7 +135,7 @@ git push -u origin master
 
 
 
-## 本地版本
+### 本地版本
 
 安装
 
@@ -239,7 +243,7 @@ C:\Users\Administrator\GitBook\Library\Import\testbook
 
 
 
-## 插件
+### 插件
 
 https://github.com/GitbookIO/plugin-hints
 
@@ -267,9 +271,44 @@ https://github.com/GitbookIO/plugin-hints
 
 
 
-# 服务器
+## 服务器
 
 [CentOS 部署 Git 服务器](https://shenyu.me/2017/01/03/git-server.html)
+
+
+
+## 工作流程
+
+### Git flow
+
+https://github.com/nvie/gitflow
+
+
+
+### 参考：
+
+[Git 工作流程](http://www.ruanyifeng.com/blog/2015/12/git-workflow.html)
+
+[git-flow 备忘清单](https://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html)
+
+
+
+## 身份认证
+
+
+
+### 参考：
+[Git Push 避免用户名和密码方法](https://www.cnblogs.com/ballwql/p/3462104.html)
+
+[使用git提交到github,每次都要输入用户名和密码的解决方法](https://www.cnblogs.com/sky6862/p/7992736.html)
+
+
+
+
+
+## 常见问题
+
+[The remote end hung up unexpectedly](https://www.cnblogs.com/wangkun1993/p/8514015.html)
 
 
 
@@ -278,7 +317,12 @@ https://github.com/GitbookIO/plugin-hints
 -------
 
 - [Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/)
+
 - [git - 简明指南](http://rogerdudler.github.io/git-guide/index.zh.html)
+
 - [Git 学习指南](https://www.xiaoyulive.top/books/git/)
+
+- [git-cheat-sheet](https://github.com/arslanbilal/git-cheat-sheet/blob/master/other-sheets/git-cheat-sheet-zh.md)
+
 - SSH key
 
