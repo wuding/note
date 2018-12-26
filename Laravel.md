@@ -67,6 +67,12 @@ php artisan migrate
 php artisan key:generate
 ```
 
+## vendor
+```sh
+# 自定义分页视图
+php artisan vendor:publish --tag=laravel-pagination
+```
+
 
 
 # 配置
@@ -176,6 +182,7 @@ skip(3)->take(3)
 
 ```php
 paginate(40)
+simplePaginate(15)
 ```
 
 获取
@@ -248,9 +255,15 @@ Route::has('login')
 ## 分页
 
 ```php
+withPath('custom/url')
+appends(['sort' => 'votes'])
+fragment('foo')
+onEachSide(5)
+toJson()
 // 定义参见上面模型分页
 // 视图中引用
 links()
+links('view.name', ['foo' => 'bar'])
 ```
 
 
