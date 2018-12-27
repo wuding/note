@@ -746,6 +746,8 @@ MySQL Proxy
 
 [MySQL查询优化](https://www.cnblogs.com/phpstudy2015-6/p/6509331.html)
 
+[MySQL 优化](https://github.com/judasn/Linux-Tutorial/blob/master/markdown-file/Mysql-Optimize.md)
+
 
 
 ## 组合索引

@@ -13,6 +13,11 @@ Laravel
 composer create-project laravel/laravel learnlaravel5 ^5.5
 ```
 
+设置文件夹权限
+```
+chmod 777 -R storage bootstrap/cache
+```
+
 
 
 ## 命令行
@@ -80,6 +85,17 @@ php artisan vendor:publish --tag=laravel-pagination
 
 
 ## .env
+
+```ini
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel5
+DB_USERNAME=root
+DB_PASSWORD=root
+```
+
+
 
 
 
