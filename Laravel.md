@@ -103,6 +103,26 @@ DB_PASSWORD=root
 
 
 
+## 多模块开发
+
+### 参考：
+
+[基于Laravel5.5的模块化开发](https://segmentfault.com/a/1190000011552359) => https://gitee.com/techlee/laravel5.5-modules-demo
+
+[Laravel 模块化开发](https://laravel-china.org/articles/6153/laravel-modular-development) => https://github.com/nWidart/laravel-modules
+
+[使用 Laravel-Modules 扩展包通过模块化开发大型 Laravel 应用](https://laravelacademy.org/post/7924.html)
+
+[Laravel 怎么实现分模块，求大牛详解](https://laravel-china.org/topics/2687/laravel-how-to-achieve-the-sub-module-seeking-daniel-explain) => https://github.com/caffeinated/modules
+
+[基于 Laravel 5 构建的、支持模块化和多语言的 CMS —— AsgardCMS](https://laravelacademy.org/post/6417.html) => https://github.com/AsgardCms
+
+
+
+
+
+
+
 # 数据库
 
 ### 参考：
