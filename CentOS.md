@@ -29,7 +29,7 @@ http://mirror.centos.org/centos/7.5.1804/isos/x86_64/
 文本编辑器打开 /boot/grub2/grub.cfg
 
 在第一个 menuentry 前添加
-```
+```ini
 menuentry 'Windows 10' {
 set root=(hd0,1)
 chainloader +1
@@ -41,7 +41,7 @@ chainloader +1
 ## 修改默认引导
 
 打开终端输入命令
-```
+```sh
 grub2-set-default  'Windows 10'
 grub2-editenv list
 ```

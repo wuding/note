@@ -44,7 +44,7 @@ regsvr32 %windir%\system32\pthreadgc2.dll /s
 ```
 
 # 参考
-https://ss64.com/nt/
+https://ss64.com/nt/  <=> [nt](_assets/html/nt.html)
 http://houliang4285.iteye.com/blog/1687816
 
 
