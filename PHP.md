@@ -33,7 +33,24 @@ start D:/ProgramFiles/nginx-1.13.10/RunHiddenConsole.exe D:/ProgramFiles/nginx-1
 
 php.ini
 
+
+
+#### 参考：
+
+[iniscan](https://github.com/psecio/iniscan)
+
+[php-ini-cleanup](https://github.com/perusio/php-ini-cleanup)
+
+[php.ini中文版](https://github.com/SeonWaterLee/php-ini)
+
+[PHP配置文件的中文翻译](https://github.com/HeDefine/PHP.ini-for-Chinese)
+
+[very-secure-php-ini](https://github.com/danehrlich1/very-secure-php-ini)
+
+
+
 ## 运行时配置
+
 ### 配置文件
 
 1. **搜索路径**
@@ -119,7 +136,18 @@ extension_dir = "ext"
 常用扩展
 
 ```ini
+; 协议
 extension=curl
+extension=php_openssl.dll
+
+; 文本和翻译
+extension=php_gettext.dll
+extension=php_intl.dll
+extension=php_mbstring.dll
+
+; 数据库
+extension=php_mysqli.dll
+extension=php_pdo_mysql.dll
 ```
 
 
@@ -141,17 +169,58 @@ opcache.enable_cli=1
 
 
 
-### 参考：
+## 常用配置
 
-[iniscan](https://github.com/psecio/iniscan)
+### Paths and Directories
 
-[php-ini-cleanup](https://github.com/perusio/php-ini-cleanup)
+```ini
+include_path = ".;c:\php\includes"
+sys_temp_dir = "D:/env/tmp/sys"
+enable_dl = Off
+```
 
-[php.ini中文版](https://github.com/SeonWaterLee/php-ini)
 
-[PHP配置文件的中文翻译](https://github.com/HeDefine/PHP.ini-for-Chinese)
 
-[very-secure-php-ini](https://github.com/danehrlich1/very-secure-php-ini)
+### File Uploads
+
+```ini
+file_uploads = On
+upload_tmp_dir = "D:/env/tmp/upload"
+upload_max_filesize = 20M
+max_file_uploads = 20
+```
+
+
+
+### 日期
+
+```ini
+[Date]
+date.timezone = PRC
+```
+
+
+
+### 会话
+
+```ini
+[Session]
+session.save_handler = files
+session.save_path = "N;MODE;/path"
+session.name = PHPSESSID
+session.use_trans_sid = 0
+session.use_cookies = 1
+session.use_only_cookies = 1
+; 值设置为 0 可以在客户端禁用 cookie 时用 sid
+```
+
+#### 参考：
+
+[禁用cookie后session是如何设置的](http://blog.sina.com.cn/s/blog_4d6c4525010173rf.html)
+
+
+
+
 
 
 
