@@ -5,9 +5,19 @@ MySQL
 
 #### 参考：
 
-[MySQL 5.1 中文参考手册(在线文档)](http://www.mysqlab.net/docs/view/refman-5.1-zh/chapter/index.html)
+[MySQL 5.1 中文参考手册(在线文档)](http://www.mysqlab.net/docs/view/refman-5.1-zh/chapter/index.html) <=> http://tool.oschina.net/uploads/apidocs/mysql-5.1-zh/
 
 [MySQL 5.6 手册翻译](https://github.com/mysql2cn/manual56) 无人问津
+
+[MySQL 5.7 参考手册](https://strongyoung.gitbooks.io/mysql-reference-manual/) <=> https://github.com/fork-copy/Notes/tree/master/DataBase
+
+https://strongyoung.gitbooks.io/common-mysql-queries/
+
+https://blog.csdn.net/butterfly_resting/article/category/7412077
+
+https://blog.csdn.net/aaaaaa1569/article/category/7723659
+
+[MySQL参考手册译文](http://www.shuaihua.cc/article/tag/storage/)
 
 
 

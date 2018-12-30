@@ -310,7 +310,7 @@ https://github.com/nvie/gitflow
 
 [使用git提交到github,每次都要输入用户名和密码的解决方法](https://www.cnblogs.com/sky6862/p/7992736.html)
 
-
+https://github.com/fork-copy/Notes/blob/master/Tools/Git/Git_push_password_less.md
 
 
 
