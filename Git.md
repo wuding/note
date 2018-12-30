@@ -247,6 +247,14 @@ C:\Users\Administrator\GitBook\Library\Import\testbook
 
 https://github.com/GitbookIO/plugin-hints
 
+```
+{% hint style="info" %}
+ Super-powers are granted randomly so please submit an issue if you're not happy with yours.
+{% endhint %}
+```
+
+
+
 
 
 ### 参考：
@@ -285,7 +293,7 @@ https://github.com/nvie/gitflow
 
 
 
-### 参考：
+#### 参考：
 
 [Git 工作流程](http://www.ruanyifeng.com/blog/2015/12/git-workflow.html)
 
@@ -297,7 +305,7 @@ https://github.com/nvie/gitflow
 
 
 
-### 参考：
+#### 参考：
 [Git Push 避免用户名和密码方法](https://www.cnblogs.com/ballwql/p/3462104.html)
 
 [使用git提交到github,每次都要输入用户名和密码的解决方法](https://www.cnblogs.com/sky6862/p/7992736.html)

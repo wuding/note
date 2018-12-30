@@ -3,6 +3,14 @@ MySQL
 
 
 
+#### 参考：
+
+[MySQL 5.1 中文参考手册(在线文档)](http://www.mysqlab.net/docs/view/refman-5.1-zh/chapter/index.html)
+
+[MySQL 5.6 手册翻译](https://github.com/mysql2cn/manual56) 无人问津
+
+
+
 # 安装
 
 
