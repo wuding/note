@@ -11,6 +11,18 @@ https://windows.php.net/downloads/releases/archives/php-5.4.45-Win32-VC9-x86.zip
 Thread Safe 才有 php7apache2_4.dll
 对应版本的 VC 运行库要安装
 
+
+
+## 环境需求
+
+### VC15
+
+https://visualstudio.microsoft.com/downloads/
+
+Other Tools and Frameworks > Microsoft Visual C++ Redistributable for Visual Studio 2017
+
+
+
 ## 测试
 1. 配置 Windows PATH 环境路径，例如 C:\php
 
