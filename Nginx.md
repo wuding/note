@@ -177,6 +177,7 @@ netsh winsock reset
 
 ```sh
 shell:startup
+shell:Common Startup
 ```
 C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
