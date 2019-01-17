@@ -125,6 +125,14 @@ git push -u origin master
 
 
 
+### 同步提交
+
+#### 参考：
+
+[Git学习总结（16）——开源世界GitHub和开源中国GitOSChina同步提交](https://blog.csdn.net/u012562943/article/details/74638627)
+
+
+
 ## GitBook
 
 ### 在线版本
