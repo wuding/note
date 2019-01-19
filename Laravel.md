@@ -1,9 +1,11 @@
 Laravel
 =======
 
-### 参考：
+#### 参考：
 
 [2017 版 Laravel 系列入门教程](https://github.com/johnlui/Learn-Laravel-5)
+
+https://github.com/OMGZui/noteBook/tree/master/php/laravel
 
 
 
