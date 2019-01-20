@@ -3,6 +3,18 @@
 
 https://git-scm.com/book/zh/v2 <=> https://github.com/progit/progit2-zh
 
+参考.md
+-------
+
+- [Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/)
+
+- [git - 简明指南](http://rogerdudler.github.io/git-guide/index.zh.html)
+
+- [Git 学习指南](https://www.xiaoyulive.top/books/git/)
+
+- [git-cheat-sheet](https://github.com/arslanbilal/git-cheat-sheet/blob/master/other-sheets/git-cheat-sheet-zh.md)
+
+- SSH key
 
 
 SUMMARY.md
@@ -104,7 +116,8 @@ git push origin :<branch_name>
 
 
 
-## GitHub
+GitHub.md
+---------
 
 命令行创建新仓库
 
@@ -133,7 +146,8 @@ git push -u origin master
 
 
 
-## GitBook
+GitBook.md
+----------
 
 ### 在线版本
 
@@ -243,7 +257,7 @@ gitbook build --debug //输出错误信息
 }
 ```
 
-#### GitBook Editor
+### GitBook Editor
 
 ```
 C:\Users\Administrator\GitBook\Library\Import\testbook
@@ -287,13 +301,15 @@ https://github.com/GitbookIO/plugin-hints
 
 
 
-## 服务器
+服务器.md
+--------
 
 [CentOS 部署 Git 服务器](https://shenyu.me/2017/01/03/git-server.html)
 
 
 
-## 工作流程
+工作流程.md
+----------
 
 ### Git flow
 
@@ -309,7 +325,8 @@ https://github.com/nvie/gitflow
 
 
 
-## 身份认证
+身份认证.md
+----------
 
 
 
@@ -322,27 +339,28 @@ https://github.com/fork-copy/Notes/blob/master/Tools/Git/Git_push_password_less.
 
 
 
-## 常见问题
+常见问题.md
+----------
 
 [The remote end hung up unexpectedly](https://www.cnblogs.com/wangkun1993/p/8514015.html)
 
 
 
-#### Unlock index
+### Unlock index
+
+行尾结束符 Windows 回车换行，Linux Mac 换行
+
+提交时 CRLF 转 LF 签出时 LF 转 CRLF
+
+```bash
+git config --get core.autocrlf
+git config --global core.autocrlf true
+# true 自动转换 input 提交时转换 false 不转换
+```
+
+#### 参考：
+https://git-scm.com/book/zh/v1/自定义-Git-配置-Git#格式化与空白
 
 
 
-
-参考.md
--------
-
-- [Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/)
-
-- [git - 简明指南](http://rogerdudler.github.io/git-guide/index.zh.html)
-
-- [Git 学习指南](https://www.xiaoyulive.top/books/git/)
-
-- [git-cheat-sheet](https://github.com/arslanbilal/git-cheat-sheet/blob/master/other-sheets/git-cheat-sheet-zh.md)
-
-- SSH key
 
