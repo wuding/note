@@ -140,13 +140,28 @@ git push -u origin master
 
 ### 同步提交
 
+2 种方法
+
+- remote 添加 url
+```bash
+git remote set-url --add origin https://github.com/wuding/note.git
+```
+
+.get/config
+```ini
+[remote "origin"]
+	url = https://gitee.com/excai/note.git
+	url = https://github.com/wuding/note.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+```
+
+- 添加 remote
 ```bash
 git remote add github https://github.com/wuding/note.git
 git config alias.pushall "!git push origin && git push github"
 ```
 
 .get/config
-
 ```ini
 [remote "origin"]
 	url = https://gitee.com/excai/note.git
@@ -161,6 +176,8 @@ git config alias.pushall "!git push origin && git push github"
 #### 参考：
 
 [Git学习总结（16）——开源世界GitHub和开源中国GitOSChina同步提交](https://blog.csdn.net/u012562943/article/details/74638627)
+
+[git push同时推送到两个远程仓库](https://www.jianshu.com/p/edc85a20ada9)
 
 
 
