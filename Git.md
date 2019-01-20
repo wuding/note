@@ -141,7 +141,8 @@ git push -u origin master
 ### 同步提交
 
 ```bash
- git remote add github https://github.com/wuding/note.git
+git remote add github https://github.com/wuding/note.git
+git config alias.pushall "!git push origin && git push github"
 ```
 
 .get/config
