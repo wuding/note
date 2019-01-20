@@ -487,6 +487,28 @@ trim([{BOTH | LEADING | TRAILING} [remstr] FROM] str)
 
 
 
+### 字段自定义排序
+
+```
+FIELD(author, '李雷','韩梅梅','安华');
+```
+
+#### 参考：
+
+[MySQL in 查询，并通过 FIELD 函数按照查询条件顺序返回结果](https://segmentfault.com/a/1190000003742537)
+
+
+
+### 检测空值
+
+ISNULL ( check_expression , replacement_value )
+
+#### 参考：
+
+[SQL中的ISNULL函数介绍](http://database.51cto.com/art/201009/224323.htm)
+
+
+
 
 
 # 引擎

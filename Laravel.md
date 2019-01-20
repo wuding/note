@@ -186,28 +186,39 @@ protected $connection = 'mysql_classified';
 
 ## 方法
 
-字段
+### 字段
 
 ```php
 select()
 ```
 
-条件
+
+
+### 条件
 
 ```php
 where(field, value)
 where(field, '>', value)
+whereBetween('created_at', [$start, $end]);
 
 find(id)
 ```
 
-排序
+
+
+### 排序
 
 ```php
 orderBy(field, 'desc')
 ```
 
-偏移和数量
+#### 参考：
+
+[Laravel使用Eloquent ORM查询时多字段排序](https://www.jianshu.com/p/73a3c276d94c)
+
+
+
+### 偏移和数量
 
 ```php
 offset(0)->limit(10)
@@ -216,14 +227,18 @@ offset(0)->limit(10)
 skip(3)->take(3)
 ```
 
-分页
+
+
+### 分页
 
 ```php
 paginate(40)
 simplePaginate(15)
 ```
 
-获取
+
+
+### 获取
 
 ```php
 first()
