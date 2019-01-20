@@ -140,6 +140,23 @@ git push -u origin master
 
 ### 同步提交
 
+```bash
+ git remote add github https://github.com/wuding/note.git
+```
+
+.get/config
+
+```ini
+[remote "origin"]
+	url = https://gitee.com/excai/note.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[remote "github"]
+	url = https://github.com/wuding/note.git
+	fetch = +refs/heads/*:refs/remotes/github/*
+```
+
+
+
 #### 参考：
 
 [Git学习总结（16）——开源世界GitHub和开源中国GitOSChina同步提交](https://blog.csdn.net/u012562943/article/details/74638627)
