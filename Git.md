@@ -119,6 +119,14 @@ git push origin :<branch_name>
 GitHub.md
 ---------
 
+#### 参考：
+
+[GitHub 的替代产品有哪些？](https://www.zhihu.com/question/19573222)
+
+
+
+### 初始化
+
 命令行创建新仓库
 
 ```sh
