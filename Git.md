@@ -60,6 +60,7 @@ git --config user.name ""
 -------
 
 **不生效解决方法**
+先 Unstage From Commit
 
 ```
 git rm -r --cached .
