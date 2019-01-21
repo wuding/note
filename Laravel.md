@@ -11,7 +11,7 @@ https://github.com/OMGZui/noteBook/tree/master/php/laravel
 
 ## 目录
 
-##### 安装
+[**安装**](#安装)
 
 ##### 命令行
 
