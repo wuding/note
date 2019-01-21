@@ -198,6 +198,8 @@ L:\Windows\system32>
 dev-master
 ^1.5
 >=5.4
+
+"php": ">=5.3.3 <7.4"
 ```
 
 
