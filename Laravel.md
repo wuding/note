@@ -1,7 +1,7 @@
 Laravel 开发手册
 =======
 
-#### 参考：
+##### 参考：
 
 [2017 版 Laravel 系列入门教程](https://github.com/johnlui/Learn-Laravel-5)
 
@@ -94,31 +94,102 @@ chmod 777 -R storage bootstrap/cache
 
 
 
-## 命令行
+## Artisan 命令行
+
+##### 参考：
+[Artisan 命令行](https://laravel-china.org/docs/laravel/5.7/artisan/2276)
+[Laravel Artisan常用命令](https://www.jianshu.com/p/f6e1f9322e2d)
+
+```sh
+# 所有命令列表
+php artisan list
+
+# 命令帮助
+php artisan help migrate
+```
 
 
 
 ### make
 
-```sh
-# 中间件
-php artisan make:auth
+#### middleware
 
-# 模型
+```sh
+php artisan make:auth
+php artisan make:middleware XXX
+```
+
+
+
+#### model
+
+```sh
 php artisan make:model Article
 php artisan make:model Comment -m
+# linux or macOs 加上转义符
+php artisan make:Model App\\Models\\User
+# 创建表及其迁移
+php artisan make:model --migration Post
+```
 
-# 数据库迁移
+
+
+#### migration
+
+```sh
+# 创建迁移
 php artisan make:migration create_articles_table
+# 指定路径
+php artisan make:migration --path=app\providers create_users_table
+```
 
-# 数据库播种
+
+
+#### seeder
+
+```sh
+# 创建要填充的数据类
 php artisan make:seeder ArticleSeeder
+```
 
-# 控制器
-php artisan make:controller Admin/HomeController
-php artisan make:controller Admin/ArticleController
+
+
+#### controller
+
+```sh
 php artisan make:controller ArticleController
-php artisan make:controller CommentController
+# REST 风格
+php artisan make:controller CommentController --resource
+php artisan make:controller Admin/HomeController
+```
+
+
+
+#### request
+
+主要用于表单验证
+
+app/Http/Requests/
+
+```sh
+php artisan make:request TagCreateRequest
+```
+
+
+
+#### console
+
+app/Console/Commands/
+
+```sh
+php artisan make:console TopicMakeExcerptCommand --command=topics:excerpt123
+php artisan make:command SendEmails
+```
+在 app/Console/Kernel.php 文件里面，添加以下
+```php
+protected $commands = [
+    \App\Console\Commands\TopicMakeExcerptCommand::class,
+];
 ```
 
 
@@ -126,8 +197,11 @@ php artisan make:controller CommentController
 ### db
 
 ```sh
-# 数据库
+# 数据填充（全部表）
 php artisan db:seed
+
+# 指定要填充的表
+php artisan db:seed --class=UsersTableSeeder
 ```
 
 
@@ -135,6 +209,7 @@ php artisan db:seed
 ### migrate
 
 ```sh
+# 数据迁移
 php artisan migrate
 ```
 
@@ -153,6 +228,15 @@ php artisan key:generate
 ```sh
 # 自定义分页视图
 php artisan vendor:publish --tag=laravel-pagination
+```
+
+
+
+### route
+
+```sh
+# 查看所有路由
+php artisan route:list
 ```
 
 
@@ -307,7 +391,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
 
 ## 多模块开发
 
-#### 参考：
+##### 参考：
 
 [基于Laravel5.5的模块化开发](https://segmentfault.com/a/1190000011552359) => https://gitee.com/techlee/laravel5.5-modules-demo
 
@@ -327,7 +411,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
 
 ## 数据库
 
-#### 参考：
+##### 参考：
 
 [数据库：入门](https://laravel-china.org/docs/laravel/5.7/database/2288)
 
