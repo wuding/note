@@ -379,6 +379,52 @@ $pdo = DB::connection()->getPdo();
 
 
 
+### 数据表
+
+```php
+DB::table($table_name)
+from($table_name)
+```
+
+
+
+### 表连接
+
+```php
+join($table, $column, '=', $field) //Inner Join
+join('contacts', function ($join) {
+    $join->on('users.id', '=', 'contacts.user_id')->orOn(...);
+}) //高级 Join 语句
+leftJoin()
+crossJoin()
+```
+
+
+
+### 表联合
+
+```php
+$first = Db::table('users');
+union($first)
+unionAll()
+```
+
+
+
+### 原生表达式方法
+
+```php
+DB::raw($sql_str) //转换部分
+selectRaw($sql_str, $arg_arr) //方法
+whereRaw()
+orWhereRaw()
+havingRaw()
+orHavingRaw()
+orderByRaw()
+```
+
+
+
 ### Migration
 
 
@@ -431,10 +477,57 @@ protected $connection = 'mysql';
 
 ### 方法
 
-#### 字段
+#### 指定
 
 ```php
-select()
+select($col, $col2...) //字段
+addSelect($column) //添加字段
+distinct() //不重复的结果
+```
+
+
+
+#### 查询
+
+```php
+where($field, $value)
+where($field, '>', $value)
+where([
+    [$field, '>', $value],
+])
+where('preferences->dining->meal', 'salad') //JSON 支持
+    
+orWhere() //同上
+orWhere(function ($query) {
+    $query->where()->where();
+}) //参数分组
+    
+whereExists(function ($query) {
+    $query->select(DB::raw(1))
+          ->from('orders')
+          ->whereRaw('orders.user_id = users.id');
+})
+    
+whereBetween('created_at', [$start, $end])
+whereNotBetween()
+    
+whereIn($column, $arr)
+whereNotIn()
+
+whereNull($field)
+whereNotNull()
+    
+whereDate($field, $value)
+whereMonth
+whereDay
+whereYear
+whereTime($field, '=', $value)
+    
+whereColumn($col, $col2)
+whereColumn($col, '>', $col2)
+whereColumn([])
+    
+find($id)
 ```
 
 
@@ -442,11 +535,20 @@ select()
 #### 条件
 
 ```php
-where(field, value)
-where(field, '>', value)
-whereBetween('created_at', [$start, $end]);
+when($sortBy, function ($query) use ($sortBy) {
+    return $query->orderBy($sortBy);
+}, function ($query) {
+    return $query->orderBy('name');
+})
+```
 
-find(id)
+
+
+#### 分组
+
+```php
+groupBy($column)
+having($field, '=', $value)
 ```
 
 
@@ -455,6 +557,12 @@ find(id)
 
 ```php
 orderBy(field, 'desc')
+
+// 日期排序，默认 created_at 字段
+latest()
+oldest()
+    
+inRandomOrder() //随机
 ```
 
 ##### 参考：
@@ -486,9 +594,78 @@ simplePaginate(15)
 #### 获取
 
 ```php
-first()
-get()
-all()
+get() //所有行
+first() //单个行
+value($column) //单个列
+pluck($column_value, $key) //获取列
+chunk($limit, function ($all) {}) //结果分块
+```
+
+
+
+#### 聚合
+
+```
+count()
+max($column)
+min($colmun)
+avg($column)
+sum($column)
+```
+
+
+
+#### 插入
+
+```php
+insert(
+    ['email' => 'john@example.com', 'votes' => 0]
+)
+
+// 插入多条
+insert([
+    ['email' => 'taylor@example.com', 'votes' => 0],
+    ['email' => 'dayle@example.com', 'votes' => 0]
+])
+
+// 自增 ID
+insertGetId(
+    ['email' => 'john@example.com', 'votes' => 0]
+)
+```
+
+
+
+#### 更新
+
+```php
+update($data_arr)
+update(['options->enabled' => true]) //更新 JSON 字段
+```
+
+自增 & 自减
+
+```php
+increment($field)
+decrement('votes', 5, ['name' => 'John'])
+```
+
+
+
+#### 删除
+
+```php
+delete()
+truncate() //清空
+```
+
+
+
+#### 悲观锁
+
+```php
+sharedLock() //共享锁
+lockForUpdate() //更新锁
 ```
 
 
