@@ -1,9 +1,11 @@
 PHP 开发指南
 ===========
 
-# I. 安装 PHP
 
-## 下载
+
+## I. 安装 PHP
+
+### 下载
 http://windows.php.net/download
 http://windows.php.net/downloads/
 https://windows.php.net/downloads/releases/archives/php-5.4.45-Win32-VC9-x86.zip
@@ -13,9 +15,13 @@ Thread Safe 才有 php7apache2_4.dll
 
 
 
-## 环境需求
+[Experimental: PHP 5.6 and Apache 2.4.10 VC11 for 2K3/XP](https://www.apachelounge.com/viewtopic.php?t=6334)
 
-### VC15
+
+
+### 环境需求
+
+#### VC15
 
 https://visualstudio.microsoft.com/downloads/
 
@@ -23,7 +29,7 @@ Other Tools and Frameworks > Microsoft Visual C++ Redistributable for Visual Stu
 
 
 
-## 测试
+### 测试
 1. 配置 Windows PATH 环境路径，例如 C:\php
 
 2. 命令行查看版本信息
@@ -34,7 +40,7 @@ php -v
 
 
 
-## 命令行
+### 命令行
 
 ```sh
 C:\Users\Administrator>php -h
@@ -85,20 +91,20 @@ Usage: php [options] [-f] <file> [--] [args...]
 
 
 
-## 服务器
+### 服务器
 
-### PHP-CGI
+#### PHP-CGI
 start D:/ProgramFiles/nginx-1.13.10/RunHiddenConsole.exe D:/ProgramFiles/nginx-1.13.10/xxfpm.exe "D:/ProgramFiles/php-7.2.3-nts-x64/php-cgi.exe" -n 2 -i 127.0.0.1 -p 9000
 
 
 
-# II. 配置
+## II. 配置
 
 php.ini
 
 
 
-#### 参考：
+##### 参考：
 
 [iniscan](https://github.com/psecio/iniscan)
 
@@ -112,9 +118,9 @@ php.ini
 
 
 
-## 运行时配置
+### 运行时配置
 
-### 配置文件
+#### 配置文件
 
 1. **搜索路径**
     SAPI 指定位置 PHPIniDir, -c
@@ -134,7 +140,7 @@ php.ini
 
 
 
-### .user.ini 文件
+#### .user.ini 文件
 
   ```ini
   user_ini.filename
@@ -143,7 +149,7 @@ php.ini
 
 
 
-### 配置可被设定范围
+#### 配置可被设定范围
 
   PHP_INI_ALL 可在任何地方设定 
   PHP_INI_USER ini_set() 注册表 .user.ini  
@@ -152,7 +158,7 @@ php.ini
 
 
 
-### 修改
+#### 修改
 1. **.htaccess**
 
   ```sh
@@ -173,9 +179,9 @@ php.ini
 
 
 
-## 基本配置项
+### 基本配置项
 
-### 时区
+#### 时区
 ```
 [Date]
 date.timezone = PRC
@@ -186,7 +192,7 @@ date_default_timezone_set()
 ```
 
 
-### PECL 扩展
+#### PECL 扩展
 
 扩展目录
 
@@ -216,9 +222,9 @@ extension=php_pdo_mysql.dll
 
 
 
-## 高级配置项
+### 高级配置项
 
-### 开启 OPcache
+#### 开启 OPcache
 ```
 [opcache]
 zend_extension="K:\env\win\ProgramFiles(x86)\php-7.3.0RC1-nts\ext\php_opcache.dll"
@@ -232,9 +238,9 @@ opcache.enable_cli=1
 
 
 
-## 常用配置
+### 常用配置
 
-### Paths and Directories
+#### Paths and Directories
 
 ```ini
 include_path = ".;c:\php\includes"
@@ -244,7 +250,7 @@ enable_dl = Off
 
 
 
-### File Uploads
+#### File Uploads
 
 ```ini
 file_uploads = On
@@ -255,7 +261,7 @@ max_file_uploads = 20
 
 
 
-### 日期
+#### 日期
 
 ```ini
 [Date]
@@ -264,7 +270,7 @@ date.timezone = PRC
 
 
 
-### 会话
+#### 会话
 
 ```ini
 [Session]
@@ -277,7 +283,7 @@ session.use_only_cookies = 1
 ; 值设置为 0 可以在客户端禁用 cookie 时用 sid
 ```
 
-#### 参考：
+##### 参考：
 
 [禁用cookie后session是如何设置的](http://blog.sina.com.cn/s/blog_4d6c4525010173rf.html)
 
@@ -287,20 +293,20 @@ session.use_only_cookies = 1
 
 
 
-# III. 语言参考
+## III. 语言参考
 
-## 运算符
+### 运算符
 
 类型运算符 instanceof
 
-### 其它
+#### 其它
 ```
 42 ** 2 = 42 * 42
 ```
 
 
 
-## 类与对象
+### 类与对象
 
 Trait
 
@@ -325,22 +331,22 @@ __debugInfo
 
 
 
-## 预定义接口
+### 预定义接口
 
 
 Closure
 
 
 
-# IV. 函数参考
+## IV. 函数参考
 
 WinCache
 
 
 
-## 函数功能补充
+### 函数功能补充
 
-### 数组
+#### 数组
 
 - [x] 清除数组的数字键名项
 - [x] 比较数组的键值
@@ -348,9 +354,9 @@ WinCache
 
 
 
-# V. 附录
+## V. 附录
 
-## php.ini 配置
+### php.ini 配置
 
 选项列表 
 
@@ -364,14 +370,14 @@ WinCache
 
 
 
-## 版本差异
+### 版本差异
 
 PHP5.6 不可以用list作为对象方法，PHP7可以
 PHP5.4 不可以 $class->object()::staticfunc(); 要 $obj = $class->object(); $obj::staticfunc(); object()是获取一个对象
 
 
 
-# VI. 关键技术
+## VI. 关键技术
 
   Queries per second (QPS)
   OOP
@@ -380,20 +386,28 @@ PHP5.4 不可以 $class->object()::staticfunc(); 要 $obj = $class->object(); $obj::
 
 
 
-## RESTful
+### RESTful
 
 - [php如何发起POST DELETE GET POST 请求](http://www.cnblogs.com/agang-php/p/5210571.html)
 
 
 
-## 多线程
+### 多线程
 
 - [PHP 真正多线程的使用](http://zyan.cc/pthreads/)
 
 
 
-# VII. 参考文档
+## VII. 参考文档
 
 - [【PHP开发】国外程序员收集整理的 PHP 资源大全](http://www.cnblogs.com/taletao/p/4212916.html)
 - [现代 PHP 新特性系列](https://laravelacademy.org/post/4221.html)
 - [Laravel 完整开源项目大全](https://laravelacademy.org/laravel-project)
+- https://gerardnico.com/lang/php/pear
+- https://pear.horde.org/
+
+
+
+## VIII. 编辑器
+
+https://en.wikipedia.org/wiki/List_of_PHP_editors
