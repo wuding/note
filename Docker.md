@@ -143,3 +143,9 @@ docker image push wuding/blog:latest
 ## 示例
 
 https://github.com/fork-copy/phphub5
+
+
+
+## 参考
+
+[docker搭建lnmp环境](https://github.com/OMGZui/lnmp)
