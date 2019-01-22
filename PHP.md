@@ -377,6 +377,21 @@ PHP5.4 不可以 $class->object()::staticfunc(); 要 $obj = $class->object(); $obj::
 
 
 
+### 单元测试
+
+
+
+[设计模式](https://github.com/OMGZui/DesignPattern)
+
+
+
+### PEAR
+
+- https://gerardnico.com/lang/php/pear
+- https://pear.horde.org/
+
+
+
 ## VI. 关键技术
 
   Queries per second (QPS)
@@ -402,9 +417,6 @@ PHP5.4 不可以 $class->object()::staticfunc(); 要 $obj = $class->object(); $obj::
 
 - [【PHP开发】国外程序员收集整理的 PHP 资源大全](http://www.cnblogs.com/taletao/p/4212916.html)
 - [现代 PHP 新特性系列](https://laravelacademy.org/post/4221.html)
-- [Laravel 完整开源项目大全](https://laravelacademy.org/laravel-project)
-- https://gerardnico.com/lang/php/pear
-- https://pear.horde.org/
 
 
 

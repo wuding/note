@@ -7,6 +7,8 @@ Laravel 开发手册
 
 https://github.com/OMGZui/noteBook/tree/master/php/laravel
 
+[Laravel 完整开源项目大全](https://laravelacademy.org/laravel-project)
+
 
 
 ## 目录
