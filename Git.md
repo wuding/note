@@ -14,7 +14,7 @@ https://git-scm.com/book/zh/v2 <=> https://github.com/progit/progit2-zh
 
 - [git-cheat-sheet](https://github.com/arslanbilal/git-cheat-sheet/blob/master/other-sheets/git-cheat-sheet-zh.md)
 
-- SSH key
+
 
 
 SUMMARY.md
@@ -397,8 +397,54 @@ git config --global core.autocrlf true
 # true 自动转换 input 提交时转换 false 不转换
 ```
 
-#### 参考：
+##### 参考：
 https://git-scm.com/book/zh/v1/自定义-Git-配置-Git#格式化与空白
+
+
+
+### SSH key
+
+```sh
+git config --global user.name "yourname"
+git config --global user.email "youremail" 
+
+ssh-keygen -t rsa -C "youremail"
+```
+
+- [Permission denied (publickey). fatal: Could not read from remote repository. Please make sure you have the correct access rights and the repository exists.](https://www.jianshu.com/p/3b56f4e6ac77)
+
+
+
+####  HTTPS 无法访问
+
+- [github clone遇到的问题](https://my.oschina.net/u/149047/blog/673358)
+- [git使用教程](http://lanvane.com/cat/72)
+
+- [在Git Bash中，执行github.com上的git pull时，提示Unknown SSL protocol error in connection to github.com:443，弃用连接方式HTTPS，让其支持SSH的解决流程](http://www.shuijingwanwq.com/2016/11/01/1394/)
+
+
+
+#### 账号问题
+
+控制面板\所有控制面板项\凭据管理器
+
+Windows 凭据\普通凭据
+
+删除 `git:https://github.com`
+
+- [git在push提示错误403](https://blog.csdn.net/juan083/article/details/78110586)
+
+
+
+#### 合并无关历史
+
+```sh
+git pull origin master --allow-unrelated-histories
+```
+
+- [解决Git refusing to merge unrelated histories](https://www.jianshu.com/p/536080638cc9)
+
+
 
 
 帮助.md
