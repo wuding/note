@@ -129,6 +129,37 @@ mysqld --skip-grant-tables
 
 
 
+### 常见问题
+
+#### 中文乱码
+
+my.ini
+
+```ini
+[client]
+port=3306
+[mysql]
+default-character-set=utf8
+```
+
+mysql
+
+```sql
+set character_set_database=utf8;
+set character_set_server=utf8;
+set character_set_client=gb2312;
+set character_set_connection=gb2312;
+
+-- SELECT 用到
+set character_set_results=gb2312; 
+```
+
+[MySQL命令行查询乱码解决方法：](https://www.cnblogs.com/aksir/p/7070493.html)
+
+
+
+
+
 ## 帮助
 
 ### help
@@ -392,26 +423,39 @@ https://yq.aliyun.com/articles/38288
 
 
 
-# 数据表操作
+## 数据表操作
 
 
 
-## 增
+### 增
 
 INSERT INTO tbl SELECT fld FROM table
+
+INSERT INTO db_nm (db_nm.fld, db_nm.fld2) SELECT field1,field2 FROM db2_name 
+
+
+
 SELECT fld INTO tbl FROM table
 
 REPLACE INTO test VALUES (1, 'New', '2014-08-20 18:47:42');
 
+##### 参考:
+
+[mysql数据库中插入数据INSERT INTO SET的优势](https://www.cnblogs.com/html55/p/9708475.html)
+
+[mysql中insert into select from的使用](https://blog.csdn.net/NCTU_to_prove_safety/article/details/80520872)
+
+[mysql INSERT INTO SELECT语句](https://blog.csdn.net/qq_38375394/article/details/79792250)
 
 
-## 查
+
+### 查
 
 SELECT DISTINCT fld FROM tbl
 
 SELECT fld AS '列 名',CASE WHEN age>22 THEN '大龄' ELSE '正常' END AS "年 龄",(CASE sex WHEN 1 THEN '男' WHEN 2 THEN '女' ELSE '未知' END) 性别
 
-### 连接
+#### 连接
 SELECT fld FROM tbl [INNER] JOIN table ON 
 SELECT fld FROM tbl LEFT JOIN table ON
 SELECT fld FROM tbl RIGHT JOIN table ON
@@ -423,7 +467,7 @@ SELECT fld FROM tbl A JOIN tbl B ON
 
 
 
-## 改
+### 改
 
 UPDATE tbl SET fld = REPLACE(fld, from, to)
 
@@ -469,11 +513,19 @@ ALTER TABLE tbl ADD INDEX idx (`col`,`fld`)
 
 
 
-# 函数
+
+
+## 数据类型
+
+[MySQL 日期类型及默认设置](https://blog.csdn.net/gxy_2016/article/details/53436865)
 
 
 
-## 更新替换
+## 函数
+
+
+
+### 更新替换
 
 replace(object,search,replace)
 
@@ -481,7 +533,7 @@ UPDATE `url_site_detail` SET pic = REPLACE(pic, 'http://www.myzyzy.com/Uploads/'
 
 
 
-## 修剪
+### 修剪
 
 trim([{BOTH | LEADING | TRAILING} [remstr] FROM] str)
 
@@ -508,6 +560,22 @@ ISNULL ( check_expression , replacement_value )
 [SQL中的ISNULL函数介绍](http://database.51cto.com/art/201009/224323.htm)
 
 
+
+### 日期时间
+
+NOW()
+
+CURRENT_TIMESTAMP()
+
+```sql
+DATE_ADD(date,INTERVAL expr type)
+```
+
+##### 参考：
+
+[MySQL：日期函数、时间函数总结](https://www.cnblogs.com/ggjucheng/p/3352280.html)
+
+[MySQL DATE_ADD() 函数](http://www.w3school.com.cn/sql/func_date_add.asp)
 
 
 
@@ -780,9 +848,9 @@ MySQL Proxy
 
 
 
-# 索引优化、查询优化和存储优化
+## 索引优化、查询优化和存储优化
 
-### 参考：
+##### 参考：
 
 [MySQL查询优化](https://www.cnblogs.com/phpstudy2015-6/p/6509331.html)
 
@@ -790,7 +858,7 @@ MySQL Proxy
 
 
 
-## 组合索引
+### 组合索引
 
 情景
 
@@ -816,13 +884,21 @@ explain select * from test where sex='M' and city='Guangzhou' order by create_at
 explain select * from test FORCE index(sex_city_create_at) where sex='M' and city='Guangzhou' order by create_at asc limit 100;
 ```
 
-### 参考：
+##### 参考：
 
 [MySQL使用组合索引](http://www.luckybird.me/mysql%e4%bd%bf%e7%94%a8%e7%bb%84%e5%90%88%e7%b4%a2%e5%bc%95.html)
 
 
 
-# 派生版本
+### 批量插入
+
+[MYSQL批量插入数据库实现语句性能分析](https://www.cnblogs.com/caicaizi/p/5849979.html)
+
+[MYSQL开发性能研究——批量插入的优化措施](https://www.cnblogs.com/aicro/p/3851434.html)
+
+
+
+## 派生版本
 
 MariaDB
 

@@ -332,6 +332,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 ```
 
+##### 参考：
+
+[路由](https://laravel-china.org/docs/laravel/5.7/routing/2253)
+
 
 
 ## 控制器
@@ -388,6 +392,12 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
 {
 }
 ```
+
+##### 参考：
+
+[控制器](https://laravel-china.org/docs/laravel/5.7/controllers/2256)
+
+[Laravel资源控制器处理的动作](https://blog.csdn.net/h330531987/article/details/78789588)
 
 
 
@@ -654,6 +664,8 @@ inRandomOrder() //随机
 ##### 参考：
 
 [Laravel使用Eloquent ORM查询时多字段排序](https://www.jianshu.com/p/73a3c276d94c)
+
+[Laravel ORM Model 的预定义属性](https://www.jianshu.com/p/68fefae9175b)
 
 
 
