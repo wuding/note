@@ -511,6 +511,10 @@ ALTER TABLE tbl ADD UNIQUE (`col`)
 ALTER TABLE tbl ADD FULLTEXT (`col`)
 ALTER TABLE tbl ADD INDEX idx (`col`,`fld`)
 
+##### 参考：
+
+[MySQL有哪些索引类型 ?](https://segmentfault.com/q/1010000003832312)
+
 
 
 
