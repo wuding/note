@@ -860,6 +860,10 @@ MySQL Proxy
 
 [MySQL 优化](https://github.com/judasn/Linux-Tutorial/blob/master/markdown-file/Mysql-Optimize.md)
 
+[Mysql 大表分页查询优化（一）](https://mengkang.net/1299.html)
+
+[一个案例彻底弄懂如何正确使用 mysql inndb 联合索引](https://mengkang.net/1302.html)
+
 
 
 ### 组合索引

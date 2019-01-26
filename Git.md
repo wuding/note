@@ -173,7 +173,7 @@ git remote add github https://github.com/wuding/note.git
 git config alias.pushall "!git push origin && git push github"
 ```
 
-
+另外还有一种方法用 Webhooks 实现双向同步
 
 #### 参考：
 
@@ -367,9 +367,43 @@ https://github.com/nvie/gitflow
 身份认证.md
 ----------
 
+### HTTPS 自动存储用户名和密码
+
+用户文件夹 %USERPROFILE% 新建文件  .git-credentials
+
+```
+https://{username}:{password}@github.com
+```
+
+Bash 命令
+
+```bash
+git config --global credential.helper store
+```
+
+会在 .gitconfig 添加
+
+```ini
+[credential]
+	helper = store
+```
 
 
-#### 参考：
+
+### SSH 方式
+
+生成 key
+
+```sh
+ssh-keygen -t rsa -C your@email.com
+# 用户文件夹 .ssh 目录下会生成 id_rsa.pub
+```
+
+Git GUI 菜单 help > Show SSH Key
+
+
+
+##### 参考：
 [Git Push 避免用户名和密码方法](https://www.cnblogs.com/ballwql/p/3462104.html)
 
 [使用git提交到github,每次都要输入用户名和密码的解决方法](https://www.cnblogs.com/sky6862/p/7992736.html)

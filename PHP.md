@@ -299,6 +299,8 @@ session.use_only_cookies = 1
 
 类型运算符 instanceof
 
+[细说PHP7中的NULL合并运算符](https://www.yduba.com/biancheng-7332345516.html)
+
 #### 其它
 ```
 42 ** 2 = 42 * 42
@@ -392,6 +394,12 @@ PHP5.4 不可以 $class->object()::staticfunc(); 要 $obj = $class->object(); $obj::
 
 
 
+### [PHPDoc](http://docs.phpdoc.org/references/phpdoc/index.html)
+
+https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc-tags.md
+
+
+
 ## VI. 关键技术
 
   Queries per second (QPS)
@@ -423,3 +431,9 @@ PHP5.4 不可以 $class->object()::staticfunc(); 要 $obj = $class->object(); $obj::
 ## VIII. 编辑器
 
 https://en.wikipedia.org/wiki/List_of_PHP_editors
+
+
+
+## IX. 框架
+
+[自定义框架之路由](https://mengkang.net/1316.html)
