@@ -465,6 +465,8 @@ SELECT fld FROM tbl CROSS JOIN table ON
 **别名**
 SELECT fld FROM tbl A JOIN tbl B ON 
 
+##### 参考：
+[数据库表连接的简单解释](http://www.ruanyifeng.com/blog/2019/01/table-join.html)
 
 
 ### 改
