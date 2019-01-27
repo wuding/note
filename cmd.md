@@ -1,38 +1,37 @@
-CMD 使用指南
-====
+# CMD 使用指南
 
 总是“用管理员方式运行”：快捷方式 > 属性 > 高级 > 勾选
 
 
 
-# 常用命令
+## 常用命令
 
-**查看所有的端口**
+#### 查看所有的端口
 netstat -ano
 
-**查询指定的端口占用**
+#### 查询指定的端口占用
 netstat -aon|findstr "80"
 
-**查询PID对应的进行进程**
+#### 查询PID对应的进行进程
 tasklist|findstr "2016"
 taskkill /f /t /im 程序名
 
-**创建一个空文件**
+#### 创建一个空文件
 type nul>.htaccess
 
-**启动停止服务**
+#### 启动停止服务
 net start/stop nginx
 
-**设置编码terminal为UTF-8**
+#### 设置编码terminal为UTF-8
 chcp 65001
 
-**查看 PATH 环境变量**
+#### 查看 PATH 环境变量
 path
 
-**刷新 DNS**
+#### 刷新 DNS
 ipconfig /flushdns
 
-### regsvr32
+#### regsvr32
 将这个文件复制到C:/Windows/System32下（如果系统是64位的请将32位的dll文件复制到C:\Windows\SysWOW64目录）；
 
 然后打开“开始-运行-输入regsvr32 pthreadgc2.dll”，回车，如果报错，用下面的方法。
@@ -46,12 +45,13 @@ regsvr32 %windir%\system32\pthreadgc2.dll /s
 @pause
 ```
 
-# 参考
-https://ss64.com/nt/  <=> [nt](_assets/html/nt.html)
-http://houliang4285.iteye.com/blog/1687816
+## 参考
+- https://ss64.com/nt/  <=> [nt](_assets/html/nt.html)
+- http://houliang4285.iteye.com/blog/1687816
+- https://en.wikipedia.org/wiki/List_of_DOS_commands
 
 
-# 变量
+## 变量
 %SystemRoot%
 
 %ALLUSERSPROFILE%
@@ -59,7 +59,7 @@ http://houliang4285.iteye.com/blog/1687816
 %APPDATA%
 
 
-# 帮助
+## 帮助
 
 help
 ```sh
