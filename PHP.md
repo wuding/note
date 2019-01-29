@@ -1,17 +1,17 @@
-PHP ¿ª·¢Ö¸ÄÏ
+PHP å¼€å‘æŒ‡å—
 ===========
 
 
 
-## I. °²×° PHP
+## I. å®‰è£… PHP
 
-### ÏÂÔØ
+### ä¸‹è½½
 http://windows.php.net/download
 http://windows.php.net/downloads/
 https://windows.php.net/downloads/releases/archives/php-5.4.45-Win32-VC9-x86.zip
 
-Thread Safe ²ÅÓĞ php7apache2_4.dll
-¶ÔÓ¦°æ±¾µÄ VC ÔËĞĞ¿âÒª°²×°
+Thread Safe æ‰æœ‰ php7apache2_4.dll
+å¯¹åº”ç‰ˆæœ¬çš„ VC è¿è¡Œåº“è¦å®‰è£…
 
 
 
@@ -19,7 +19,7 @@ Thread Safe ²ÅÓĞ php7apache2_4.dll
 
 
 
-### »·¾³ĞèÇó
+### ç¯å¢ƒéœ€æ±‚
 
 #### VC15
 
@@ -29,10 +29,10 @@ Other Tools and Frameworks > Microsoft Visual C++ Redistributable for Visual Stu
 
 
 
-### ²âÊÔ
-1. ÅäÖÃ Windows PATH »·¾³Â·¾¶£¬ÀıÈç C:\php
+### æµ‹è¯•
+1. é…ç½® Windows PATH ç¯å¢ƒè·¯å¾„ï¼Œä¾‹å¦‚ C:\php
 
-2. ÃüÁîĞĞ²é¿´°æ±¾ĞÅÏ¢
+2. å‘½ä»¤è¡ŒæŸ¥çœ‹ç‰ˆæœ¬ä¿¡æ¯
 
 ```
 php -v
@@ -40,7 +40,7 @@ php -v
 
 
 
-### ÃüÁîĞĞ
+### å‘½ä»¤è¡Œ
 
 ```sh
 C:\Users\Administrator>php -h
@@ -91,56 +91,56 @@ Usage: php [options] [-f] <file> [--] [args...]
 
 
 
-### ·şÎñÆ÷
+### æœåŠ¡å™¨
 
 #### PHP-CGI
 start D:/ProgramFiles/nginx-1.13.10/RunHiddenConsole.exe D:/ProgramFiles/nginx-1.13.10/xxfpm.exe "D:/ProgramFiles/php-7.2.3-nts-x64/php-cgi.exe" -n 2 -i 127.0.0.1 -p 9000
 
 
 
-## II. ÅäÖÃ
+## II. é…ç½®
 
 php.ini
 
 
 
-##### ²Î¿¼£º
+##### å‚è€ƒï¼š
 
 [iniscan](https://github.com/psecio/iniscan)
 
 [php-ini-cleanup](https://github.com/perusio/php-ini-cleanup)
 
-[php.iniÖĞÎÄ°æ](https://github.com/SeonWaterLee/php-ini)
+[php.iniä¸­æ–‡ç‰ˆ](https://github.com/SeonWaterLee/php-ini)
 
-[PHPÅäÖÃÎÄ¼şµÄÖĞÎÄ·­Òë](https://github.com/HeDefine/PHP.ini-for-Chinese)
+[PHPé…ç½®æ–‡ä»¶çš„ä¸­æ–‡ç¿»è¯‘](https://github.com/HeDefine/PHP.ini-for-Chinese)
 
 [very-secure-php-ini](https://github.com/danehrlich1/very-secure-php-ini)
 
 
 
-### ÔËĞĞÊ±ÅäÖÃ
+### è¿è¡Œæ—¶é…ç½®
 
-#### ÅäÖÃÎÄ¼ş
+#### é…ç½®æ–‡ä»¶
 
-1. **ËÑË÷Â·¾¶**
-    SAPI Ö¸¶¨Î»ÖÃ PHPIniDir, -c
-    PHPRC »·¾³±äÁ¿
-    ×¢²á±í [HKEY_LOCAL_MACHINE\SOFTWARE\PHP\(x(.y(.z)))] IniFilePath
-    µ±Ç°¹¤×÷Ä¿Â¼£¨¶ÔÓÚ CLI£©
-    ?web ·şÎñÆ÷(¸ù)Ä¿Â¼£¨¶ÔÓÚ SAPI Ä£¿é£©
-    Windows Ä¿Â¼
+1. **æœç´¢è·¯å¾„**
+    SAPI æŒ‡å®šä½ç½® PHPIniDir, -c
+    PHPRC ç¯å¢ƒå˜é‡
+    æ³¨å†Œè¡¨ [HKEY_LOCAL_MACHINE\SOFTWARE\PHP\(x(.y(.z)))] IniFilePath
+    å½“å‰å·¥ä½œç›®å½•ï¼ˆå¯¹äº CLIï¼‰
+    ?web æœåŠ¡å™¨(æ ¹)ç›®å½•ï¼ˆå¯¹äº SAPI æ¨¡å—ï¼‰
+    Windows ç›®å½•
 
-2. **Ãû³Æ**
-    php-SAPI.ini »áÌæ´ú php.ini
+2. **åç§°**
+    php-SAPI.ini ä¼šæ›¿ä»£ php.ini
 
-3. **¿ÉÒÔÊ¹ÓÃ**
-    »·¾³±äÁ¿
-    ÒıÓÃÒÑ´æÔÚµÄ .ini ±äÁ¿ open_basedir = ${open_basedir} ":/new/dir"
-
-
+3. **å¯ä»¥ä½¿ç”¨**
+    ç¯å¢ƒå˜é‡
+    å¼•ç”¨å·²å­˜åœ¨çš„ .ini å˜é‡ open_basedir = ${open_basedir} ":/new/dir"
 
 
-#### .user.ini ÎÄ¼ş
+
+
+#### .user.ini æ–‡ä»¶
 
   ```ini
   user_ini.filename
@@ -149,16 +149,16 @@ php.ini
 
 
 
-#### ÅäÖÃ¿É±»Éè¶¨·¶Î§
+#### é…ç½®å¯è¢«è®¾å®šèŒƒå›´
 
-  PHP_INI_ALL ¿ÉÔÚÈÎºÎµØ·½Éè¶¨ 
-  PHP_INI_USER ini_set() ×¢²á±í .user.ini  
-  PHP_INI_PERDIR ¿ÉÔÚ php.ini httpd.conf  .htaccess (.user.ini ?)
-  PHP_INI_SYSTEM ¿ÉÔÚ php.ini »ò httpd.conf
+  PHP_INI_ALL å¯åœ¨ä»»ä½•åœ°æ–¹è®¾å®š 
+  PHP_INI_USER ini_set() æ³¨å†Œè¡¨ .user.ini  
+  PHP_INI_PERDIR å¯åœ¨ php.ini httpd.conf  .htaccess (.user.ini ?)
+  PHP_INI_SYSTEM å¯åœ¨ php.ini æˆ– httpd.conf
 
 
 
-#### ĞŞ¸Ä
+#### ä¿®æ”¹
 1. **.htaccess**
 
   ```sh
@@ -167,34 +167,34 @@ php.ini
   ```
 
 2. **httpd.conf**
-    ²»»á±» .htaccess ¸²¸Ç
+    ä¸ä¼šè¢« .htaccess è¦†ç›–
 
   ```
   php_admin_value name value|none
   php_admin_flag name on|off
   ```
 
-3. **×¢²á±í**
+3. **æ³¨å†Œè¡¨**
     HKLM\SOFTWARE\PHP\Per Directory Values\c\inetpub\wwwroot 
 
 
 
-### »ù±¾ÅäÖÃÏî
+### åŸºæœ¬é…ç½®é¡¹
 
-#### Ê±Çø
+#### æ—¶åŒº
 ```
 [Date]
 date.timezone = PRC
 ```
-¶ÔÓ¦µÄ php º¯Êı
+å¯¹åº”çš„ php å‡½æ•°
 ```php
 date_default_timezone_set()
 ```
 
 
-#### PECL À©Õ¹
+#### PECL æ‰©å±•
 
-À©Õ¹Ä¿Â¼
+æ‰©å±•ç›®å½•
 
 ```ini
 extension_dir = "ext"
@@ -202,19 +202,19 @@ extension_dir = "ext"
 
 
 
-³£ÓÃÀ©Õ¹
+å¸¸ç”¨æ‰©å±•
 
 ```ini
-; Ğ­Òé
+; åè®®
 extension=curl
 extension=php_openssl.dll
 
-; ÎÄ±¾ºÍ·­Òë
+; æ–‡æœ¬å’Œç¿»è¯‘
 extension=php_gettext.dll
 extension=php_intl.dll
 extension=php_mbstring.dll
 
-; Êı¾İ¿â
+; æ•°æ®åº“
 extension=php_mysqli.dll
 extension=php_pdo_mysql.dll
 ```
@@ -222,9 +222,9 @@ extension=php_pdo_mysql.dll
 
 
 
-### ¸ß¼¶ÅäÖÃÏî
+### é«˜çº§é…ç½®é¡¹
 
-#### ¿ªÆô OPcache
+#### å¼€å¯ OPcache
 ```
 [opcache]
 zend_extension="K:\env\win\ProgramFiles(x86)\php-7.3.0RC1-nts\ext\php_opcache.dll"
@@ -238,7 +238,7 @@ opcache.enable_cli=1
 
 
 
-### ³£ÓÃÅäÖÃ
+### å¸¸ç”¨é…ç½®
 
 #### Paths and Directories
 
@@ -261,7 +261,7 @@ max_file_uploads = 20
 
 
 
-#### ÈÕÆÚ
+#### æ—¥æœŸ
 
 ```ini
 [Date]
@@ -270,7 +270,7 @@ date.timezone = PRC
 
 
 
-#### »á»°
+#### ä¼šè¯
 
 ```ini
 [Session]
@@ -280,39 +280,39 @@ session.name = PHPSESSID
 session.use_trans_sid = 0
 session.use_cookies = 1
 session.use_only_cookies = 1
-; ÖµÉèÖÃÎª 0 ¿ÉÒÔÔÚ¿Í»§¶Ë½ûÓÃ cookie Ê±ÓÃ sid
+; å€¼è®¾ç½®ä¸º 0 å¯ä»¥åœ¨å®¢æˆ·ç«¯ç¦ç”¨ cookie æ—¶ç”¨ sid
 ```
 
-##### ²Î¿¼£º
+##### å‚è€ƒï¼š
 
-[½ûÓÃcookieºósessionÊÇÈçºÎÉèÖÃµÄ](http://blog.sina.com.cn/s/blog_4d6c4525010173rf.html)
-
-
+[ç¦ç”¨cookieåsessionæ˜¯å¦‚ä½•è®¾ç½®çš„](http://blog.sina.com.cn/s/blog_4d6c4525010173rf.html)
 
 
 
 
 
-## III. ÓïÑÔ²Î¿¼
 
-### ÔËËã·û
 
-ÀàĞÍÔËËã·û instanceof
+## III. è¯­è¨€å‚è€ƒ
 
-[Ï¸ËµPHP7ÖĞµÄNULLºÏ²¢ÔËËã·û](https://www.yduba.com/biancheng-7332345516.html)
+### è¿ç®—ç¬¦
 
-#### ÆäËü
+ç±»å‹è¿ç®—ç¬¦ instanceof
+
+[ç»†è¯´PHP7ä¸­çš„NULLåˆå¹¶è¿ç®—ç¬¦](https://www.yduba.com/biancheng-7332345516.html)
+
+#### å…¶å®ƒ
 ```
 42 ** 2 = 42 * 42
 ```
 
 
 
-### ÀàÓë¶ÔÏó
+### ç±»ä¸å¯¹è±¡
 
 Trait
 
-ÖØÔØ
+é‡è½½
 __set
 __get
 __isset
@@ -321,7 +321,7 @@ __unset
 __call
 __callStatic
 
-Ä§Êõ·½·¨
+é­”æœ¯æ–¹æ³•
 __sleep
 __wakeup
 
@@ -333,57 +333,60 @@ __debugInfo
 
 
 
-### Ô¤¶¨Òå½Ó¿Ú
+### é¢„å®šä¹‰æ¥å£
 
 
 Closure
 
 
 
-## IV. º¯Êı²Î¿¼
+## IV. å‡½æ•°å‚è€ƒ
 
 WinCache
 
 
 
-### º¯Êı¹¦ÄÜ²¹³ä
+### å‡½æ•°åŠŸèƒ½è¡¥å……
 
-#### Êı×é
+#### æ•°ç»„
 
-- [x] Çå³ıÊı×éµÄÊı×Ö¼üÃûÏî
-- [x] ±È½ÏÊı×éµÄ¼üÖµ
-- [x] ºÏ²¢ JSON ¸ñÊ½Êı×é£¬ÒÔÎÄ±¾´æ´¢
+- [x] æ¸…é™¤æ•°ç»„çš„æ•°å­—é”®åé¡¹
+- [x] æ¯”è¾ƒæ•°ç»„çš„é”®å€¼
+- [x] åˆå¹¶ JSON æ ¼å¼æ•°ç»„ï¼Œä»¥æ–‡æœ¬å­˜å‚¨
 
+#### ç¼–è§£ç 
+\u å¼€å¤´çš„
 
+[PHPè§£ç unicodeç¼–ç ](https://blog.csdn.net/gongqinglin/article/details/80062695)
 
-## V. ¸½Â¼
+## V. é™„å½•
 
-### php.ini ÅäÖÃ
+### php.ini é…ç½®
 
-Ñ¡ÏîÁĞ±í 
+é€‰é¡¹åˆ—è¡¨ 
 
-¶ÎÁĞ±í 
+æ®µåˆ—è¡¨ 
 [HOST=<host>]
 [PATH=<path>] 
 
-(ºËĞÄÅäÖÃ)Ñ¡ÏîËµÃ÷ 
+(æ ¸å¿ƒé…ç½®)é€‰é¡¹è¯´æ˜ 
 
-×î´óÖ´ĞĞÊ±¼ä¡¢ÉÏ´«ÎÄ¼ş´óĞ¡
-
-
-
-### °æ±¾²îÒì
-
-PHP5.6 ²»¿ÉÒÔÓÃlist×÷Îª¶ÔÏó·½·¨£¬PHP7¿ÉÒÔ
-PHP5.4 ²»¿ÉÒÔ $class->object()::staticfunc(); Òª $obj = $class->object(); $obj::staticfunc(); object()ÊÇ»ñÈ¡Ò»¸ö¶ÔÏó
+æœ€å¤§æ‰§è¡Œæ—¶é—´ã€ä¸Šä¼ æ–‡ä»¶å¤§å°
 
 
 
-### µ¥Ôª²âÊÔ
+### ç‰ˆæœ¬å·®å¼‚
+
+PHP5.6 ä¸å¯ä»¥ç”¨listä½œä¸ºå¯¹è±¡æ–¹æ³•ï¼ŒPHP7å¯ä»¥
+PHP5.4 ä¸å¯ä»¥ $class->object()::staticfunc(); è¦ $obj = $class->object(); $obj::staticfunc(); object()æ˜¯è·å–ä¸€ä¸ªå¯¹è±¡
 
 
 
-[Éè¼ÆÄ£Ê½](https://github.com/OMGZui/DesignPattern)
+### å•å…ƒæµ‹è¯•
+
+
+
+[è®¾è®¡æ¨¡å¼](https://github.com/OMGZui/DesignPattern)
 
 
 
@@ -400,40 +403,40 @@ https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc-tags.md
 
 
 
-## VI. ¹Ø¼ü¼¼Êõ
+## VI. å…³é”®æŠ€æœ¯
 
   Queries per second (QPS)
   OOP
-  »º´æ¼¼Êõ¡¢¾²Ì¬»¯Éè¼Æ
+  ç¼“å­˜æŠ€æœ¯ã€é™æ€åŒ–è®¾è®¡
   Web Service
 
 
 
 ### RESTful
 
-- [phpÈçºÎ·¢ÆğPOST DELETE GET POST ÇëÇó](http://www.cnblogs.com/agang-php/p/5210571.html)
+- [phpå¦‚ä½•å‘èµ·POST DELETE GET POST è¯·æ±‚](http://www.cnblogs.com/agang-php/p/5210571.html)
 
 
 
-### ¶àÏß³Ì
+### å¤šçº¿ç¨‹
 
-- [PHP ÕæÕı¶àÏß³ÌµÄÊ¹ÓÃ](http://zyan.cc/pthreads/)
-
-
-
-## VII. ²Î¿¼ÎÄµµ
-
-- [¡¾PHP¿ª·¢¡¿¹úÍâ³ÌĞòÔ±ÊÕ¼¯ÕûÀíµÄ PHP ×ÊÔ´´óÈ«](http://www.cnblogs.com/taletao/p/4212916.html)
-- [ÏÖ´ú PHP ĞÂÌØĞÔÏµÁĞ](https://laravelacademy.org/post/4221.html)
+- [PHP çœŸæ­£å¤šçº¿ç¨‹çš„ä½¿ç”¨](http://zyan.cc/pthreads/)
 
 
 
-## VIII. ±à¼­Æ÷
+## VII. å‚è€ƒæ–‡æ¡£
+
+- [ã€PHPå¼€å‘ã€‘å›½å¤–ç¨‹åºå‘˜æ”¶é›†æ•´ç†çš„ PHP èµ„æºå¤§å…¨](http://www.cnblogs.com/taletao/p/4212916.html)
+- [ç°ä»£ PHP æ–°ç‰¹æ€§ç³»åˆ—](https://laravelacademy.org/post/4221.html)
+
+
+
+## VIII. ç¼–è¾‘å™¨
 
 https://en.wikipedia.org/wiki/List_of_PHP_editors
 
 
 
-## IX. ¿ò¼Ü
+## IX. æ¡†æ¶
 
-[×Ô¶¨Òå¿ò¼ÜÖ®Â·ÓÉ](https://mengkang.net/1316.html)
+[è‡ªå®šä¹‰æ¡†æ¶ä¹‹è·¯ç”±](https://mengkang.net/1316.html)
