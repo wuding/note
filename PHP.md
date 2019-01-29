@@ -355,9 +355,22 @@ WinCache
 - [x] 合并 JSON 格式数组，以文本存储
 
 #### 编解码
-\u 开头的
+- \u 开头的
 
 [PHP解码unicode编码](https://blog.csdn.net/gongqinglin/article/details/80062695)
+
+- DOMDocument::loadHTML 默认编码是 ISO-8859-1
+```PHP
+// 转为实体
+$dom->loadHTML(mb_convert_encoding($profile, 'HTML-ENTITIES', 'UTF-8')); 
+```
+```html
+<!-- 需要声明 -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+```
+[PHP DOMDocument loadHTML出现乱码的解决方法](https://towait.com/blog/php-domdocument-loadhtml-not-encoding-utf-8-correctly/)
+
+[DOMDocument->loadHTML()处理中文的一点问题](http://www.fwolf.com/blog/post/314)
 
 ## V. 附录
 
