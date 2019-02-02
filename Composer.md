@@ -45,9 +45,12 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 # 常用命令
 
 composer install
+
 composer update
+
 composer require wuding/astrology:dev-secret
-composer dump-autoload
+
+composer dump-autoload -o
 
 
 
