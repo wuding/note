@@ -399,7 +399,9 @@ PHP5.4 不可以 $class->object()::staticfunc(); 要 $obj = $class->object(); $o
 
 
 
-[设计模式](https://github.com/OMGZui/DesignPattern)
+### 设计模式
+- https://github.com/OMGZui/DesignPattern
+- https://github.com/domnikl/DesignPatternsPHP
 
 
 
