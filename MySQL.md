@@ -19,6 +19,8 @@ https://blog.csdn.net/aaaaaa1569/article/category/7723659
 
 [MySQL参考手册译文](http://www.shuaihua.cc/article/tag/storage/)
 
+[MySQL 资源大全中文版](https://github.com/jobbole/awesome-mysql-cn)
+
 
 
 # 安装
