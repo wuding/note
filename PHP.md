@@ -421,8 +421,11 @@ https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc-tags.md
 ## VI. 关键技术
 
   Queries per second (QPS)
+  
   OOP
+  
   缓存技术、静态化设计
+  
   Web Service
 
 
@@ -443,6 +446,7 @@ https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc-tags.md
 
 - [【PHP开发】国外程序员收集整理的 PHP 资源大全](http://www.cnblogs.com/taletao/p/4212916.html)
 - [现代 PHP 新特性系列](https://laravelacademy.org/post/4221.html)
+- [PHP 资源大全中文版](https://github.com/jobbole/awesome-php-cn)
 
 
 
