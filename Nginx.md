@@ -282,6 +282,7 @@ location ~* ^.+\.(eot|ttf|otf|woff|svg)$ {
 
 ##### 参考：
 - [nginx开启gzip和缓存配置](https://segmentfault.com/a/1190000007015010)
+- [加速nginx: 开启gzip和缓存](https://www.darrenfang.com/2015/01/setting-up-http-cache-and-gzip-with-nginx/)
 
 
 # 常见问题
