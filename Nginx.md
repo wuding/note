@@ -94,6 +94,13 @@ server {
 }
 ```
 
+### HTTP/2
+```
+server {
+  listen 443 ssl http2;
+  server_name www.urlnk.com;
+}
+```
 
 
 ## 自定义变量
