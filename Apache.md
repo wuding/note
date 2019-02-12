@@ -272,6 +272,10 @@ AddOutputFilter DEFLATE js css
 </IfModule>
 ```
 
+##### 参考：
+- [如何在 apache 中开启 gzip 压缩服务](https://www.cnblogs.com/zichi/p/5030877.html)
+- [so easy！ apache开启 gzip 压缩](https://segmentfault.com/a/1190000014087848)
+- [配置Apache开启gzip压缩传输](https://www.centos.bz/2017/08/apache-enable-gzip/)
 
 
 ### 支持 PHP
