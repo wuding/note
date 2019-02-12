@@ -124,19 +124,19 @@ DocumentRoot "c:/Apache24/htdocs/html"
 
 # 目录选项配置
 <Directory "c:/Apache24/htdocs">
-?    #
-?    # Possible values for the Options directive are "None", "All",
-?    # or any combination of:
-?    #   Indexes Includes FollowSymLinks SymLinksifOwnerMatch ExecCGI MultiViews
-?    #
-?    # Note that "MultiViews" must be named *explicitly* --- "Options All"
-?    # doesn't give it to you.
-?    #
-?    # The Options directive is both complicated and important.  Please see
-?    # http://httpd.apache.org/docs/2.4/mod/core.html#options
-?    # for more information.
-?    #
-?    Options Indexes FollowSymLinks ExecCGI
+    #
+    # Possible values for the Options directive are "None", "All",
+    # or any combination of:
+    #   Indexes Includes FollowSymLinks SymLinksifOwnerMatch ExecCGI MultiViews
+    #
+    # Note that "MultiViews" must be named *explicitly* --- "Options All"
+    # doesn't give it to you.
+    #
+    # The Options directive is both complicated and important.  Please see
+    # http://httpd.apache.org/docs/2.4/mod/core.html#options
+    # for more information.
+    #
+    Options Indexes FollowSymLinks ExecCGI
 
     #
     # AllowOverride controls what directives may be placed in .htaccess files.
@@ -153,7 +153,7 @@ DocumentRoot "c:/Apache24/htdocs/html"
 
 # 默认首页
 <IfModule dir_module>
-?    DirectoryIndex index.html index.php
+    DirectoryIndex index.html index.php
 </IfModule>
 ```
 
@@ -194,18 +194,68 @@ Include conf/extra/httpd-vhosts.conf
 ServerName www.example.com:80
 ```
 
-IPv6支持
+#### IPv6支持
 ```sh
 Listen [fe80::ecbe:a1a4:f64c:2756]:80
 <VirtualHost [fe80::ecbe:a1a4:f64c:2756]:80>
     DocumentRoot "K:\Benny"
 #    ServerName [fe80::ecbe:a1a4:f64c:2756]
-	SetEnv RUNTIME_ENVIROMENT DEV
+    SetEnv RUNTIME_ENVIROMENT DEV
 </VirtualHost>
 ```
 浏览器访问 http://[fe80::ecbe:a1a4:f64c:2756]/
 
+### HTTPS 支持
 
+#### 自动转向
+HSTS
+```
+Header add Strict-Transport-Security "max-age=31536000"
+# Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains; preload"
+
+# 避免劫持
+Header always set X-Frame-Options DENY
+```
+
+##### 参考：
+- [nginx、Apache、Lighttpd启用HSTS](https://www.cnblogs.com/crabzzz/p/5778787.html)
+- [HSTS详解](https://www.jianshu.com/p/caa80c7ad45c)
+
+
+### HTTP/2
+httpd 2.4.17 开始支持
+
+加载模块
+```
+LoadModule http2_module modules/mod_http2.so
+
+# 日志等级
+<IfModule http2_module>
+    LogLevel http2:info
+</IfModule>
+```
+
+启用
+```
+# 对于 https 服务器
+Protocols h2 http/1.1
+...
+
+# 对于 http 服务器
+Protocols h2c http/1.1
+```
+
+顺序
+```
+ProtocolsHonorOrder On
+Protocols h2 h2c http/1.1
+```
+
+
+##### 参考：
+- https://httpd.apache.org/docs/2.4/zh-cn/howto/http2.html
+- [如何在 Apache 中启用 HTTP/2](https://linux.cn/article-6720-1.html) <= https://icing.github.io/mod_h2/howto.html
+- https://www.mf8.biz/apache-httpd-开启-https-和-http2/
 
 ### HTTP 压缩
 
