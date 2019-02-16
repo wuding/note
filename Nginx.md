@@ -1,5 +1,8 @@
 Nginx 使用指南
 =============
+读音 Engine X
+- https://www.zhihu.com/question/19739907
+- https://segmentfault.com/q/1010000002432695
 
 # 安装 Nginx
 
@@ -39,9 +42,39 @@ Options:
   -g directives : set global directives out of configuration file
 ```
 
+查看进程
+```sh
+tasklist /fi "imagename eq nginx.exe"
+```
 
+nginx/Windows作为标准控制台应用运行，而不是系统服务。可以用下面的命令控制：
+```sh
+nginx -s stop	# 快速退出
+nginx -s quit	# 优雅退出
+nginx -s reload	# 更换配置，启动新的工作进程，优雅的关闭以往的工作进程
+nginx -s reopen	# 重新打开日志文件
+```
 
 # 配置
+配置文件中的目录请使用“/”，而不是“\”做目录分隔
+
+## 虚拟主机
+- 第一个被列出的虚拟主机即nginx的默认虚拟主机
+- 显式地设置某个主机为默认虚拟主机：
+```sh
+server {
+    listen      192.168.1.1:80 default_server;
+    server_name example.net www.example.net;
+    ...
+}
+
+server {
+    listen      192.168.1.2:80 default_server;
+    server_name example.com www.example.com;
+    ...
+}
+```
+请注意"default_server"是监听端口的属性，而不是主机名的属性。
 
 ## 进程
 
@@ -59,6 +92,7 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
 
 access_log  logs/access.log  main;
 ```
+如果日志文件不存在，那失败原因会记录在Windows事件日志中。
 
 ## 错误页面
 ```
