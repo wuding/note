@@ -5,6 +5,7 @@ Nginx 使用指南
 - https://segmentfault.com/q/1010000002432695
 
 # 安装 Nginx
+安装 nginx/Windows，需要下载 1.3.11 或以上版本
 
 http://nginx.org/en/download.html
 
@@ -59,8 +60,70 @@ nginx -s reopen	# 重新打开日志文件
 配置文件中的目录请使用“/”，而不是“\”做目录分隔
 
 ## 虚拟主机
+### 虚拟主机名
+可以使用确切的名字，通配符，或者是正则表达式来定义：
+```sh
+# 不含“Host”字段的请求，需要指定一个空名字
+# 可以将IP地址作为虚拟主机名
+# 特殊的虚拟主机名“$hostname”
+server {
+    listen       80;
+    server_name  example.org  www.example.org "" 192.168.1.1;
+    ...
+}
+
+server {
+    listen       80;
+    server_name  *.example.org;
+    ...
+}
+
+server {
+    listen       80;
+    server_name  mail.*;
+    ...
+}
+
+server {
+    listen       80;
+    server_name  ~^(?<user>.+)\.example\.net$;
+    ...
+}
+```
+- 通配符名字只可以在名字的起始处或结尾处包含一个星号，并且星号与其他字符之间用点分隔。
+- 有一种形如“.example.org”的特殊通配符
+- 为了使用正则表达式，虚拟主机名必须以波浪线“~”起始。正则表达式是一个一个串行的测试，所以是最慢的
+- 命名的正则表达式捕获组在后面可以作为变量使用：
+```sh
+server {
+    server_name   ~^(www\.)?(?<domain>.+)$;
+
+    location / {
+        root   /sites/$domain;
+    }
+}
+
+server {
+    server_name   ~^(www\.)?(.+)$;
+
+    location / {
+        root   /sites/$2;
+    }
+}
+```
+- 在匹配所有的服务器的例子中，可以见到一个奇怪的名字“_”：
+```sh
+server {
+    listen       80  default_server;
+    server_name  _;
+    return       444;
+}
+```
+如果定义了大量名字，或者定义了非常长的名字，那可能需要在http配置块中使用server_names_hash_max_size和server_names_hash_bucket_size指令进行调整。
+
+### 默认虚拟主机
 - 第一个被列出的虚拟主机即nginx的默认虚拟主机
-- 显式地设置某个主机为默认虚拟主机：
+- default_server 显式地设置某个主机为默认虚拟主机，捕获组也可以以数字方式引用：
 ```sh
 server {
     listen      192.168.1.1:80 default_server;
@@ -81,6 +144,8 @@ server {
 ```
 worker_processes  2;
 ```
+- 虽然可以启动若干工作进程运行，实际上只有一个进程在处理请求所有请求。
+- 一个工作进程只能处理不超过1024个并发连接。
 
 ## 日志
 ```
