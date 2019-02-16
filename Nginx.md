@@ -142,6 +142,7 @@ server {
 ## 进程
 
 ```
+# 工作进程数量需要不少于可用CPU的个数
 worker_processes  2;
 ```
 - 虽然可以启动若干工作进程运行，实际上只有一个进程在处理请求所有请求。
@@ -149,7 +150,7 @@ worker_processes  2;
 
 ## 日志
 ```
-error_log  logs/error.log;
+error_log  logs/error.log debug;
 
 log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
                   '$status $body_bytes_sent "$http_referer" '
@@ -173,16 +174,19 @@ https://cloud.tencent.com/document/product/400/4143
 
 ```
 server {
+  listen       80; # 合并HTTP/HTTPS主机
   listen       443 ssl;
   server_name  urlnk.host;
 
   ssl_certificate      K:\env\win\ProgramData/nginx\conf\cert\urlnk.host.crt;
   ssl_certificate_key  K:\env\win\ProgramData/nginx\conf\cert\urlnk.host.key;
 
-  ssl_session_cache    shared:SSL:1m;
-  ssl_session_timeout  5m;
+  # HTTPS服务器优化
+  keepalive_timeout   70;
+  ssl_session_cache    shared:SSL:10m; # 共享会话缓存
+  ssl_session_timeout  10m; # 缓存超时（分钟）
 
-  ssl_ciphers  HIGH:!aNULL:!MD5;
+  ssl_ciphers  HIGH:!aNULL:!MD5; # 1.0.5及以后版本，默认SSL密码算法
   ssl_prefer_server_ciphers  on;
 
   location / {
@@ -288,13 +292,21 @@ add_header Access-Control-Allow-Methods "GET, POST, OPTIONS";
 
 ```sh
 server {
+    listen       80;
+    server_name  example.org;
+    return       301 https://www.example.org$request_uri;
+}
+
+# 或者
+server {
     listen 80;
     server_name localhost;
     rewrite ^(.*)$ https://${server_name}$1 permanent;
 }
 ```
-
 ${server_name} 可以换成 $host
+
+
 
 ## HTTP 压缩
 ```
