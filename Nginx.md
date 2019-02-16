@@ -9,9 +9,7 @@ Nginx 使用指南
 
 http://nginx.org/en/download.html
 
-http://nginx.org/download/nginx-1.11.12.zip
-
-https://nginx.org/download/nginx-1.14.0.zip
+https://nginx.org/download/
 
 http://www.cnblogs.com/nick-huang/p/4638398.html
 
@@ -354,6 +352,10 @@ upstream fastcgi_backend {
   server 127.0.0.1:9001;
   server 127.0.0.1:9002;
 }
+
+location / {
+  proxy_pass http://fastcgi_backend;
+}
 ```
 
 ## expires 缓存
@@ -465,3 +467,6 @@ C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Sta
 
 - [Nginx 入门指南](http://wiki.jikexueyuan.com/project/nginx/)
 - [nginx安装配置|nginx负载均衡|nginx反向代理|gzip压缩|expires缓存](https://segmentfault.com/a/1190000011489789)
+- https://nginx.org/en/docs/ => http://tengine.taobao.org/nginx_docs/cn/
+- https://wizardforcel.gitbooks.io/nginx-doc <=> https://www.kancloud.cn/wizardforcel/nginx-doc
+- https://www.yiibai.com/nginx/
