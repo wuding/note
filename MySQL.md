@@ -860,13 +860,11 @@ MySQL Proxy
 
 ##### 参考：
 
-[MySQL查询优化](https://www.cnblogs.com/phpstudy2015-6/p/6509331.html)
-
-[MySQL 优化](https://github.com/judasn/Linux-Tutorial/blob/master/markdown-file/Mysql-Optimize.md)
-
-[Mysql 大表分页查询优化（一）](https://mengkang.net/1299.html)
-
-[一个案例彻底弄懂如何正确使用 mysql inndb 联合索引](https://mengkang.net/1302.html)
+- [MySQL查询优化](https://www.cnblogs.com/phpstudy2015-6/p/6509331.html)
+- [MySQL 优化](https://github.com/judasn/Linux-Tutorial/blob/master/markdown-file/Mysql-Optimize.md)
+- [Mysql 大表分页查询优化（一）](https://mengkang.net/1299.html)
+- [一个案例彻底弄懂如何正确使用 mysql inndb 联合索引](https://mengkang.net/1302.html)
+- [MySQL索引总结](https://zhuanlan.zhihu.com/p/29118331)
 
 
 
