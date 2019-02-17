@@ -7,19 +7,21 @@ Nginx 使用指南
 # 安装 Nginx
 安装 nginx/Windows，需要下载 1.3.11 或以上版本
 
-http://nginx.org/en/download.html
+- http://nginx.org/en/download.html
+- https://nginx.org/download/
 
-https://nginx.org/download/
+##### 参考：
+- http://www.cnblogs.com/nick-huang/p/4638398.html
+- [Nginx 安装配置](http://www.runoob.com/linux/nginx-install-setup.html)
+- [nginx服务器安装及配置文件详解](http://seanlook.com/2015/05/17/nginx-install-and-config/)
+- [Nginx安装及配置文件 nginx.conf 详解](https://div.io/topic/1395)
 
-http://www.cnblogs.com/nick-huang/p/4638398.html
 
 ```sh
 C:\Users\Administrator>g:
 G:\>cd G:\Program_Files\nginx-1.11.12
 G:\Program_Files\nginx-1.11.12>start nginx
 ```
-
-
 
 # 命令行
 
@@ -56,6 +58,16 @@ nginx -s reopen	# 重新打开日志文件
 
 # 配置
 配置文件中的目录请使用“/”，而不是“\”做目录分隔
+
+##### 工具：
+- https://nginxconfig.io/
+- https://www.tools4nerds.com/online-tools/nginx-conf-generator
+
+##### 参考：
+- [Full Example Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
+- [nginx快速入门之配置篇](https://zhuanlan.zhihu.com/p/31202053)
+- [Nginx 配置文件nginx.conf中文详解](https://www.w3cschool.cn/nginx/nginx-d1aw28wa.html) <= https://www.jianshu.com/p/3e2b9964c279
+- [nginx的配置、虚拟主机、负载均衡和反向代理（1）](https://www.zybuluo.com/phper/note/89391) - [（2）](https://www.zybuluo.com/phper/note/90310) - [（3）](https://www.zybuluo.com/phper/note/133244)
 
 ## 虚拟主机
 ### 虚拟主机名
@@ -168,7 +180,9 @@ location = /50x.html {
 
 ## SSL证书安装
 
-https://cloud.tencent.com/document/product/400/4143
+##### 参考：
+- https://cloud.tencent.com/document/product/400/4143
+- [HTTPS 简介及使用官方工具 Certbot 配置 Let’s Encrypt SSL 安全证书详细教程](https://linuxstory.org/deploy-lets-encrypt-ssl-certificate-with-certbot/)
 
 ```
 server {
