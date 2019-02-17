@@ -66,7 +66,7 @@ nginx -s reopen	# 重新打开日志文件
 ##### 参考：
 - [Full Example Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
 - [nginx快速入门之配置篇](https://zhuanlan.zhihu.com/p/31202053)
-- [Nginx 配置文件nginx.conf中文详解](https://www.w3cschool.cn/nginx/nginx-d1aw28wa.html) <= https://www.jianshu.com/p/3e2b9964c279
+- [Nginx 配置文件nginx.conf中文详解](https://www.w3cschool.cn/nginx/nginx-d1aw28wa.html) - [简书](https://www.jianshu.com/p/3e2b9964c279) - [博客园](https://www.cnblogs.com/liang-wei/p/5849771.html)
 - [nginx的配置、虚拟主机、负载均衡和反向代理（1）](https://www.zybuluo.com/phper/note/89391) - [（2）](https://www.zybuluo.com/phper/note/90310) - [（3）](https://www.zybuluo.com/phper/note/133244)
 
 ## 虚拟主机
