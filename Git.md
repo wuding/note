@@ -7,12 +7,10 @@ https://git-scm.com/book/zh/v2 <=> https://github.com/progit/progit2-zh
 -------
 
 - [Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/)
-
 - [git - 简明指南](http://rogerdudler.github.io/git-guide/index.zh.html)
-
 - [Git 学习指南](https://www.xiaoyulive.top/books/git/)
-
 - [git-cheat-sheet](https://github.com/arslanbilal/git-cheat-sheet/blob/master/other-sheets/git-cheat-sheet-zh.md)
+- [Git速查表汇总](https://zhuanlan.zhihu.com/p/28768182)
 
 
 
