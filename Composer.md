@@ -10,32 +10,104 @@ https://www.phpcomposer.com/
 
 https://getcomposer.org/Composer-Setup.exe
 
-### 手动安装
+### [手动安装](https://getcomposer.org/download/)
 - 下载 [composer.phar](https://getcomposer.org/composer.phar) 到 php 目录（设置好环境变量）
 ```sh
 php composer.phar install
 ```
 - 新建 composer.bat，内容如下：
 ```sh
+@php "%~dp0composer.phar" %*
+```
+
+```sh
 C:\bin>echo @php "%~dp0composer.phar" %*>composer.bat
 ```
 
-## Linux 安装
+## Linux / Mac 安装
 ```sh
 curl -sS https://getcomposer.org/installer | php
+# 全局安装
 mv composer.phar /usr/local/bin/composer
 ```
 
-# 配置
+或者：
+```sh
+wget https://dl.laravel-china.org/composer.phar -O /usr/local/bin/composer
+chmod a+x /usr/local/bin/composer
+```
+如遇权限不足，可添加 `sudo`
+
+# 配置 Composer
 
 配置文件位置
 *L:\Users\Benny\AppData\Roaming\Composer\config.json*
 
-### Packagist 镜像使用方法
+## 查看配置
+查看镜像地址：
+```sh
+$ composer config -g repo.packagist
+{"type":"composer","url":"https://packagist.org","allow_ssl_downgrade":true}
+```
+
+查看所有全局配置：
+```sh
+composer config -l -g
+```
+
+```sh
+[repositories.packagist.org.type] composer
+[repositories.packagist.org.url] https?://repo.packagist.org
+[repositories.packagist.org.allow_ssl_downgrade] true
+[process-timeout] 300
+[use-include-path] false
+[preferred-install] auto
+[notify-on-install] true
+[github-protocols] [https, ssh]
+[vendor-dir] vendor (D:\www\work\couponiang/vendor)
+[bin-dir] {$vendor-dir}/bin (D:\www\work\couponiang/vendor/bin)
+[cache-dir] C:/Users/Administrator/AppData/Local/Composer
+[data-dir] C:/Users/Administrator/AppData/Roaming/Composer
+[cache-files-dir] {$cache-dir}/files (C:/Users/Administrator/AppData/Local/Composer/files)
+[cache-repo-dir] {$cache-dir}/repo (C:/Users/Administrator/AppData/Local/Composer/repo)
+[cache-vcs-dir] {$cache-dir}/vcs (C:/Users/Administrator/AppData/Local/Composer/vcs)
+[cache-ttl] 15552000
+[cache-files-ttl] 15552000
+[cache-files-maxsize] 300MiB (314572800)
+[bin-compat] auto
+[discard-changes] false
+[autoloader-suffix]
+[sort-packages] false
+[optimize-autoloader] false
+[classmap-authoritative] false
+[apcu-autoloader] false
+[prepend-autoloader] true
+[github-domains] [github.com]
+[bitbucket-expose-hostname] true
+[disable-tls] false
+[secure-http] true
+[cafile]
+[capath]
+[github-expose-hostname] true
+[gitlab-domains] [gitlab.com]
+[store-auths] prompt
+[archive-format] tar
+[archive-dir] .
+[htaccess-protect] true
+[home] C:/Users/Administrator/AppData/Roaming/Composer
+```
+
+## 修改配置
+```sh
+composer config --global data-dir /www/.composer
+```
+
+## Packagist 镜像使用方法
 https://pkg.phpcomposer.com/
 ```sh
 composer config -g repo.packagist composer https://packagist.phpcomposer.com
 ```
+带 -g 为全局，不带为当前项目
 
 # composer.json 配置
 ```json
@@ -63,9 +135,11 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
         "psr-0": {
             "Monolog": "src"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
 ```
+
 
 
 # 创建与提交包
@@ -93,9 +167,11 @@ curl -XPOST -H'content-type:application/json' 'https://packagist.org/api/update-
 ## [Composer 包资源库网站](https://github.com/composer/packagist)
 - https://packagist.org/
 - https://packagist.com/ 私有库
+- https://asset-packagist.org/ 前端
 
 镜像：
 - https://pkg.phpcomposer.com/
+- https://packagist.laravel-china.org
 
 ### 参考：
 
@@ -205,7 +281,12 @@ C:\windows\system32>
 
 ## 创建项目
 
-composer -h create-project
+composer create-project
+
+```sh
+composer -vvv create-project laravel/laravel blog --prefer-dist
+```
+
 ```sh
 L:\Windows\system32>composer -h create-project
 Usage:
@@ -287,7 +368,7 @@ dev-master
 
 ## 自更新
 
-composer -h selfupdate
+composer selfupdate
 ```sh
 L:\Users\Benny>composer -h selfupdate
 Usage:
@@ -331,3 +412,125 @@ Help:
 L:\Users\Benny>
 ```
 
+## 更新包
+
+composer update
+
+```sh
+D:\www\work\couponiang>composer -h update
+Usage:
+  update [options] [--] [<packages>]...
+  u
+  upgrade
+
+Arguments:
+  packages                       Packages that should be updated, if not provided all packages are.
+
+Options:
+      --prefer-source            Forces installation from package sources when possible, including VCS information.
+      --prefer-dist              Forces installation from package dist even for dev versions.
+      --dry-run                  Outputs the operations but will not execute anything (implicitly enables --verbose).
+      --dev                      Enables installation of require-dev packages (enabled by default, only present for BC).
+      --no-dev                   Disables installation of require-dev packages.
+      --lock                     Only updates the lock file hash to suppress warning about the lock file being out of date.
+      --no-custom-installers     DEPRECATED: Use no-plugins instead.
+      --no-autoloader            Skips autoloader generation
+      --no-scripts               Skips the execution of all scripts defined in composer.json file.
+      --no-progress              Do not output download progress.
+      --no-suggest               Do not show package suggestions.
+      --with-dependencies        Add also dependencies of whitelisted packages to the whitelist, except those defined in root package.
+      --with-all-dependencies    Add also all dependencies of whitelisted packages to the whitelist, including those defined in root package.
+  -o, --optimize-autoloader      Optimize autoloader during autoloader dump.
+  -a, --classmap-authoritative   Autoload classes from the classmap only. Implicitly enables `--optimize-autoloader`.
+      --apcu-autoloader          Use APCu to cache found/not-found classes.
+      --ignore-platform-reqs     Ignore platform requirements (php & ext- packages).
+      --prefer-stable            Prefer stable versions of dependencies.
+      --prefer-lowest            Prefer lowest versions of dependencies.
+  -i, --interactive              Interactive interface with autocompletion to select the packages to update.
+      --root-reqs                Restricts the update to your first degree dependencies.
+  -h, --help                     Display this help message
+  -q, --quiet                    Do not output any message
+  -V, --version                  Display this application version
+      --ansi                     Force ANSI output
+      --no-ansi                  Disable ANSI output
+  -n, --no-interaction           Do not ask any interactive question
+      --profile                  Display timing and memory usage information
+      --no-plugins               Whether to disable plugins.
+  -d, --working-dir=WORKING-DIR  If specified, use the given directory as working directory.
+  -v|vv|vvv, --verbose           Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+
+Help:
+  The update command reads the composer.json file from the
+  current directory, processes it, and updates, removes or installs all the
+  dependencies.
+
+  php composer.phar update
+
+  To limit the update operation to a few packages, you can list the package(s)
+  you want to update as such:
+
+  php composer.phar update vendor/package1 foo/mypackage [...]
+
+  You may also use an asterisk (*) pattern to limit the update operation to package(s)
+  from a specific vendor:
+
+  php composer.phar update vendor/package1 foo/* [...]
+
+  To select packages names interactively with auto-completion use -i.
+```
+
+## 安装包
+
+composer install
+
+已存在 composer.lock 文件，先删除
+
+```sh
+D:\www\work\couponiang>composer -h install
+Usage:
+  install [options] [--] [<packages>]...
+  i
+
+Arguments:
+  packages                       Should not be provided, use composer require instead to add a given package to composer.json.
+
+Options:
+      --prefer-source            Forces installation from package sources when possible, including VCS information.
+      --prefer-dist              Forces installation from package dist even for dev versions.
+      --dry-run                  Outputs the operations but will not execute anything (implicitly enables --verbose).
+      --dev                      Enables installation of require-dev packages (enabled by default, only present for BC).
+      --no-dev                   Disables installation of require-dev packages.
+      --no-custom-installers     DEPRECATED: Use no-plugins instead.
+      --no-autoloader            Skips autoloader generation
+      --no-scripts               Skips the execution of all scripts defined in composer.json file.
+      --no-progress              Do not output download progress.
+      --no-suggest               Do not show package suggestions.
+  -o, --optimize-autoloader      Optimize autoloader during autoloader dump
+  -a, --classmap-authoritative   Autoload classes from the classmap only. Implicitly enables `--optimize-autoloader`.
+      --apcu-autoloader          Use APCu to cache found/not-found classes.
+      --ignore-platform-reqs     Ignore platform requirements (php & ext- packages).
+  -h, --help                     Display this help message
+  -q, --quiet                    Do not output any message
+  -V, --version                  Display this application version
+      --ansi                     Force ANSI output
+      --no-ansi                  Disable ANSI output
+  -n, --no-interaction           Do not ask any interactive question
+      --profile                  Display timing and memory usage information
+      --no-plugins               Whether to disable plugins.
+  -d, --working-dir=WORKING-DIR  If specified, use the given directory as working directory.
+  -v|vv|vvv, --verbose           Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+
+Help:
+  The install command reads the composer.lock file from
+  the current directory, processes it, and downloads and installs all the
+  libraries and dependencies outlined in that file. If the file does not
+  exist it will look for composer.json and do the same.
+
+  php composer.phar install
+```
+
+## 自动加载
+
+`composer dump-autoload`
+
+如果手动更新了 composer.json
