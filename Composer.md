@@ -281,7 +281,8 @@ dev-master
 "php": ">=5.3.3 <7.4"
 "ext-mbstring": "*",
 ```
-
+##### 参考：
+- [语义化版本](https://github.com/semver/semver.org/tree/gh-pages/lang/zh-CN)
 
 
 ## 自更新
