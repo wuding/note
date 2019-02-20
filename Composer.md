@@ -2,9 +2,29 @@ Composer 使用指南
 =================
 
 # 安装 Composer
-http://www.phpcomposer.com/
+https://getcomposer.org/
 
+https://www.phpcomposer.com/
 
+## Windows 安装
+
+https://getcomposer.org/Composer-Setup.exe
+
+### 手动安装
+- 下载 [composer.phar](https://getcomposer.org/composer.phar) 到 php 目录（设置好环境变量）
+```sh
+php composer.phar install
+```
+- 新建 composer.bat，内容如下：
+```sh
+C:\bin>echo @php "%~dp0composer.phar" %*>composer.bat
+```
+
+## Linux 安装
+```sh
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+```
 
 # 配置
 
@@ -17,9 +37,65 @@ https://pkg.phpcomposer.com/
 composer config -g repo.packagist composer https://packagist.phpcomposer.com
 ```
 
+# composer.json 配置
+```json
+{
+    "name": "monolog/monolog",
+    "type": "library",
+    "description": "Logging for PHP 5.3",
+    "keywords": ["log","logging"],
+    "homepage": "https://github.com/Seldaek/monolog",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jordi Boggiano",
+            "email": "j.boggiano@seld.be",
+            "homepage": "http://seld.be",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "ext-curl": "*",
+        "another-vendor/package": "1.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Monolog": "src"
+        }
+    }
+}
+```
 
 
 # 创建与提交包
+- 版本库根目录下放 composer.json
+- 自动加载依赖 `require 'vendor/autoload.php';`
+- 提交 https://packagist.org/packages/submit
+
+## 资源库自动更新包
+### 添加 Webhook
+- 装载网址 https://packagist.org/api/github?username=<用户名>
+
+  Bitbucket 的是 https://packagist.org/api/bitbucket?username=<用户名>&apiToken=API_TOKEN
+- 内容类型 application/json
+- 密钥 https://packagist.org/profile/ 你的 API Token
+- 事件只需要 push
+
+### 手动钩子
+- 网址 https://packagist.org/api/update-package?username=wuding&apiToken=API_TOKEN
+- 请求方法 POST
+- 请求内容 `{"repository":{"url":"PACKAGIST_PACKAGE_URL"}}`
+```sh
+curl -XPOST -H'content-type:application/json' 'https://packagist.org/api/update-package?username=USER_NAME&apiToken=API_TOKEN' -d'{"repository":{"url":"PACKAGIST_PACKAGE_URL"}}'
+```
+
+## [Composer 包资源库网站](https://github.com/composer/packagist)
+- https://packagist.org/
+- https://packagist.com/ 私有库
+
+镜像：
+- https://pkg.phpcomposer.com/
 
 ### 参考：
 
@@ -58,14 +134,14 @@ composer dump-autoload -o
 
 composer
 ```sh
-L:\Windows\system32>composer
+C:\windows\system32>composer
    ______
   / ____/___  ____ ___  ____  ____  ________  _____
  / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
 / /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
 \____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
                     /_/
-Composer version 1.7.1 2018-08-07 09:39:23
+Composer version 1.8.4 2019-02-11 10:52:10
 
 Usage:
   command [options] [arguments]
@@ -123,7 +199,7 @@ Available commands:
   why                  Shows which packages cause the given package to be installed.
   why-not              Shows which packages prevent the given package from being installed.
 
-L:\Windows\system32>
+C:\windows\system32>
 ```
 
 
