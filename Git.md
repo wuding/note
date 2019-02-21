@@ -307,15 +307,6 @@ C:\Users\Administrator\GitBook\Library\Import\testbook
 https://github.com/GitbookIO/plugin-hints
 
 
-{% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
-{% endhint %}
-
-
-
-
-
-
 ### 参考：
 
 [GitBook 从懵逼到入门](https://blog.csdn.net/lu_embedded/article/details/81100704)
