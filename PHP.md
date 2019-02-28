@@ -7,10 +7,13 @@ PHP 开发指南
 
 ### 下载
 http://windows.php.net/download
+
 http://windows.php.net/downloads/
+
 https://windows.php.net/downloads/releases/archives/php-5.4.45-Win32-VC9-x86.zip
 
 Thread Safe 才有 php7apache2_4.dll
+
 对应版本的 VC 运行库要安装
 
 
@@ -143,18 +146,27 @@ php.ini
 #### 配置文件
 
 1. **搜索路径**
+
     SAPI 指定位置 PHPIniDir, -c
+    
     PHPRC 环境变量
+    
     注册表 [HKEY_LOCAL_MACHINE\SOFTWARE\PHP\(x(.y(.z)))] IniFilePath
+    
     当前工作目录（对于 CLI）
+    
     ?web 服务器(根)目录（对于 SAPI 模块）
+    
     Windows 目录
 
 2. **名称**
+
     php-SAPI.ini 会替代 php.ini
 
 3. **可以使用**
+
     环境变量
+    
     引用已存在的 .ini 变量 open_basedir = ${open_basedir} ":/new/dir"
 
 
@@ -171,10 +183,10 @@ php.ini
 
 #### 配置可被设定范围
 
-  PHP_INI_ALL 可在任何地方设定 
-  PHP_INI_USER ini_set() 注册表 .user.ini  
-  PHP_INI_PERDIR 可在 php.ini httpd.conf  .htaccess (.user.ini ?)
-  PHP_INI_SYSTEM 可在 php.ini 或 httpd.conf
+- PHP_INI_ALL 可在任何地方设定 
+- PHP_INI_USER ini_set() 注册表 .user.ini  
+- PHP_INI_PERDIR 可在 php.ini httpd.conf  .htaccess (.user.ini ?)
+- PHP_INI_SYSTEM 可在 php.ini 或 httpd.conf
 
 
 
@@ -333,22 +345,31 @@ session.use_only_cookies = 1
 Trait
 
 重载
+
 __set
+
 __get
+
 __isset
+
 __unset
 
 __call
+
 __callStatic
 
 魔术方法
+
 __sleep
+
 __wakeup
 
 __toString
+
 __invoke
 
 __set_state
+
 __debugInfo
 
 
@@ -399,7 +420,9 @@ $dom->loadHTML(mb_convert_encoding($profile, 'HTML-ENTITIES', 'UTF-8'));
 选项列表 
 
 段列表 
+
 [HOST=<host>]
+   
 [PATH=<path>] 
 
 (核心配置)选项说明 
@@ -410,8 +433,9 @@ $dom->loadHTML(mb_convert_encoding($profile, 'HTML-ENTITIES', 'UTF-8'));
 
 ### 版本差异
 
-PHP5.6 不可以用list作为对象方法，PHP7可以
-PHP5.4 不可以 $class->object()::staticfunc(); 要 $obj = $class->object(); $obj::staticfunc(); object()是获取一个对象
+- PHP5.6 不可以用list作为对象方法，PHP7可以
+- PHP5.4 不可以 $class->object()::staticfunc(); 要 $obj = $class->object(); $obj::staticfunc(); object()是获取一个对象
+- [一篇文章帮你了解 PHP 7.3 更新](https://learnku.com/laravel/t/21549)
 
 
 
@@ -465,7 +489,7 @@ https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc-tags.md
 - [【PHP开发】国外程序员收集整理的 PHP 资源大全](http://www.cnblogs.com/taletao/p/4212916.html)
 - [现代 PHP 新特性系列](https://laravelacademy.org/post/4221.html)
 - [PHP 资源大全中文版](https://github.com/jobbole/awesome-php-cn)
-
+- [PHP升级代码兼容](https://juejin.im/post/5c372d0ae51d4552475fba0d)
 
 
 ## VIII. 编辑器
