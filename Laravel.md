@@ -10,6 +10,7 @@ Laravel 开发手册
 - https://github.com/summerblue/laravel-shop
 - https://github.com/z-song/laravel-admin
 - [Laravel 5.8 中文文档](https://learnku.com/docs/laravel/5.8)
+- [上线清单 —— 20 个 Laravel 应用性能优化项](https://learnku.com/laravel/t/24559)
 
 
 
