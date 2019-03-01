@@ -484,3 +484,5 @@ C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Sta
 - https://nginx.org/en/docs/ => http://tengine.taobao.org/nginx_docs/cn/
 - https://wizardforcel.gitbooks.io/nginx-doc <=> https://www.kancloud.cn/wizardforcel/nginx-doc
 - https://www.yiibai.com/nginx/
+- [Nginx 烹调书](https://huliuqing.gitbooks.io/complete-nginx-cookbook-zh/)
+- [Nginx完全配置指南](https://legacy.gitbook.com/book/lingerhk/complete-nginx-cookbook/details)
