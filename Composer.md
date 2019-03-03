@@ -143,7 +143,7 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
 
 # 创建与提交包
-- 版本库根目录下放 composer.json
+- 版本库根目录下运行命令 `composer init` 创建配置文件 composer.json
 - 自动加载依赖 `require 'vendor/autoload.php';`
 - 提交 https://packagist.org/packages/submit
 
