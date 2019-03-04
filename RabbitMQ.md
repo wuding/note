@@ -14,6 +14,9 @@ https://github.com/rabbitmq/rabbitmq-tutorials
 ## 安装
 需要先安装 http://www.erlang.org/downloads
 
+```sh
+rabbitmq-plugins enable rabbitmq_management #启动监控页面插件
+```
 管理页面 http://127.0.0.1:15672/
 
 ## PHP-AMQP
@@ -22,6 +25,10 @@ http://docs.php.net/manual/da/book.amqp.php
 http://pecl.php.net/package/amqp
 
 http://github.com/pdezwart/php-amqp
+
+## php-amqplib
+https://packagist.org/packages/php-amqplib/php-amqplib
+
 
 ## php-resque
 https://github.com/chrisboulton/php-resque
