@@ -12,7 +12,7 @@ https://github.com/rabbitmq/rabbitmq-tutorials
 - [随笔分类 - RabbitMQ](http://www.cnblogs.com/wt645631686/category/1171220.html)
 
 ## 安装
-需要先安装 
+需要先安装 http://www.erlang.org/downloads
 
 管理页面 http://127.0.0.1:15672/
 
