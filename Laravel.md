@@ -6,7 +6,7 @@ Laravel 开发手册
 - [2017 版 Laravel 系列入门教程](https://github.com/johnlui/Learn-Laravel-5)
 - https://github.com/OMGZui/noteBook/tree/master/php/laravel
 - [Laravel 完整开源项目大全](https://laravelacademy.org/laravel-project)
-- https://github.com/summerblue/laravel5-cheatsheet
+- https://github.com/summerblue/laravel5-cheatsheet | https://cs.laravel-china.org/
 - https://github.com/summerblue/laravel-shop
 - https://github.com/z-song/laravel-admin
 - [Laravel 5.8 中文文档](https://learnku.com/docs/laravel/5.8)
