@@ -888,3 +888,5 @@ storage/logs/
 php artisan key:generate
 ```
 
+### 500 Whoops, something went wrong on our servers.
+缺少 .env
