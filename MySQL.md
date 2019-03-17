@@ -842,7 +842,7 @@ start slave;
 
 # 读写分离
 
-MySQL Proxy
+MySQL Router <- MySQL Proxy
 
 [MyCat](https://github.com/MyCATApache/Mycat-Server) <- Cobar <-  [Amoeba](https://sourceforge.net/projects/amoeba/)
 
@@ -850,9 +850,9 @@ MySQL Proxy
 
 
 
-### 参考：
-
-[MySQL读写分离](https://www.cnblogs.com/phpstudy2015-6/p/6687480.html)
+##### 参考：
+- [MySQL读写分离](https://www.cnblogs.com/phpstudy2015-6/p/6687480.html)
+- [MySQL Router](https://www.jianshu.com/p/7fc8d77bea59)
 
 
 
