@@ -170,6 +170,9 @@ access_log  logs/access.log  main;
 ```
 如果日志文件不存在，那失败原因会记录在Windows事件日志中。
 
+##### 参考：
+- [nginx的error.log日志常见的几个错误解决方法](https://blog.51cto.com/chenx1242/1769724)
+
 ## 错误页面
 ```
 error_page   500 502 503 504  /50x.html;
@@ -458,6 +461,10 @@ http {
 ```
 netsh winsock reset
 ```
+
+
+## SSL: error:0200107B:system library:fopen:Unknown error:fopen
+SSL 证书必须放 conf 目录下，用相对路径，如：cert/example.com.crt
 
 
 
