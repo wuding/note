@@ -49,6 +49,12 @@ mysqld --remove MySQL
 mysqld --help
 ```
 
+使用 sc 服务控制：
+```sh
+sc delete MySQL56
+sc create MySQL56 start= auto  DisplayName= MySQL56  binPath= "\"C:\Program Files\MySQL\MySQL Server 5.6\bin\mysqld.exe\" --defaults-file=\"C:\ProgramData\MySQL\MySQL Server 5.6\my.ini\" MySQL56"
+```
+
 ### 彻底删除
 ```sh
 net stop MySQL
@@ -64,7 +70,8 @@ sc delete MySQL
 ```
 搜索 MySQL
 
-
+##### 参考：
+- https://stackoverflow.com/questions/49958404/how-to-create-a-windows-service-using-sc-mysql
 
 ## 安装错误
 
