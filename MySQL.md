@@ -44,8 +44,8 @@ https://dev.mysql.com/downloads/mysql/8.0.html
 ## Windows 服务
 
 ```sh
-mysqld -install
-mysqld -remove MySQL
+mysqld --install
+mysqld --remove MySQL
 mysqld --help
 ```
 
