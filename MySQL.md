@@ -827,7 +827,15 @@ reset slave;
 start slave;
 ```
 
+### ERROR 1290 (HY000): The MySQL server is running with the --secure-file-priv option so it cannot execute this statement
 
+```ini
+secure-file-priv=""
+```
+
+##### 参考：
+
+- [mysql5.7导出数据提示--secure-file-priv选项问题的解决方法](http://www.php.cn/mysql-tutorials-401995.html)
 
 ### 参考：
 
