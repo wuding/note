@@ -331,7 +331,29 @@ AllowOverride All
 echo > .htaccess
 ```
 
-
+### URL Rewrite
+#### RewriteMap id2name
+```
+<VirtualHost *:80>
+    DocumentRoot K:\www\cache\http
+    ServerName 1.urlnk.host
+    ServerAlias *.urlnk.host
+    #ServerPath "/f"
+    RewriteEngine On
+    RewriteMap id2name "txt:K:\Astrology\config\webserver\apache\RewriteMap-archive.urlnk.host.txt"
+    RewriteCond %{HTTP_HOST} ^([0-9]+).urlnk.host$
+    #RewriteRule ^(.*) /info.php?host=%1&uri=$1 [L]
+    RewriteRule ^(.*) /${id2name:%1|NOTFOUND}$1 [L]
+	
+    RewriteCond %{HTTP_HOST} ^(.*).urlnk.host$
+    #RewriteCond %{REQUEST_URI} ^(.*)?(.*)$
+    #RewriteRule ^/(|index\.html)$ /%1/index.html [PT]
+    RewriteRule ^(.*) /%1$1 [L]
+	
+    #RewriteRule "^(.*)" "/%{SERVER_NAME}/$1"
+    #RewriteRule "^(/f/.*)" "/json.cn/fonts/index.php?%{SERVER_NAME}&SDFGE=$1replace(%{SERVER_NAME},'.wubenli.top','')"
+</VirtualHost>
+```
 
 ### 其它配置
 
