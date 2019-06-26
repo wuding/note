@@ -438,6 +438,18 @@ ssh-keygen -t rsa -C "youremail"
 
 
 
+### 访问权限
+
+删除用户目录里的 .ssh 文件夹中的文件 known_hosts，执行上一条问题解决 SSH key 命令，添加 SSH key 到 GitHub
+
+```sh
+ssh -T git@github.com
+```
+
+- [git遇到的问题之“Please make sure you have the correct access rights and the repository exists.”](https://blog.csdn.net/jingtingfengguo/article/details/51892864)
+
+
+
 ####  HTTPS 无法访问
 
 - [github clone遇到的问题](https://my.oschina.net/u/149047/blog/673358)
