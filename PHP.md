@@ -135,6 +135,8 @@ php.ini
 
 [php.ini中文版](https://github.com/SeonWaterLee/php-ini)
 
+[php.ini 中文版 [金步国]](http://www.jinbuguo.com/php/php52-ini.html)
+
 [PHP配置文件的中文翻译](https://github.com/HeDefine/PHP.ini-for-Chinese)
 
 [very-secure-php-ini](https://github.com/danehrlich1/very-secure-php-ini)
@@ -422,7 +424,7 @@ $dom->loadHTML(mb_convert_encoding($profile, 'HTML-ENTITIES', 'UTF-8'));
 段列表 
 
 [HOST=<host>]
-   
+
 [PATH=<path>] 
 
 (核心配置)选项说明 
@@ -463,11 +465,11 @@ https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc-tags.md
 ## VI. 关键技术
 
   Queries per second (QPS)
-  
+
   OOP
-  
+
   缓存技术、静态化设计
-  
+
   Web Service
 
 

@@ -459,6 +459,20 @@ ssh -T git@github.com
 
 
 
+### fatal: Authentication failed for
+
+HTTPS 方式提示验证错误，可以如下解决：
+
+```sh
+git config --system --unset credential.helper
+```
+
+重新打开 Git GUI 就会再次提示输入用户名和密码
+
+- [fatal: Authentication failed for又不弹出用户名和密码 解决办法](https://www.jianshu.com/p/8a7f257e07b8)
+
+
+
 #### 账号问题
 
 控制面板\所有控制面板项\凭据管理器
