@@ -23,9 +23,9 @@ Web 开发笔记，后面会整理成[教程](https://github.com/static-site/tut
 
 [Cygwin 使用指南](Cygwin.md)
 
-[CMD](CMD.md)
+[CMD](cmd.md)
 
-[cURL](cURL.md)
+[cURL](curl.md)
 
 [Git](Git.md)
 
