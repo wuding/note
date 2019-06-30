@@ -2,7 +2,7 @@
 
 ### 目录
 
-[安装 Ubuntu](#安装 Ubuntu)
+[安装 Ubuntu](Ubuntu.md#安装 Ubuntu)
 
 [安装 Apache](#安装 Apache)
 
