@@ -40,10 +40,23 @@ chmod a+x /usr/local/bin/composer
 
 # 配置 Composer
 
-配置文件位置
-*L:\Users\Benny\AppData\Roaming\Composer\config.json*
+### 环境变量
+
+系统变量
+
+C:\ProgramData\ComposerSetup\bin
+
+用户变量
+
+C:\Users\86176\AppData\Roaming\Composer\vendor\bin
+
+
 
 ## 查看配置
+
+配置文件位置：
+*L:\Users\Benny\AppData\Roaming\Composer\config.json*
+
 查看镜像地址：
 ```sh
 $ composer config -g repo.packagist
