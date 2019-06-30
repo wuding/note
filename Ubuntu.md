@@ -8,6 +8,10 @@
 
 微软应用商店搜索并安装 ubuntu
 
+文件系统根目录
+
+C:\Users\86176\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs
+
 
 
 ## 安装 Apache
