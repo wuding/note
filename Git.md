@@ -115,6 +115,23 @@ git push origin :<branch_name>
 
 
 
+## 远程.md
+
+**远程仓库的重命名**
+
+```sh
+git remote rename origin old-origin
+```
+
+**远程仓库的删除**
+
+```sh
+git remote rm old-origin
+```
+
+
+
+
 GitHub.md
 ---------
 
