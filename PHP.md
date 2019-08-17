@@ -438,6 +438,7 @@ $dom->loadHTML(mb_convert_encoding($profile, 'HTML-ENTITIES', 'UTF-8'));
 - PHP5.6 不可以用list作为对象方法，PHP7可以
 - PHP5.4 不可以 $class->object()::staticfunc(); 要 $obj = $class->object(); $obj::staticfunc(); object()是获取一个对象
 - [一篇文章帮你了解 PHP 7.3 更新](https://learnku.com/laravel/t/21549)
+- [【PHP】PHP 7.4 新特性](https://www.cnblogs.com/chenpingzhao/p/10605712.html)
 
 
 
