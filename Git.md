@@ -129,6 +129,10 @@ git remote rename origin old-origin
 git remote rm old-origin
 ```
 
+#### 参考：
+
+%ProgramFiles%/Git/mingw64/share/doc/git-doc/git-remote.html
+
 
 
 
