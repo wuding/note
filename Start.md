@@ -11,10 +11,18 @@ https://github.com/bannedbook/fanqiang
 用的人多，支持标准，好用的开发工具
 
 
+### 修改快捷方式 目标
+```
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --user-data-dir="P:\Users\Benny\AppData\Local\Google\Chrome\User Data"
+```
 
-### 安装扩展：谷歌访问助手
 
-你懂的
+### 安装扩展
+- [谷歌访问助手](https://github.com/haotian-wang/google-access-helper)
+- 谷歌服务助手
+
+
+
 
 
 
