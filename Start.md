@@ -27,8 +27,9 @@ https://github.com/bannedbook/fanqiang
 
 
 ###  安装 VPN 扩展 
-
-例如 uVPN, 免费VPN扩展
+- SetupVPN
+- uVPN
+- 免费VPN扩展
 
 
 
