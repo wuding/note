@@ -182,9 +182,11 @@ curl -XPOST -H'content-type:application/json' 'https://packagist.org/api/update-
 - https://packagist.com/ 私有库
 - https://asset-packagist.org/ 前端
 
-镜像：
-- https://pkg.phpcomposer.com/
-- https://packagist.laravel-china.org
+[镜像](https://packagist.org/mirrors)：
+- https://pkg.phpcomposer.com/ 设置为 https://packagist.phpcomposer.com
+- https://developer.aliyun.com/composer 设置为 https://mirrors.aliyun.com/composer/
+- https://php.cnpkg.org/
+- [Composer 国内加速：可用镜像列表](https://learnku.com/composer/wikis/30594)
 
 ### 参考：
 
@@ -219,7 +221,7 @@ composer dump-autoload -o
 
 
 
-# 帮助
+## 帮助
 
 composer
 ```sh
@@ -547,3 +549,6 @@ Help:
 `composer dump-autoload`
 
 如果手动更新了 composer.json
+
+# 参考
+- [Composer 中文文档](https://learnku.com/docs/composer/2018)
