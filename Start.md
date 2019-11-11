@@ -13,7 +13,7 @@ https://github.com/bannedbook/fanqiang
 
 ### 修改快捷方式 目标
 ```
-"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --user-data-dir="P:\Users\Benny\AppData\Local\Google\Chrome\User Data"
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --user-data-dir="P:\Users\Benny\AppData\Local\Google\Chrome\User Data" --profile-directory="Profile 1"
 ```
 
 
