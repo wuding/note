@@ -12,12 +12,15 @@ http://httpd.apache.org/download.cgi
 
 ### 下载最新版
 选择其中一个发行版
+
 http://httpd.apache.org/docs/current/platform/windows.html#down
 
 例如
+
 https://www.apachelounge.com/download/
 
 压缩包文件地址
+
 http://home.apache.org/~steffenal/VC15/binaries/httpd-2.4.34-win64-VC15.zip
 
 
@@ -25,17 +28,21 @@ http://home.apache.org/~steffenal/VC15/binaries/httpd-2.4.34-win64-VC15.zip
 ### 下载旧版 2.2
 
 这个版本支持 Windows XP/2003
+
 http://archive.apache.org/dist/httpd/binaries/win32/
 https://www.apachelounge.com/download/win32/
 
 选择是否包含 SSL
+
 http://archive.apache.org/dist/httpd/binaries/win32/httpd-2.2.25-win32-x86-no_ssl.msi
 http://archive.apache.org/dist/httpd/binaries/win32/httpd-2.2.25-win32-x86-openssl-0.9.8y.msi
 
 这个稍微新一点
+
 https://www.apachelounge.com/download/win32/binaries/httpd-2.2.34-win32.zip
 
 需要 VC++ 2010
+
 https://www.microsoft.com/zh-CN/download/details.aspx?id=8328
 
 
@@ -43,6 +50,7 @@ https://www.microsoft.com/zh-CN/download/details.aspx?id=8328
 ## 安装
 
 官方文档
+
 http://httpd.apache.org/docs/2.4/platform/windows.html
 
 安装为服务前请先配置
@@ -106,6 +114,7 @@ D:\ProgramFiles\Apache24\bin>
 ### 模块
 
 **mod_fcgid**
+
 https://www.apachelounge.com/download/
 https://www.apachelounge.com/download/VC15/modules/mod_fcgid-2.3.9-win64-VC15.zip
 
@@ -166,6 +175,7 @@ DocumentRoot "c:/Apache24/htdocs/html"
 Listen 80
 ```
 启动时要保证相同端口不被其他程序占用
+
 http://jingyan.baidu.com/article/c85b7a642df6f7003bac95d9.html
 
 
@@ -302,16 +312,13 @@ FcgidWrapper "G:/ProgramFiles/php-7.1.3-x64/php-cgi.exe" .php
 
 **ISAPI**
 PHP 线程安全 ts 有 php7apache2_4.dll
-Apache 2.2
 
 ```sh
-LoadModule php5_module "c:/php/php5apache2.dll"
+LoadModule php7_module "E:/env/win/ProgramFiles/php-7.3.9/php7apache2_4.dll"
+<IfModule php7_module>
+PHPIniDir "E:/env/win/ProgramFiles/php-7.3.9"
 AddHandler application/x-httpd-php .php
-```
-
-configure the path to php.ini
-```
-PHPIniDir "C:/php"
+</IfModule>
 ```
 
 **URL 重写**
