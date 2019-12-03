@@ -310,6 +310,20 @@ FcgidWrapper "G:/ProgramFiles/php-7.1.3-x64/php-cgi.exe" .php
 </IfModule>
 ```
 
+httpd-fcgid.conf
+
+```
+FcgidIOTimeout 384
+FcgidConnectTimeout 360
+FcgidOutputBufferSize 128
+FcgidMaxRequestsPerProcess 1000
+FcgidMinProcessesPerClass 0
+FcgidMaxProcesses 16
+FcgidMaxRequestLen 268435456
+ProcessLifeTime 360
+FcgidInitialEnv PHP_FCGI_MAX_REQUESTS 1000
+```
+
 **ISAPI**
 PHP 线程安全 ts 有 php7apache2_4.dll
 
@@ -317,7 +331,7 @@ PHP 线程安全 ts 有 php7apache2_4.dll
 LoadModule php7_module "E:/env/win/ProgramFiles/php-7.3.9/php7apache2_4.dll"
 <IfModule php7_module>
 PHPIniDir "E:/env/win/ProgramFiles/php-7.3.9"
-AddHandler application/x-httpd-php .php
+AddType application/x-httpd-php .php
 </IfModule>
 ```
 
