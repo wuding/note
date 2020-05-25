@@ -149,6 +149,24 @@ server {
 ```
 请注意"default_server"是监听端口的属性，而不是主机名的属性。
 
+
+
+## 虚拟目录
+
+```
+location /path/ {
+    root html
+}
+# 实际访问 html/path/
+
+location /paths/ {
+    alias html/paths/
+}
+# 路径结尾必须加斜杠
+```
+
+
+
 ## 进程
 
 ```
@@ -361,7 +379,7 @@ location ~ \.php$ {
   proxy_set_header X-Forwarded-For $remote_addr;
   proxy_pass   http://192.168.80.22:8080;
 }
- ```
+```
 
 ## 负载均衡
 ```
