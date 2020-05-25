@@ -26,9 +26,11 @@ Thread Safe 才有 php7apache2_4.dll
 
 #### VC15
 
-https://visualstudio.microsoft.com/downloads/
+https://visualstudio.microsoft.com/downloads/ => https://visualstudio.microsoft.com/zh-hans/downloads/
 
-Other Tools and Frameworks > Microsoft Visual C++ Redistributable for Visual Studio 2017
+Other Tools and Frameworks > Microsoft Visual C++ Redistributable for Visual Studio 2019
+
+https://aka.ms/vs/16/release/VC_redist.x64.exe
 
 
 
@@ -115,7 +117,7 @@ Usage: php [-q] [-h] [-s] [-v] [-i] [-f <file>]
   -T <count>       Measure execution time of script repeated <count> times.
   
 #  直接运行
-php-cgi.exe -b 127.0.0.1:9000 -c php\php.ini
+start php-cgi.exe -b 127.0.0.1:9000 -c php\php.ini
 
 # 使用 xxfpm
 start D:/ProgramFiles/nginx-1.13.10/RunHiddenConsole.exe D:/ProgramFiles/nginx-1.13.10/xxfpm.exe "D:/ProgramFiles/php-7.2.3-nts-x64/php-cgi.exe" -n 2 -i 127.0.0.1 -p 9000
