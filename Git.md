@@ -120,7 +120,7 @@ git push origin :<branch_name>
 **远程仓库的重命名**
 
 ```sh
-git remote rename origin old-origin
+git remote rename old-origin new-origin
 ```
 
 **远程仓库的删除**
