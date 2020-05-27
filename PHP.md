@@ -45,7 +45,7 @@ php -v
 
 
 
-### 命令行
+### [命令行](https://www.php.net/manual/zh/features.commandline.php)
 
 ```sh
 C:\Users\Administrator>php -h
@@ -90,9 +90,28 @@ Usage: php [options] [-f] <file> [--] [args...]
   --re <name>      Show information about extension <name>.
   --rz <name>      Show information about Zend extension <name>.
   --ri <name>      Show configuration for extension <name>.
+
+
+# 内置Web Server
+php -S localhost:8000 -t foo/ router.php
 ```
 
+router.php
+
+```php
+<?php
+// router.php
+if (preg_match('/\.(?:png|jpg|jpeg|gif)$/', $_SERVER["REQUEST_URI"]))
+    return false;    // 直接返回请求的文件
+else {
+    echo "<p>Welcome to PHP</p>";
+}
+```
+
+
+
 #### PHP-CGI
+
 ```sh
 K:\env\win\ProgramFiles\php-7.3.0>php-cgi -h
 Usage: php [-q] [-h] [-s] [-v] [-i] [-f <file>]
