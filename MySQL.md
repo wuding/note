@@ -149,11 +149,16 @@ my.ini
 port=3306
 [mysql]
 default-character-set=utf8
+[mysqld]
+character-set-server=utf8mb4
 ```
 
 mysql
 
 ```sql
+-- 查看MySql编码格式
+show variables like '%char%';
+
 set character_set_database=utf8;
 set character_set_server=utf8;
 set character_set_client=gb2312;
@@ -164,6 +169,12 @@ set character_set_results=gb2312;
 ```
 
 [MySQL命令行查询乱码解决方法：](https://www.cnblogs.com/aksir/p/7070493.html)
+
+[MySql中文乱码的那些事](https://www.jianshu.com/p/f6a6b624fc11)
+
+[关于MySQL中的8个 character_set 变量说明](https://www.jianshu.com/p/7e839daccaf6)
+
+[mysql字符集小结](https://blog.csdn.net/wyzxg/article/details/8779682)
 
 
 
