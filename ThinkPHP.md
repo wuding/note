@@ -83,6 +83,23 @@ Config::get('config.name1');
 Config::has('template');
 ```
 
+#### 缓存配置
+
+cache.php
+
+```php
+'redis' => [
+    'type' => 'redis',
+    'host' => env('redis.host', '127.0.0.1'),
+    'port' => env('redis.port', '6379'),
+    'password' => 'redis3.2.100',
+    'select' => '0',
+    'expire' => 0,
+    'prefix' => '',
+    'timeout' => 0,
+],
+```
+
 
 
 ## 架构
