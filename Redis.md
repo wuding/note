@@ -23,21 +23,6 @@ https://redis.io/
 - https://github.com/microsoftarchive/redis
 - https://github.com/ServiceStack/redis-windows
 
-#### 服务
-
-- https://github.com/alfishe/redis-service
-
-- https://github.com/kcherenkov/redis-windows-service
-
-#### 工具
-
-- [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager/releases/tag/0.8.8) 最后的免费版本 0.8.8
-
-- https://github.com/cinience/RedisStudio
-- https://github.com/qishibo/AnotherRedisDesktopManager
-- https://github.com/lework/RedisDesktopManager-Windows
-- https://github.com/lloy1231/RedisDesktopManager-Windows
-
 #### 目录文件说明
 
 |                            |                |                                                              |
@@ -50,6 +35,8 @@ https://redis.io/
 | redis.windows.conf         | 配置文件       | 将redis作为普通软件使用的配置，命令行关闭则redis关闭         |
 | redis.windows-service.conf | 配置文件       | 将redis作为系统服务的配置，用以区别开两种不同的使用方式      |
 
+
+
 #### 测试
 
 启动 redis
@@ -60,39 +47,67 @@ redis-server.exe redis.windows.conf
 
 
 
-#### Windows Subsystem for Linux（WSL）
+#### 服务
+
+- https://github.com/alfishe/redis-service
+
+- https://github.com/kcherenkov/redis-windows-service
+
+##### 注册服务
+
+```bash
+redis-server.exe --service-install redis.windows.conf --loglevel verbose
+```
+
+##### 删除服务
+
+```bash
+redis-server --service-uninstall
+```
+
+##### 开启服务
+
+```bash
+redis-server --service-start
+```
+
+##### 停止服务
+
+```bash
+redis-server --service-stop
+```
+
+##### 重命名服务
+
+```bash
+redis-server --service-name name
+
+redis-server --service-install --service-name redisService3 --port 10003
+redis-server --service-start --service-name redisService3
+```
+
+##### 可执行文件的路径
+
+```bash
+"C:\Program Files\Redis\redis-server.exe" --service-run "C:\Program Files\Redis\redis.windows-service.conf"
+```
+
+
+
+#### 工具
+
+- [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager/releases/tag/0.8.8) 最后的免费版本 0.8.8
+
+- https://github.com/cinience/RedisStudio
+- https://github.com/qishibo/AnotherRedisDesktopManager
+- https://github.com/lework/RedisDesktopManager-Windows
+- https://github.com/lloy1231/RedisDesktopManager-Windows
+
+
+
+### Windows Subsystem for Linux（WSL）
 
 - [如何在Windows系统下优雅地运行Redis](https://zhuanlan.zhihu.com/p/56374534)
-
-
-
-## Windows 服务
-
-注册服务
-
-
-redis-server.exe --service-install redis.windows.conf
-
-
-
-删除服务
-
-
-redis-server --service-uninstall
-
-
-
-开启服务
-
-
-redis-server --service-start
-
-
-
-停止服务
-
-
-redis-server --service-stop
 
 
 
@@ -103,7 +118,7 @@ redis-server --service-stop
 cmd 运行
 
 ```bash
-redis-cli.exe -h 127.0.0.1 -p 6379
+redis-cli.exe -h 127.0.0.1 -p 6379 -a test123
 ```
 
 测试
@@ -117,9 +132,32 @@ get name
 
 ### PHP
 
-- https://github.com/phpredis/phpredis
+- https://github.com/phpredis/phpredis => https://pecl.php.net/package/redis
 - https://github.com/nrk/predis
 
 #### 工具
 
 - https://github.com/erikdubbelboer/phpRedisAdmin
+
+
+
+## 配置
+
+### 密码
+
+配置文件
+
+```
+requirepass foobared
+```
+
+命令行
+
+```bash
+config set requirepass test123
+config get requirepass
+
+# 密码验证
+auth test123
+```
+
