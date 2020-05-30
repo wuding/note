@@ -207,6 +207,17 @@ curl -XPOST -H'content-type:application/json' 'https://packagist.org/api/update-
 **参考：**
 - [composer常见问题之openSSL](https://www.jianshu.com/p/46150555273b)
 
+### exists as ... but these are rejected by your constraint
+
+- `1.0.*`
+- `dev-master`
+- `dev-master#<hash>`
+- `@dev`
+
+### 命名空间使用
+
+要和 composer.json 中 autoload 设置的一样，大小写敏感
+
 
 
 # 常用命令
@@ -300,6 +311,9 @@ composer create-project
 
 ```sh
 composer -vvv create-project laravel/laravel blog --prefer-dist
+
+# 指定版本
+composer create-project laravel/laravel=5.2.*
 ```
 
 ```sh
