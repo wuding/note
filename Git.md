@@ -311,7 +311,7 @@ gitbook build --debug //输出错误信息
         "myPlugin": {
             "message": "Hello World"
         }
-     }    
+     }
 }
 ```
 
@@ -446,11 +446,19 @@ https://git-scm.com/book/zh/v1/自定义-Git-配置-Git#格式化与空白
 
 
 
+### wrong # args: should be "ui_status msg"
+
+```bash
+git config --global core.autocrlf false
+```
+
+
+
 ### SSH key
 
 ```sh
 git config --global user.name "yourname"
-git config --global user.email "youremail" 
+git config --global user.email "youremail"
 
 ssh-keygen -t rsa -C "youremail"
 ```
