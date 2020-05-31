@@ -1,16 +1,55 @@
-Composer 使用指南
-=================
+# Composer 使用指南
 
-# 安装 Composer
+
+
+## 目录
+
+[安装 Composer](#安装-Composer)
+
+- Windows 安装
+
+- Linux / Mac 安装
+
+配置 Composer
+
+- 查看配置
+- 修改配置
+- Packagist 镜像使用方法
+
+composer.json 配置
+
+创建与提交包
+
+- 资源库自动更新包
+- Composer 包资源库网站
+
+常见问题
+
+常用命令
+
+- 帮助
+- 创建项目
+- 自更新
+- 更新包
+- 安装包
+- 自动加载
+
+[参考](#参考 )
+
+
+
+## [安装 Composer](#安装-Composer)
 https://getcomposer.org/
 
 https://www.phpcomposer.com/
 
-## Windows 安装
+
+
+### Windows 安装
 
 https://getcomposer.org/Composer-Setup.exe
 
-### [手动安装](https://getcomposer.org/download/)
+#### [手动安装](https://getcomposer.org/download/)
 - 下载 [composer.phar](https://getcomposer.org/composer.phar) 到 php 目录（设置好环境变量）
 ```sh
 php composer.phar install
@@ -24,7 +63,10 @@ php composer.phar install
 C:\bin>echo @php "%~dp0composer.phar" %*>composer.bat
 ```
 
-## Linux / Mac 安装
+
+
+### Linux / Mac 安装
+
 ```sh
 curl -sS https://getcomposer.org/installer | php
 # 全局安装
@@ -38,9 +80,11 @@ chmod a+x /usr/local/bin/composer
 ```
 如遇权限不足，可添加 `sudo`
 
-# 配置 Composer
 
-### 环境变量
+
+## 配置 Composer
+
+#### 环境变量
 
 系统变量
 
@@ -52,7 +96,7 @@ C:\Users\86176\AppData\Roaming\Composer\vendor\bin
 
 
 
-## 查看配置
+### 查看配置
 
 配置文件位置：
 *L:\Users\Benny\AppData\Roaming\Composer\config.json*
@@ -110,19 +154,27 @@ composer config -l -g
 [home] C:/Users/Administrator/AppData/Roaming/Composer
 ```
 
-## 修改配置
+
+
+### 修改配置
+
 ```sh
 composer config --global data-dir /www/.composer
 ```
 
-## Packagist 镜像使用方法
+
+
+### Packagist 镜像使用方法
+
 https://pkg.phpcomposer.com/
 ```sh
 composer config -g repo.packagist composer https://packagist.phpcomposer.com
 ```
 带 -g 为全局，不带为当前项目
 
-# composer.json 配置
+
+
+## composer.json 配置
 ```json
 {
     "name": "monolog/monolog",
@@ -155,13 +207,16 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
 
 
-# 创建与提交包
+## 创建与提交包
 - 版本库根目录下运行命令 `composer init` 创建配置文件 composer.json
 - 自动加载依赖 `require 'vendor/autoload.php';`
 - 提交 https://packagist.org/packages/submit
 
-## 资源库自动更新包
-### 添加 Webhook
+
+
+### 资源库自动更新包
+
+#### 添加 Webhook
 - 装载网址 https://packagist.org/api/github?username=<用户名>
 
   Bitbucket 的是 https://packagist.org/api/bitbucket?username=<用户名>&apiToken=API_TOKEN
@@ -169,7 +224,7 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 - 密钥 https://packagist.org/profile/ 你的 API Token
 - 事件只需要 push
 
-### 手动钩子
+#### 手动钩子
 - 网址 https://packagist.org/api/update-package?username=wuding&apiToken=API_TOKEN
 - 请求方法 POST
 - 请求内容 `{"repository":{"url":"PACKAGIST_PACKAGE_URL"}}`
@@ -177,7 +232,7 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 curl -XPOST -H'content-type:application/json' 'https://packagist.org/api/update-package?username=USER_NAME&apiToken=API_TOKEN' -d'{"repository":{"url":"PACKAGIST_PACKAGE_URL"}}'
 ```
 
-## [Composer 包资源库网站](https://github.com/composer/packagist)
+### [Composer 包资源库网站](https://github.com/composer/packagist)
 - https://packagist.org/
 - https://packagist.com/ 私有库
 - https://asset-packagist.org/ 前端
@@ -188,7 +243,7 @@ curl -XPOST -H'content-type:application/json' 'https://packagist.org/api/update-
 - https://php.cnpkg.org/
 - [Composer 国内加速：可用镜像列表](https://learnku.com/composer/wikis/30594)
 
-### 参考：
+#### 参考：
 
 [101- composer [packagist]包制作（入门篇）](https://www.jianshu.com/p/1eeaad7ec31a)
 
@@ -199,13 +254,15 @@ curl -XPOST -H'content-type:application/json' 'https://packagist.org/api/update-
 
 
 
-# 常见问题
+## 常见问题
 
 ### 异常 [Composer\Exception\NoSslException]
 启用 PHP 扩展 openssl 即可
 
 **参考：**
 - [composer常见问题之openSSL](https://www.jianshu.com/p/46150555273b)
+
+
 
 ### exists as ... but these are rejected by your constraint
 
@@ -214,13 +271,15 @@ curl -XPOST -H'content-type:application/json' 'https://packagist.org/api/update-
 - `dev-master#<hash>`
 - `@dev`
 
+
+
 ### 命名空间使用
 
 要和 composer.json 中 autoload 设置的一样，大小写敏感
 
 
 
-# 常用命令
+## 常用命令
 
 composer install
 
@@ -232,7 +291,7 @@ composer dump-autoload -o
 
 
 
-## 帮助
+### 帮助
 
 composer
 ```sh
@@ -305,7 +364,8 @@ C:\windows\system32>
 ```
 
 
-## 创建项目
+
+### 创建项目
 
 composer create-project
 
@@ -381,7 +441,7 @@ Help:
 L:\Windows\system32>
 ```
 
-### 版本
+#### 版本
 
 ```
 dev-master
@@ -395,7 +455,8 @@ dev-master
 - [语义化版本](https://github.com/semver/semver.org/tree/gh-pages/lang/zh-CN)
 
 
-## 自更新
+
+### 自更新
 
 composer selfupdate
 ```sh
@@ -441,7 +502,9 @@ Help:
 L:\Users\Benny>
 ```
 
-## 更新包
+
+
+### 更新包
 
 composer update
 
@@ -508,7 +571,9 @@ Help:
   To select packages names interactively with auto-completion use -i.
 ```
 
-## 安装包
+
+
+### 安装包
 
 composer install
 
@@ -558,11 +623,16 @@ Help:
   php composer.phar install
 ```
 
-## 自动加载
+
+
+### 自动加载
 
 `composer dump-autoload`
 
 如果手动更新了 composer.json
 
-# 参考
+
+
+## [参考](#参考)
+
 - [Composer 中文文档](https://learnku.com/docs/composer/2018)
