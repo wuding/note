@@ -172,6 +172,15 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 ```
 带 -g 为全局，不带为当前项目
 
+```json
+"repositories": {
+    "packagist": {
+        "type": "composer",
+        "url": "https://packagist.phpcomposer.com"
+    }
+}
+```
+
 
 
 ## composer.json 配置
