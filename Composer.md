@@ -4,41 +4,41 @@
 
 ## 目录
 
-[安装 Composer](#安装-Composer)
+[安装 Composer](#安装-composer)
 
-- Windows 安装
+- [Windows 安装](#windows-安装)
 
-- Linux / Mac 安装
+- [Linux / Mac 安装](#linux--mac-安装)
 
-配置 Composer
+[配置 Composer](#配置-composer)
 
-- 查看配置
-- 修改配置
-- Packagist 镜像使用方法
+- [查看配置](#查看配置)
+- [修改配置](#修改配置)
+- [Packagist 镜像使用方法](#packagist-镜像使用方法)
 
-composer.json 配置
+[composer.json 配置](#composerjson-配置)
 
-创建与提交包
+[创建与提交包](#创建与提交包)
 
-- 资源库自动更新包
-- Composer 包资源库网站
+- [资源库自动更新包](#资源库自动更新包)
+- [Composer 包资源库网站](#composer-包资源库网站)
 
-常见问题
+[常见问题](#常见问题)
 
-常用命令
+[常用命令](#常用命令)
 
-- 帮助
-- 创建项目
-- 自更新
-- 更新包
-- 安装包
-- 自动加载
+- [帮助](#帮助)
+- [创建项目](#创建项目)
+- [自更新](#自更新)
+- [更新包](#更新包)
+- [安装包](#安装包)
+- [自动加载](#自动加载)
 
-[参考](#参考 )
+[参考](#参考-2 )
 
 
 
-## [安装 Composer](#安装-Composer)
+## 安装 Composer
 https://getcomposer.org/
 
 https://www.phpcomposer.com/
@@ -633,6 +633,6 @@ Help:
 
 
 
-## [参考](#参考)
+## 参考
 
 - [Composer 中文文档](https://learnku.com/docs/composer/2018)
