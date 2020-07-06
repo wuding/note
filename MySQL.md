@@ -926,7 +926,155 @@ explain select * from test FORCE index(sex_city_create_at) where sex='M' and cit
 
 
 
+### 全文索引
+
+|            | MyISAM | InnoDB |
+| ---------- | ------ | ------ |
+| 5.6 以前   | 是     | 否     |
+| 5.6 及以后 | 是     | 是     |
+
+从 MySQL 5.7.6 开始，MySQL内置了 ngram 全文解析器，用来支持中文、日文、韩文分词
+
+#### 全文检索分词数
+
+```
+n=1: '生', '日', '快', '乐' 
+n=2: '生日', '日快', '快乐' 
+n=3: '生日快', '日快乐' 
+n=4: '生日快乐'
+```
+
+1. 启动mysqld命令时
+
+```
+mysqld --ngram_token_size=2
+```
+
+2. 修改MySQL配置文件
+
+```ini
+[mysqld]
+ngram_token_size=2
+```
+```ini
+# 单个汉字
+ngram_token_size=1
+ft_min_word_len=1
+```
+命令查看
+
+```mysql
+show variables like '%ft%';
+# 修改完参数以后，一定要修复下索引
+repair table test quick;
+```
+```ini
+# MyISAM
+ft_min_word_len = 4;
+ft_max_word_len = 84;
+
+# InnoDB
+innodb_ft_min_token_size = 3;
+innodb_ft_max_token_size = 84;
+```
+
+
+
+
+#### 创建全文索引
+
+字段类型为 CHAR、VARCHAR 或者 TEXT
+
+InnoDB 和 MyISAM 引擎
+
+MATCH (title,body) 字段名一致 ft_index (title,body)
+
+不能够跨多个表进行检索
+
+先导入数据再在表上创建全文索引的方式快
+
+测试表里至少要有 4 条以上的记录
+
+```mysql
+CREATE FULLTEXT INDEX ft_index ON articles (title,body) WITH PARSER ngram;
+```
+
+```mysql
+ALTER TABLE articles ADD FULLTEXT INDEX ft_index (title,body) WITH PARSER ngram;
+```
+
+```mysql
+CREATE TABLE articles (
+    id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    title VARCHAR (200),
+    body TEXT,
+    FULLTEXT (title, body) WITH PARSER ngram
+) ENGINE = INNODB;
+```
+
+#### 全文检索模式
+
+|              |                       |      | 操作符等复杂查询 |
+| ------------ | --------------------- | ---- | ---------------- |
+| 自然语言模式 | NATURAL LANGUAGE MODE | 默认 | 否               |
+| 布尔         | BOOLEAN MODE          |      | 是               |
+|              | QUERY EXPANSION       |      |                  |
+
+```mysql
+# 获取相关性的值，0 表示无相关性
+SELECT id,title,
+MATCH (title,body) AGAINST ('手机' IN NATURAL LANGUAGE MODE) AS score
+FROM articles
+ORDER BY score DESC;
+```
+运算符的使用方式：
+```
+'apple banana' 
+无操作符，表示或，要么包含apple，要么包含banana
+
+'+apple +juice'
+必须同时包含两个词
+
+'+apple macintosh'
+必须包含apple，但是如果也包含macintosh的话，相关性会更高。
+
+'+apple -macintosh'
+必须包含apple，同时不能包含macintosh。
+
+'+apple ~macintosh'
+必须包含apple，但是如果也包含macintosh的话，相关性要比不包含macintosh的记录低。
+
+'+apple +(>juice <pie)'
+查询必须包含apple和juice或者apple和pie的记录，但是apple juice的相关性要比apple pie高。
+
+'apple*'
+查询包含以apple开头的单词的记录，如apple、apples、applet。
+
+'"some words"'
+精确匹配，不分词
+使用双引号把要搜素的词括起来，效果类似于like '%some words%'，
+例如“some words of wisdom”会被匹配到，而“some noise words”就不会被匹配。
+```
+
+
+
+```mysql
+select title from page where match(title) against('bmw') limit 10;
+select title from page where match(title) against('*bm*' in boolean mode) limit 3;
+select title from page where match(title) against('+meizu -pro' in boolean mode) limit 3;
+```
+
+##### 参考：
+
+[MySQL 5.7 中文全文检索使用教程](https://www.jianshu.com/p/c48106149b6a)
+
+
+
 ### 批量插入
+
+```sh
+mysql -uroot -D toutiao -p < article1000.sql
+```
 
 [MYSQL批量插入数据库实现语句性能分析](https://www.cnblogs.com/caicaizi/p/5849979.html)
 
