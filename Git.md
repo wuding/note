@@ -580,3 +580,14 @@ to read about a specific subcommand or concept.
 ```
 
 
+
+# 回退.md
+
+```bash
+# 删除提交
+git reset --hard <commit_id>
+
+# 创建新的提交
+git revert
+```
+
