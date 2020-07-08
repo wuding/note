@@ -91,9 +91,14 @@ git branch <branch_name>
 
 ```
 git checkout [-b] <branch_name>
+git checkout <commit_id> -b <branch_name>
 ```
 
 - -b 创建+切换
+
+参考:
+
+[Git：从某个commit提交，检出为新的分支](https://blog.csdn.net/fly910905/article/details/89520193)
 
 **推送分支**
 
