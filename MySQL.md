@@ -44,7 +44,7 @@ https://dev.mysql.com/downloads/mysql/8.0.html
 ## Windows 服务
 
 ```sh
-mysqld --install
+mysqld --install MySQLXY --defaults-file="C:\Program Files\MySQL\MySQL Server X.Y\my.ini"
 mysqld --remove MySQL
 mysqld --help
 ```
