@@ -454,11 +454,19 @@ taskkill /F /pid 1408
 
 也可能是 vmware-hostd.exe （需要停止 VMware 所有服务，并将启动类型设置为手动）
 
+sublime_text.exe 也会
+
+##### VPS 遇到：
+
+控制面板\网络和 Internet\网络连接\传入的连接
+
+右键菜单属性：虚拟专用网络不要勾选
+
 **参考：**
 
 - [Nginx 错误 bind() to 0.0.0.0:443 failed 解决方法](https://blog.yoodb.com/yoodb/article/detail/1264)
-
 - [Nginx 错误处理方法: bind() to 0.0.0.0:80 failed](https://www.cnblogs.com/YangJieCheng/p/5843660.html)
+- [Port 443 in use by “Unable to open process” with PID 4](https://stackoverflow.com/questions/17903830/port-443-in-use-by-unable-to-open-process-with-pid-4)
 
 
 
