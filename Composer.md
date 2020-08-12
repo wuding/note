@@ -645,3 +645,4 @@ Help:
 ## 参考
 
 - [Composer 中文文档](https://learnku.com/docs/composer/2018)
+- https://github.com/jolicode/composer-cheatsheet
