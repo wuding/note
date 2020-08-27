@@ -102,8 +102,11 @@ git checkout <commit_id> -b <branch_name>
 
 **推送分支**
 
-```
+```sh
 git push origin <branch_name>
+
+# 重命名远程分支
+git push origin [-u] <newname>
 ```
 
 **删除本地分支**
@@ -114,9 +117,25 @@ git branch -d <branch_name>
 
 **删除远程分支**
 
-```
+```sh
 git push origin :<branch_name>
 ```
+
+**重命名分支**
+
+```sh
+git branch -m [<oldname>] <newname>
+
+# 删除远程分支
+git push origin :<oldname>
+# 推送新分支
+git push origin <newname>:refs/heads/<newname>
+```
+
+参考:
+
+- https://stackoverflow.com/questions/6591213/how-do-i-rename-a-local-git-branch
+- https://linuxize.com/post/how-to-rename-local-and-remote-git-branch/
 
 
 
