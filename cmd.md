@@ -54,6 +54,8 @@ regedit /s ps7.reg
 - https://ss64.com/nt/  <=> [nt](_assets/html/nt.html)
 - http://houliang4285.iteye.com/blog/1687816
 - https://en.wikipedia.org/wiki/List_of_DOS_commands
+- [Windows 批处理(bat)语法大全](https://blog.csdn.net/qq_36838191/article/details/83046599)
+- https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-xp/bb490890(v=technet.10)
 
 
 ## 变量
