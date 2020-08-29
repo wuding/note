@@ -759,6 +759,39 @@ SET NAMES utf8mb4
 
 
 
+# 大小写
+
+#### 建表
+
+```mysql
+CREATE TABLE tbl_nm (
+	fld_nm VARCHAR(10) BINARY
+)
+```
+
+#### 查询
+
+```mysql
+SELECT * FROM tbl_nm WHERE BINARY fld_nm = 'URLNK'
+```
+
+#### 字符集
+
+utf8_bin
+
+#### 表名区分大小写
+
+```ini
+lower_case_table_names = 0
+# 0 区分 1 不区分
+```
+
+#### 参考：
+
+- [MySQL 字段中区分字符串大小写的解决方法](https://blog.mimvp.com/article/25443.html)
+
+
+
 # 主从复制
 
 最好版本一致，要么保证 Master 版本低于 Slave
