@@ -605,6 +605,20 @@ DATE_ADD(date,INTERVAL expr type)
 
 
 
+#### 合并
+
+CONCAT
+
+CONCAT_WS
+
+GROUP_CONCAT
+
+**参考**：
+
+[concat、concat_ws、group_concat函数用法](https://www.jianshu.com/p/ec9cc759e077)
+
+
+
 # 引擎
 
 ### 参考：
