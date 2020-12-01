@@ -1145,3 +1145,11 @@ mysql -uroot -D toutiao -p < article1000.sql
 MariaDB
 
 Percona Server for MySQL
+
+
+
+# 事务
+
+- 脏读
+- 幻读
+- 不可重复读
