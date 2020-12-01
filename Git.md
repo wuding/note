@@ -84,7 +84,7 @@ git branch [-r|-a]
 **创建分支**
 
 ```
-git branch <branch_name>
+git branch <branch_name> [commit_id]
 ```
 
 **切换分支**
