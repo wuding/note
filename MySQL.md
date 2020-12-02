@@ -820,16 +820,39 @@ create user repl;
 # 密码为 mysql
 # 这里 % 是通配符
 GRANT REPLICATION SLAVE ON *.* TO 'repl'@'192.168.100.%' IDENTIFIED BY 'mysql';
+FLUSH PRIVILEGES;
 ```
 
 my.ini 添加
 
 ```ini
 [mysqld]
-# 给数据库服务的唯一标识，一般为大家设置服务器 IP 的末尾号
+# 给数据库服务的唯一标识，一般为大家设置服务器 IP 的末尾号，每天实例的 server_id 都要不一样
 server-id=4
 log-bin=master-bin
 log-bin-index=master-bin.index
+## 以下配置不是必须的
+# 复制类型：STATEMENT, ROW（保证数据一致）, MIXED（推荐）
+binlog_format=MIXED
+# 需要同步的数据库，如果没有本行即表示同步所有
+binlog-do-db=DB1
+binlog-do-db=DB2
+# 忽略的数据库，和 binlog-do-db 为互斥关系，设置其一即可
+binlog-ignore-db=mysql
+binlog-ignore-db=information_schema
+## global transaction identifier 全局事务 ID 效率高，不使用二进制日志文件名和偏移量
+gtid_mode=on
+enforce_gtid_consistency=on
+# binlog，允许下端接入 slave，增大了从服务器的 IO 负载
+log-slave-updates=1
+##
+sync-master-info=1
+# 开启以保证不丢失数据，强制提交事务时，同步二进制日志
+sync_binlog=1
+# relay log
+skip_slave_start=1
+# 这样表示允许所有网段连接
+bind-address=0.0.0.0
 ```
 
 重启 MySQL 服务
@@ -838,6 +861,15 @@ log-bin-index=master-bin.index
 
 ```mysql
 SHOW MASTER STATUS;
+```
+
+```mysql
+# 插入后刷新
+FLUSH LOGS;
+# 查看变动
+SHOW binlog events \G;
+# 确认 GTID 功能打开
+show global variables like '%gtid%';
 ```
 
 
@@ -850,7 +882,47 @@ my.ini 添加
 [mysqld]
 server-id=12
 relay-log-index=slave-relay-bin.index
-relay-log=slave-relay-bin 
+relay-log=slave-relay-bin
+## 以下配置不是必须的
+# 下面的配置可能导致无法启动 MySQL
+master-host=192.168.100.4
+master-port=3306
+master-user=repl
+master-password=pw
+# 需要同步的数据库，如果没有本行即表示同步所有
+replicate-do-db=DB2
+# 忽略的数据库
+replicate-ignore-db=mysql
+# 并行
+slave-parallel-type=LOGICAL_CLOCK
+# 一般建议设置4-8，太多的线程会增加线程之间的同步开销
+slave-parallel-workers=8
+master_info_repository=TABLE
+# 基于 binlog，保证 crash safe slave，配置下面 2 行（第二行都需要）
+relay_log_info_repository=TABLE
+relay_log_recovery=ON
+#### GTID
+gtid_mode=on
+enforce_gtid_consistency=on
+### binlog
+## 级联同步设置必要参数
+log-slave-updates=1
+# 自动删除 binlog 文件
+expire_logs_days=7
+##
+sync-master-info=1
+# 基于 GTID，保证 crash safe slave，配置下面 2 行
+sync_binlog=1
+innodb_flush_log_at_trx_commit=1
+## relay log
+# slave 加上 skip_slave_start=1 避免启动后还使用老的复制协议
+skip_slave_start=1
+read_only=on
+# 超时
+slave_net_timeout=30
+# 从库复制跳过错误
+slave-skip-errors=1062,1053,1146,1213,1264,1205,1396
+sql_mode=
 ```
 
 重启 MySQL 服务
@@ -862,14 +934,52 @@ change master to
 master_host='192.168.100.4', # Master 服务器 IP
 master_port=3306,
 master_user='repl',
-master_password='mysql', 
+master_password='mysql',
+MASTER_AUTO_POSITION=1, # GTID 模式为 1（不需要下面 2 行），常规模式为 0
 master_log_file='master-bin.000001', # Master 服务器产生的日志，参考上面的查看 Master 日志
-master_log_pos=0;
+master_log_pos=0
+# 多源复制加上通信渠道
+FOR CHANNEL 'master1';
 ```
 启动 Slave
 ```mysql
+start slave
+# 单独启动加上需要同步的通道
+FOR CHANNEL 'master1';
+
+SHOW SLAVE STATUS
+FOR CHANNEL 'master1'
+\G;
+
+# 查看 sql 慢查询语句
+show processlist;
+```
+
+```mysql
+# 跳过一步操作继续执行，将同步指针向下移动一个
+st噢批 slave;
+set global sql_slave_skip_counter=1;
 start slave;
-SHOW SLAVE STATUS \G；
+
+### 跳过复制错误让复制继续下去
+set sql_log_bin=0;
+# 其他语句，例如：CREATE TABLE
+set sql_log_bin=1;
+
+## 修复 GTID 复制错误，执行出错的事务
+stop slave;
+set gtid_next='e10c75be-5c1b-11e6-ab7c-000c296078ae:6';
+begin;
+commit;
+# gtid_next 方法一次只能跳过一个事务
+set gtid_next='AUTOMATIC';
+start slave;
+
+### 从库 gtid_purged 设为和主库 gtid_executed 一样跳过不一致的 GTID 使复制继续下去
+reset master;
+set GLOBAL gtid_purged='e10c75be-5c1b-11e6-ab7c-000c296078ae:1-10';
+show master status;
+start slave;
 ```
 
 
@@ -895,6 +1005,39 @@ secure-file-priv=""
 
 - [mysql5.7导出数据提示--secure-file-priv选项问题的解决方法](http://www.php.cn/mysql-tutorials-401995.html)
 
+
+
+### 主从配置
+
+1. 一主一从/一主多从
+
+   级联复制解决多从对主库的压力，弊端是同步延迟比较大
+
+2. 主主复制（双主复制）
+
+   各自同步的数据库不同
+
+3. 多主一从（多源复制）
+
+
+
+### 变量
+
+```mysql
+show variables like '%relay%';
+```
+
+| 变量名                |                                                              |
+| --------------------- | ------------------------------------------------------------ |
+| max_relay_log_size    | 如为 0，则默认值为 max_binlog_size(1G)                       |
+| relay_log_purge       | 自动清空不再需要，默认启用                                   |
+| relay_log_recovery    | 保证 relay log 的完整性，建议开启                            |
+| relay_log_space_limit | 中继日志最大限额。此设置存在主库崩溃，从库中继日志不全的情况，不推荐使用 |
+| sync_relay_log        | 为 0 时，不马上刷入中继日志，安全性降低，但减少磁盘 I/O，建议采用默认值 |
+| sync_relay_log_info   | 同上                                                         |
+
+
+
 ### 参考：
 
 [MySQL Reference Manual / Replication](https://dev.mysql.com/doc/refman/5.7/en/replication.html)
@@ -911,7 +1054,11 @@ secure-file-priv=""
 
 [mysql主从复制实现数据库同步](https://www.cnblogs.com/rwxwsblog/p/4542417.html)
 
-  
+- [MySQL 主从复制原理不再难](https://www.cnblogs.com/rickiyang/p/13856388.html)
+- [MySQL主从复制什么原因会造成不一致，如何预防及解决？](https://www.modb.pro/db/12026)
+- [与MySQL传统复制相比，GTID有哪些独特的复制姿势?](https://dbaplus.cn/news-11-857-1.html)
+
+
 
 # 读写分离
 
