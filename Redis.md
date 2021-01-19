@@ -20,8 +20,9 @@ https://redis.io/
 
 ### Windows
 
-- https://github.com/microsoftarchive/redis
-- https://github.com/ServiceStack/redis-windows
+- https://github.com/tporadowski/redis
+- https://github.com/microsoftarchive/redis 3.2.100
+- https://github.com/ServiceStack/redis-windows 3.0.503
 
 #### 目录文件说明
 
@@ -97,11 +98,12 @@ redis-server --service-start --service-name redisService3
 #### 工具
 
 - [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager/releases/tag/0.8.8) 最后的免费版本 0.8.8
-
 - https://github.com/cinience/RedisStudio
 - https://github.com/qishibo/AnotherRedisDesktopManager
 - https://github.com/lework/RedisDesktopManager-Windows
-- https://github.com/lloy1231/RedisDesktopManager-Windows
+- https://github.com/kanyways/rdm
+- https://github.com/FuckDoctors/rdm-builder
+- [通过源码自己编译 Windows 版本](https://github.com/lloy1231/RedisDesktopManager-Windows)
 
 
 
