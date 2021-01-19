@@ -159,6 +159,63 @@ git remote rm old-origin
 
 
 
+## 标签
+
+列出标签
+
+```bash
+git tag
+git tag -l "v1.8.5*"
+# 远程
+git ls-remote --tag[s]
+```
+
+查看标签详情
+
+```bash
+git show <tagname>
+```
+
+创建标签
+
+```bash
+git tag <name> [commit_id]
+git tag -a <name> -m "<message>" [commit_id]
+```
+
+检出标签
+
+```bash
+git checkout <tagname>
+```
+
+删除标签
+
+```bash
+git tag -d <tagname>
+# 远程
+git push origin -d <tagname>
+git push origin :<tagname>
+git push origin :refs/tags/<tagname>
+```
+
+推送标签
+
+```bash
+git push orgin <tagname>
+# 所有标签
+git push [orgin] --tags
+```
+
+
+
+#### 参考：
+
+- [Git - 打标签](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE)
+
+- [git tag的基本用法](https://www.jianshu.com/p/154d58451ef7)
+
+
 
 GitHub.md
 ---------
