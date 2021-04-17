@@ -957,7 +957,7 @@ show processlist;
 
 ```mysql
 # 跳过一步操作继续执行，将同步指针向下移动一个
-st噢批 slave;
+stop slave;
 set global sql_slave_skip_counter=1;
 start slave;
 

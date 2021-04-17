@@ -188,6 +188,12 @@ access_log  logs/access.log  main;
 ```
 如果日志文件不存在，那失败原因会记录在Windows事件日志中。
 
+```
+access_log off;
+```
+
+
+
 ##### 参考：
 - [nginx的error.log日志常见的几个错误解决方法](https://blog.51cto.com/chenx1242/1769724)
 
