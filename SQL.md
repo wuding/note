@@ -10,6 +10,22 @@ Relational Database Management System 关系型数据库管理系统
 
 
 
+## 用户
+
+```sql
+CREATE USER 'name'@'localhost' IDENTIFIED BY PASSWORD '*password';
+```
+
+
+
+## 权限
+
+```sql
+GRANT ALL PRIVILEGES ON *.* TO 'name'@'localhost';
+```
+
+
+
 ## 数据库
 
 ```mysql
