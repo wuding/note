@@ -129,7 +129,7 @@ git branch -m [<oldname>] <newname>
 # 删除远程分支
 git push origin :<oldname>
 # 推送新分支
-git push origin <newname>:refs/heads/<newname>
+git push origin <newname|HEAD>:refs/heads/<newname>
 ```
 
 参考:
