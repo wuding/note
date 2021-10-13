@@ -61,6 +61,7 @@ nginx -s reopen	# 重新打开日志文件
 
 ##### 工具：
 - https://nginxconfig.io/
+  - https://www.digitalocean.com/community/tools/nginx#?
 - https://www.tools4nerds.com/online-tools/nginx-conf-generator
 
 ##### 参考：
@@ -142,7 +143,7 @@ server {
 }
 
 server {
-    listen      192.168.1.2:80 default_server;
+    listen      [::]:80 default_server;
     server_name example.com www.example.com;
     ...
 }
