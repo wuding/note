@@ -180,3 +180,15 @@ config get requirepass
 auth test123
 ```
 
+
+
+## 常见问题
+
+1. Uncaught RedisException: MISCONF Redis is configured to save RDB snapshots, but it is currently not able to persist on disk.
+
+```sh
+CONFIG SET stop-writes-on-bgsave-error no
+```
+
+- https://blog.csdn.net/xc_zhou/article/details/80893326
+- https://www.cnblogs.com/cpl9412290130/p/10383130.html
