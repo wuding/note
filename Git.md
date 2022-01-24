@@ -605,6 +605,24 @@ git pull origin master --allow-unrelated-histories
 
 
 
+### port 22: no matching host key type found. Their offer: ssh-rsa
+
+编辑以下文件和内容：
+
+> %USERPROFILE%/.ssh/config
+
+```
+Host *
+HostkeyAlgorithms +ssh-rsa
+PubkeyAcceptedKeyTypes +ssh-rsa
+```
+
+
+
+- https://www.cnblogs.com/daibeisi/p/15662546.html
+
+
+
 
 帮助.md
 ------
