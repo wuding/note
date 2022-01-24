@@ -21,6 +21,8 @@ https://blog.csdn.net/aaaaaa1569/article/category/7723659
 
 [MySQL 资源大全中文版](https://github.com/jobbole/awesome-mysql-cn)
 
+https://github.com/necan/MySQL-Tutorial
+
 
 
 # 安装
