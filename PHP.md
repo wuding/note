@@ -5,6 +5,41 @@ PHP 开发指南
 
 ## I. 安装 PHP
 
+### CentOS
+
+```sh
+#安装 epel-release 依赖：
+yum install epel-release
+
+#安装 DNF 包：
+yum install dnf
+```
+
+#### CentOS 8
+
+```sh
+sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+sudo dnf -y install yum-utils
+sudo dnf module reset php
+sudo dnf module install php:remi-8.0 -y
+sudo dnf install php -y
+```
+
+#### CentOS 7
+
+```sh
+sudo yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum -y install https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+sudo yum -y install yum-utils
+sudo yum-config-manager --disable 'remi-php*'
+sudo yum-config-manager --enable remi-php80
+sudo yum -y install php php-{cli,fpm,mysqlnd,zip,devel,gd,mbstring,curl,xml,pear,bcmath,json}
+```
+
+- [如何在CentOS8或者CentOS7上安装PHP8.0正式版](https://www.iplayio.cn/post/739811)
+- [dnf 命令详解](https://commandnotfound.cn/linux/1/291/dnf-命令)
+
 ### 下载
 http://windows.php.net/download
 
