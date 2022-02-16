@@ -10,6 +10,50 @@ Nginx 使用指南
 - http://nginx.org/en/download.html
 - https://nginx.org/download/
 
+## CentOS
+
+```sh
+sudo yum install yum-utils
+```
+
+/etc/yum.repos.d/nginx.repo
+
+```
+[nginx-stable]
+name=nginx stable repo
+baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+gpgcheck=1
+enabled=1
+gpgkey=https://nginx.org/keys/nginx_signing.key
+module_hotfixes=true
+
+[nginx-mainline]
+name=nginx mainline repo
+baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=https://nginx.org/keys/nginx_signing.key
+module_hotfixes=true
+```
+
+```sh
+sudo yum-config-manager --enable nginx-mainline
+
+sudo yum install nginx
+```
+
+启动Nginx并设置开机自动运行
+
+```sh
+sudo systemctl start nginx.service
+
+sudo systemctl enable nginx.service
+```
+
+- http://nginx.org/en/linux_packages.html
+- [CentOS7中使用yum安装Nginx的方法](https://www.cnblogs.com/songxingzhu/p/8568432.html)
+
+
 ##### 参考：
 - http://www.cnblogs.com/nick-huang/p/4638398.html
 - [Nginx 安装配置](http://www.runoob.com/linux/nginx-install-setup.html)
@@ -191,6 +235,7 @@ access_log  logs/access.log  main;
 
 ```
 access_log off;
+error_log /dev/null crit;
 ```
 
 
