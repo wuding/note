@@ -214,6 +214,49 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 }
 ```
 
+### 使用 git 资源库
+
+```json
+{
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "wuding/php-func",
+                "version": "dev-develop",
+                "source": {
+                    "url": "Benny@localhost:root/php-func.git",
+                    "type": "git",
+                    "reference": "origin/develop"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "wuding/php-pkg",
+                "version": "dev-master",
+                "source": {
+                    "url": "Benny@localhost:root/php-pkg.git",
+                    "type": "git",
+                    "reference": "origin/master"
+                }
+            }
+        }
+    ],
+    "require": {
+        "wuding/php-func": "dev-develop",
+        "wuding/php-pkg": "dev-master"
+    }
+}
+```
+
+参考：
+
+- https://getcomposer.org/doc/05-repositories.md
+
+- https://gist.github.com/mfurlend/f5340de02fba166f9a84
+
 
 
 ## 创建与提交包
