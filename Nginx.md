@@ -50,11 +50,35 @@ sudo systemctl start nginx.service
 sudo systemctl enable nginx.service
 ```
 
+服务的启动/停止/刷新配置文件/查看状态
+
+```sh
+systemctl start nginx.service
+
+systemctl stop nginx.service
+
+systemctl restart nginx.service
+
+systemctl list-units --type=service
+
+systemctl status nginx.service
+
+systemctl enable nginx.service
+
+systemctl disable nginx.service
+```
+
+
+
+
 - http://nginx.org/en/linux_packages.html
 - [CentOS7中使用yum安装Nginx的方法](https://www.cnblogs.com/songxingzhu/p/8568432.html)
+- [Centos设置nginx开机自启动](https://www.csdn.net/tags/MtjaMgysMjA1OTItYmxvZwO0O0OO0O0O.html)
+
 
 
 ##### 参考：
+
 - http://www.cnblogs.com/nick-huang/p/4638398.html
 - [Nginx 安装配置](http://www.runoob.com/linux/nginx-install-setup.html)
 - [nginx服务器安装及配置文件详解](http://seanlook.com/2015/05/17/nginx-install-and-config/)
@@ -66,6 +90,8 @@ C:\Users\Administrator>g:
 G:\>cd G:\Program_Files\nginx-1.11.12
 G:\Program_Files\nginx-1.11.12>start nginx
 ```
+
+
 
 # 命令行
 
