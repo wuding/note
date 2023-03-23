@@ -462,3 +462,11 @@ sc queryex group= ""    - 枚举不在组内的活动服务
 sc query type= interact - 枚举所有不活动服务
 sc query type= driver group= NDIS     - 枚举所有 NDIS 驱动程序
 ```
+
+### more
+
+```sh
+mysqld --verbose --help | more
+```
+
+按下空格键显示下一屏，确定键显示下一行，q 退出
