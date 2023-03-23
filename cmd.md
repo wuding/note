@@ -37,7 +37,7 @@ ipconfig /flushdns
 然后打开“开始-运行-输入regsvr32 pthreadgc2.dll”，回车，如果报错，用下面的方法。
 
 新建一个文件“注册.bat“，内容：
-```
+```sh
 @echo 开始注册
 copy pthreadgc2.dll %windir%\system32\
 regsvr32 %windir%\system32\pthreadgc2.dll /s
@@ -46,7 +46,7 @@ regsvr32 %windir%\system32\pthreadgc2.dll /s
 ```
 
 #### regedit
-```
+```sh
 regedit /s ps7.reg
 ```
 
@@ -68,7 +68,7 @@ regedit /s ps7.reg
 
 ## 帮助
 
-help
+### help
 ```sh
 C:\Users\Administrator>help
 有关某个命令的详细信息，请键入 HELP 命令名
@@ -173,8 +173,8 @@ WMIC           在交互式命令 shell 中显示 WMI 信息。
 C:\Users\Administrator>
 ```
 
-cmd /?
-```
+### cmd /?
+```sh
 L:\Users\Benny>cmd /?
 启动 Windows 命令解释器的一个新实例
 
@@ -352,8 +352,8 @@ L:\Users\Benny>
 ```
 
 
-mklink /?
-```
+### mklink /?
+```sh
 C:\windows\system32>mklink /?
 创建符号链接。
 
@@ -370,7 +370,7 @@ MKLINK [[/D] | [/H] | [/J]] Link Target
 C:\windows\system32>
 ```
 
-sc
+### sc
 ```sh
 描述:
         SC 是用来与服务控制管理器和服务进行通信
