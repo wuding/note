@@ -150,7 +150,7 @@ $redis->set('key', 'value');
 echo $redis->get('key');
 ```
 
-- https://github.com/nrk/predis
+- https://github.com/nrk/predis => https://github.com/predis/predis
 
 
 
