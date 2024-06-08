@@ -18,6 +18,41 @@ https://redis.io/
 
 ## 下载安装
 
+### CentOS
+
+```sh
+# 源文件安装，也许可以省略
+yum install epel-release
+yum update
+ 
+# redis安装
+yum -y install redis
+
+# 卸载
+yum remove redis
+```
+
+**管理命令**
+
+```sh
+# 启动
+systemctl start redis
+
+# 停止
+systemctl stop redis
+
+# 重启
+systemctl restart redis
+
+# 设置为开机启动
+systemctl enable redis
+```
+
+- https://www.zhihu.com/question/485021473/answer/3247027572
+- https://blog.51cto.com/u_16175449/8784929
+
+
+
 ### Windows
 
 - https://github.com/tporadowski/redis
@@ -160,6 +195,61 @@ echo $redis->get('key');
 
 
 
+#### 扩展安装
+
+```sh
+pecl install redis
+```
+
+可能的问题：
+
+1. failed to run phpize
+
+可能是 php.ini 禁用了 popen 函数
+
+
+
+**资源库模式**
+
+```sh
+sudo yum install epel-release
+
+sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+
+sudo yum-config-manager --enable remi-php74
+
+# 安装PHP和PHP Redis扩展
+sudo yum install php php-redis
+
+# 仅安装
+# yum -y install php-redis
+
+systemctl restart php-fpm
+sudo systemctl restart nginx
+```
+查找并杀死进程
+
+```sh
+ps aux | grep php-fpm
+killall -9 php-fpm
+```
+
+测试安装是否成功
+
+> test.php
+
+```php
+<?php
+// 测试Redis扩展
+if (extension_loaded('redis')) {
+    echo "Redis extension is loaded!";
+} else {
+    echo "Redis extension is not loaded!";
+}
+```
+
+
+
 ## 配置
 
 ### 密码
@@ -192,3 +282,19 @@ CONFIG SET stop-writes-on-bgsave-error no
 
 - https://blog.csdn.net/xc_zhou/article/details/80893326
 - https://www.cnblogs.com/cpl9412290130/p/10383130.html
+
+
+
+2. 远程连接
+
+修改配置
+
+```sh
+daemonize yes
+
+# bind 127.0.0.1 注释掉
+
+protected-mode no
+```
+
+- https://blog.csdn.net/erthre/article/details/137672909
