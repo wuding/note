@@ -109,7 +109,7 @@ mysqladmin -u用户名 -p旧密码 password 新密码
 
 ### SET 命令改密码
 ```sh
-Enter password: ****
+Enter password: ****b
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 1
 Server version: 5.5.19 MySQL Community Server (GPL)
@@ -179,6 +179,13 @@ set character_set_results=gb2312;
 [mysql字符集小结](https://blog.csdn.net/wyzxg/article/details/8779682)
 
 
+
+### 初始化数据库目录
+
+```sh
+C:\Program Files\MySQL\MySQL Server 5.7\bin>mysqld --defaults-file="C
+ta/MySQL/MySQL Server 5.7/my.ini" --initialize-insecure --user=mysql
+```
 
 
 
