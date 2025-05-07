@@ -272,6 +272,19 @@ auth test123
 
 
 
+### 主从模式
+
+master啥都不用配置。
+
+slave如下配置。
+
+```
+replicaof [master ip] 6379
+replica-serve-stale-data no
+```
+
+
+
 ## 常见问题
 
 1. Uncaught RedisException: MISCONF Redis is configured to save RDB snapshots, but it is currently not able to persist on disk.
