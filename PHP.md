@@ -177,6 +177,34 @@ start php-cgi.exe -b 127.0.0.1:9000 -c php\php.ini
 start D:/ProgramFiles/nginx-1.13.10/RunHiddenConsole.exe D:/ProgramFiles/nginx-1.13.10/xxfpm.exe "D:/ProgramFiles/php-7.2.3-nts-x64/php-cgi.exe" -n 2 -i 127.0.0.1 -p 9000
 ```
 
+
+
+### 常见问题
+
+#### php.exe 无法定位程序输入点
+
+https://www.51-n.com/t-4708-1-1.html
+
+**php.exe - 无法找到入口**
+
+无法定位程序输入点 GetCurrentThreadStackLimits 于动态链接库KERNEL32.dIl 上。 
+
+PHP 8.3 已于今天发布，但在 Windows 7 上无法运行。  
+
+原因是 PHP 官方已经不支持 Windows 7，现在 PHP 支持的最低 Windows 操作系统版本是 Windows 8 和 Windows Server 2012.  
+
+如果操作系统是 Windows 7 或 Windows Server 2008，可以选择 PHP 8.2 及更低版本。  
+
+如果操作系统是 Windows XP 或 Windows Server 2003，只能选择 PHP 5.4 及更低版本。 
+
+PHP 官方链接：https://www.php.net/manual/en/migration83.windows-support.php
+
+
+
+
+
+
+
 ## II. 配置
 
 php.ini
