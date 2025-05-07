@@ -183,8 +183,7 @@ set character_set_results=gb2312;
 ### 初始化数据库目录
 
 ```sh
-C:\Program Files\MySQL\MySQL Server 5.7\bin>mysqld --defaults-file="C
-ta/MySQL/MySQL Server 5.7/my.ini" --initialize-insecure --user=mysql
+C:\Program Files\MySQL\MySQL Server 5.7\bin>mysqld --defaults-file="C:/ProgramData/MySQL/MySQL Server 5.7/my.ini" --initialize-insecure --user=mysql
 ```
 
 
