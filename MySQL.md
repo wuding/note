@@ -153,6 +153,8 @@ port=3306
 default-character-set=utf8
 [mysqld]
 character-set-server=utf8mb4
+
+collation-server = utf8mb4_unicode_ci
 ```
 
 mysql
