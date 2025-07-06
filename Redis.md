@@ -55,7 +55,10 @@ systemctl enable redis
 
 ### Windows
 
-- https://github.com/tporadowski/redis
+- https://github.com/redis-windows/redis-windows 8.0.3
+- https://github.com/zkteco-home/redis-windows 8.0.2
+
+- https://github.com/tporadowski/redis 5.0.14.1
 - https://github.com/microsoftarchive/redis 3.2.100
 - https://github.com/ServiceStack/redis-windows 3.0.503
 
@@ -132,6 +135,7 @@ redis-server --service-start --service-name redisService3
 
 #### 工具
 
+- https://github.com/tiny-craft/tiny-rdm
 - [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager/releases/tag/0.8.8) 最后的免费版本 0.8.8
 - https://github.com/cinience/RedisStudio
 - https://github.com/qishibo/AnotherRedisDesktopManager
