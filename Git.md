@@ -1,6 +1,8 @@
 [Git 简明教程](https://www.kancloud.cn/wuding/git-tutorial)
 ==============
 
+<!-- version 38.250714 -->
+
 https://git-scm.com/book/zh/v2 <=> https://github.com/progit/progit2-zh
 
 参考.md
@@ -621,6 +623,16 @@ PubkeyAcceptedKeyTypes +ssh-rsa
 
 - https://www.cnblogs.com/daibeisi/p/15662546.html
 
+
+
+### fatal: fsync error on '.git/objects/pack/tmp_pack_VTuV1i': Bad file descriptor
+
+清理 Git 对象和包文件
+
+```sh
+git gc --prune=now
+git repack -a -d --depth=250 --window=250
+```
 
 
 
