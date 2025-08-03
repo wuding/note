@@ -1,6 +1,8 @@
 CentOS
 ======
 
+<!-- version 3.250803 -->
+
 # 安装
 
 ## 从U盘安装
@@ -45,3 +47,53 @@ chainloader +1
 grub2-set-default  'Windows 10'
 grub2-editenv list
 ```
+
+
+
+# 配置
+
+### hosts
+
+```sh
+sudo yum install vim -y
+# debian
+sudo apt install vim -y
+```
+
+安装使用
+
+```sh
+sudo vim /etc/hosts
+```
+
+按 i 编辑模式
+
+格式如下：
+
+```
+IP地址 主机名/域名 主机名别名
+127.0.0.1 localhost local
+```
+
+按 Esc
+
+输入 :wq 保存退出
+
+```sh
+cat /etc/hosts
+# 查看修改结果
+```
+
+重启网络服务：
+
+```sh
+service network restart
+# 或者
+/etc/init.d/network restart
+# 或者
+systemctl restart network
+```
+
+- [centos下修改hosts文件以及生效命令](https://www.cnblogs.com/pxblog/p/14838530.html)
+- [centos下配置修改hosts文件以及生效命令详解](https://www.cnblogs.com/2zly/p/17227532.html)
+
