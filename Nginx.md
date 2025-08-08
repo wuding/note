@@ -1,5 +1,8 @@
 Nginx 使用指南
 =============
+
+<!-- version 24.250809 -->
+
 读音 Engine X
 - https://www.zhihu.com/question/19739907
 - https://segmentfault.com/q/1010000002432695
@@ -58,6 +61,8 @@ systemctl start nginx.service
 systemctl stop nginx.service
 
 systemctl restart nginx.service
+# 或者
+/etc/init.d/nginx restart
 
 systemctl list-units --type=service
 
@@ -308,13 +313,30 @@ server {
 }
 ```
 
-### HTTP/2
+## HTTP/2
+
+https://nginx.org/en/docs/http/ngx_http_v2_module.html
+
+v1.9.5
+
 ```
 server {
   listen 443 ssl http2;
   server_name www.urlnk.com;
 }
 ```
+
+```
+server {
+    listen 443 ssl;
+
+    http2 on;
+
+    ssl_certificate server.crt;
+    ssl_certificate_key server.key;
+}
+```
+
 
 
 ## 自定义变量
@@ -518,6 +540,136 @@ location ~* ^.+\.(eot|ttf|otf|woff|svg)$ {
 - [加速nginx: 开启gzip和缓存](https://www.darrenfang.com/2015/01/setting-up-http-cache-and-gzip-with-nginx/)
 
 
+
+# Modules reference
+
+### http_core
+
+https://nginx.org/en/docs/http/ngx_http_core_module.html
+
+#### location
+
+Context: `server`, `location`
+
+```
+location [modifier] [URI] {
+
+}
+
+location = / {
+# 精确匹配根目录
+}
+
+location ^~ /static/ {
+# 匹配以/static/开头的URI
+}
+
+location ~ \.(gif|jpg|png)$ {
+# 匹配以.gif, .jpg, .png结尾的URI
+}
+
+location ~* \.png$ {
+# 匹配以.png结尾的URI，不区分大小写
+}
+
+location !~ \.xhtml$ {
+# 不匹配以.xhtml结尾的URI
+}
+
+location / {
+# 匹配所有请求
+}
+```
+
+##### 匹配优先级
+
+Nginx的匹配规则按照以下优先级进行匹配：
+
+**=** 精确匹配
+
+**^~** 前缀匹配
+
+**~** 和 **~*** 正则匹配（按文件中顺序）
+
+**/** 通用匹配
+
+当有匹配成功时，Nginx会停止继续匹配，并按当前匹配规则处理请求。
+
+- https://cn.bing.com/search?q=nginx+location
+- [详解Nginx location 匹配规则](https://www.cnblogs.com/benwu/articles/15843305.html)
+- [揭秘Nginx Location块的强大正则表达式技巧：轻松实现网站URL精准匹配与高级路由控制](https://www.oryoy.com/news/jie-mi-nginx-location-kuai-de-qiang-da-zheng-ze-biao-da-shi-ji-qiao-qing-song-shi-xian-wang-zhan-url.html)
+
+
+
+
+### http_access
+
+https://nginx.org/en/docs/http/ngx_http_access_module.html
+
+- allow
+- deny
+
+Context:`http`, `server`, `location`, `limit_except`
+
+```
+location / {
+    deny  192.168.1.1;
+    allow 192.168.1.0/24;
+    allow 10.1.1.0/16;
+    allow 2001:0db8::/32;
+    deny  all;
+}
+```
+
+include blockips.conf;
+
+```
+deny 1.2.3.4;
+deny 91.212.45.0/24;
+deny 91.212.65.0/24;
+```
+
+
+
+- [【Nginx】如何封禁IP和IP段？看完这篇我会了！！](https://www.cnblogs.com/binghe001/p/13293032.html)
+- [nginx allow & deny 指令解析](https://zhuanlan.zhihu.com/p/378026632)
+
+
+
+### http_rewrite
+
+https://nginx.org/en/docs/http/ngx_http_rewrite_module.html
+
+#### if
+
+Context:	`server`, `location`
+
+```
+if ($http_user_agent ~ MSIE) {
+    rewrite ^(.*)$ /msie/$1 break;
+}
+
+if ($http_cookie ~* "id=([^;]+)(?:;|$)") {
+    set $id $1;
+}
+
+if ($request_method = POST) {
+    return 405;
+}
+
+if ($slow) {
+    limit_rate 10k;
+}
+
+if ($invalid_referer) {
+    return 403;
+}
+```
+
+- [Nginx中if语句中的判断条件](https://www.cnblogs.com/songxingzhu/p/6382007.html)
+
+
+
 # 常见问题
 
 ## bind() to 0.0.0.0:443 failed
@@ -597,3 +749,4 @@ C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Sta
 - https://www.yiibai.com/nginx/
 - [Nginx 烹调书](https://huliuqing.gitbooks.io/complete-nginx-cookbook-zh/)
 - [Nginx完全配置指南](https://legacy.gitbook.com/book/lingerhk/complete-nginx-cookbook/details)
+
