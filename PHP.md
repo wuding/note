@@ -1,7 +1,7 @@
 PHP 开发指南
 ===========
 
-
+<!-- version 22.250809 -->
 
 ## I. 安装 PHP
 
@@ -201,6 +201,39 @@ PHP 官方链接：https://www.php.net/manual/en/migration83.windows-support.php
 
 
 
+#### /usr/bin/env: php: No such file or directory
+
+打印`PATH`变量的值
+
+```sh
+echo $PATH
+```
+
+方法一
+
+
+```sh
+# 查看 PHP 的安装位置
+which php
+
+# 路径不在你的 PATH 环境变量中，你需要将其添加进去
+export PATH="/usr/local/bin:$PATH"  # 假设 PHP 安装在 /usr/local/bin 下
+```
+
+方法二
+
+```sh
+# 软链接
+ln -s php安装目录 /usr/bin/php
+```
+
+
+
+- [【jenkins】/usr/bin/env: php: No such file or directory](https://www.cnblogs.com/blogj/p/18346005)
+- [Linux环境变量Export Path设置](https://deepinout.com/linux/linux-ask-and-questions/186_tk_1703987322.html)
+
+
+
 
 
 
@@ -248,6 +281,13 @@ php.ini
 2. **名称**
 
     php-SAPI.ini 会替代 php.ini
+
+    ```
+    cli-server
+    fpm-fcgi
+    ```
+
+    
 
 3. **可以使用**
 
