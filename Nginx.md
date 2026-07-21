@@ -1,7 +1,7 @@
 Nginx 使用指南
 =============
 
-<!-- version 24.250809 -->
+<!-- version 25.251218 -->
 
 读音 Engine X
 - https://www.zhihu.com/question/19739907
@@ -538,6 +538,32 @@ location ~* ^.+\.(eot|ttf|otf|woff|svg)$ {
 ##### 参考：
 - [nginx开启gzip和缓存配置](https://segmentfault.com/a/1190000007015010)
 - [加速nginx: 开启gzip和缓存](https://www.darrenfang.com/2015/01/setting-up-http-cache-and-gzip-with-nginx/)
+
+
+
+## status
+
+```
+location /nginx_status {
+    stub_status on;
+    access_log off;
+    #allow 127.0.0.1;
+    #deny all;
+}
+```
+
+
+
+| Active connections | 当前所有处于打开状态的活动连接数                             |
+| ------------------ | ------------------------------------------------------------ |
+| accepts            | 已经接收连接数                                               |
+| handled            | 已经处理过的连接数                                           |
+| requests           | 已经处理过的请求数，在保持连接模式下，请求数量可能会大于连接数量 |
+| Reading            | 正处于接收请求的连接数                                       |
+| Writing            | 请求已经接收完成，处于响应过程的连接数                       |
+| Waiting            | 保持连接模式，处于活动状态的连接数                           |
+
+- [启用nginx status状态](https://zhuanlan.zhihu.com/p/692211729)
 
 
 
